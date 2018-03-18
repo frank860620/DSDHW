@@ -6,14 +6,14 @@ module adder_gate(x, y, carry, out);
     /*Write your code here*/
     reg Cin=0;
     wire c1,c2,c3,c4,c5,c6,c7;
-    full_adder A1(out[0],c1,x[0],y[0],Cin),
-        A2(out[1],c2,x[1],y[1],c1),
-        A3(out[2],c3,x[2],y[2],c2),
-        A4(out[3],c4,x[3],y[3],c3),
-        A5(out[4],c5,x[4],y[4],c4),
-        A6(out[5],c6,x[5],y[5],c5),
-        A7(out[6],c7,x[6],y[6],c6),
-        A8(out[7],carry,x[7],y[7],c7);
+    full_adder A1(out[0],c1,x[0],y[0],Cin);
+    full_adder A2(out[1],c2,x[1],y[1],c1);
+    full_adder A3(out[2],c3,x[2],y[2],c2);
+    full_adder A4(out[3],c4,x[3],y[3],c3);
+    full_adder A5(out[4],c5,x[4],y[4],c4);
+    full_adder A6(out[5],c6,x[5],y[5],c5);
+    full_adder A7(out[6],c7,x[6],y[6],c6);
+    full_adder A8(out[7],carry,x[7],y[7],c7);
 
 
     /*End of code*/
