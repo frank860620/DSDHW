@@ -6,14 +6,14 @@ output [7:0] out;
 /*Write your code here*/
 reg Cin=0;
 wire c1,c2,c3,c4,c5,c6,c7;
-1bit_adder A1(Sum[0],c1,A[0],B[0],Cin),
-    A2(Sum[1],c2,A[1],B[1],c1),
-    A3(Sum[2],c3,A[2],B[2],c2),
-    A4(Sum[3],Cout,A[3],B[3],c3),
-    A5(Sum[4],Cout,A[4],B[4],c4),
-    A6(Sum[5],Cout,A[5],B[5],c5),
-    A7(Sum[6],Cout,A[6],B[6],c6),
-    A8(Sum[7],Cout,A[7],B[7],c7);
+1bit_adder A1(out[0],c1,A[0],B[0],Cin),
+    A2(out[1],c2,A[1],B[1],c1),
+    A3(out[2],c3,A[2],B[2],c2),
+    A4(out[3],c4,A[3],B[3],c3),
+    A5(out[4],c5,A[4],B[4],c4),
+    A6(out[5],c6,A[5],B[5],c5),
+    A7(out[6],c7,A[6],B[6],c6),
+    A8(out[7],carry,A[7],B[7],c7);
 
 
 /*End of code*/
