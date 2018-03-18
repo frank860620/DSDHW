@@ -6,7 +6,7 @@ module adder_gate(x, y, carry, out);
     /*Write your code here*/
     reg Cin=0;
     wire c1,c2,c3,c4,c5,c6,c7;
-    1bit_adder A1(out[0],c1,x[0],y[0],Cin),
+    full_adder A1(out[0],c1,x[0],y[0],Cin),
         A2(out[1],c2,x[1],y[1],c1),
         A3(out[2],c3,x[2],y[2],c2),
         A4(out[3],c4,x[3],y[3],c3),
@@ -19,7 +19,7 @@ module adder_gate(x, y, carry, out);
     /*End of code*/
 endmodule
 
-module 1bit_adder(co1,x1,y1,ci1,sum1);
+module full_adder(co1,x1,y1,ci1,sum1);
     input x1,y1,ci1;
     output co1,sum1;
     wire w1,w2,w3;
