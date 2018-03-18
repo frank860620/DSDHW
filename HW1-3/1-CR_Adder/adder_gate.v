@@ -19,7 +19,7 @@ module adder_gate(x, y, carry, out);
     /*End of code*/
 endmodule
 
-module full_adder(co1,x1,y1,ci1,sum1);
+module full_adder(sum1,x1,y1,ci1,co1);
     input x1,y1,ci1;
     output co1,sum1;
     wire w1,w2,w3;
