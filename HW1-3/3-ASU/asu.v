@@ -5,9 +5,12 @@ output carry;
 output [7:0] out;
 
 /*Write your code here*/
-adder a(x,y,carry,out);
-barrel_shifter b(x,y[2:0],out);
-assign {carry,out[7:0]}=mode?a:{0,b};
+wire [7:0] output_a;
+wire [7:0] output_b;
+adder a(x,y,carry,output_a);
+barrel_shifter b(x,y[2:0],output_b);
+
+assign out[7:0]=mode?output_a:output_b;
 
 
 /*End of code*/
