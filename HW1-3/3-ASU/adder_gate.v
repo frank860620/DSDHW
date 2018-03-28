@@ -1,25 +1,25 @@
-module pfa(a,b,c,sum,p,g);  //A one PFA. I need 16 of them5
+module pfa(a,b,p,g);  //A one PFA. I need 16 of them5
     //wire w;
     //reg a,b,c;
     //wire sum,p,g;
-    input a,b,c;
-    output sum,p,g;
+    input a,b;
+    output p,g;
 
-    xor (w,a,b);     //repeated P. May need it may not. 
+    //xor (w,a,b);     //repeated P. May need it may not. 
     and (g,a,b);  //Gi
     xor (p,a,b);   //Pi
-    xor (sum,w,c);  //sum 
+    //xor (sum,w,c);  //sum 
 endmodule
                 //input    output   
 module adder_gate(A,B,carry,out);
     input [7:0] A,B;
-    input Cin;
+    reg Cin=0;
     output [7:0] out;
     output carry;    
-    wire [7:0] P,G,carry;
-    wire p0,g0;
-    wire b1,b2,b3;
-    wire w,w1,w2,w3,w4,w5,w6,w7,w8,w9,w10,w11,w12,w13,w14,w15,w16,w17,w18;
+    wire [7:0] P,G;
+    //wire p0,g0;
+    //wire b1,b2,b3;
+    wire w3,w4,w5,w6,w7,w8,w9,w10,w11,w12,w13,w14,w15,w16,w17,w18;
     wire w19,w20,w21,w22,w23,w24,w25,w26,w27,w28,w29,w30,w31,w32,w33,w34,w35,w36,w37,w38;
     wire c1,c2,c3,c4,c5,c6,c7;
 
