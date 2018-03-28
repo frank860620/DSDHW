@@ -10,7 +10,7 @@ wire [7:0] output_b;
 adder_gate a(x,y,carry,output_a);
 barrel_shifter_gate b(x,y[2:0],output_b);
 
-assign #2.5 out[7:0]=mode?output_a:output_b;
+assign out[7:0]=mode?output_a:output_b;
 
 
 /*End of code*/
