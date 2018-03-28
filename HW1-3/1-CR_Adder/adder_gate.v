@@ -23,11 +23,11 @@ module full_adder(sum1,x1,y1,ci1,co1);
     input x1,y1,ci1;
     output co1,sum1;
     wire w1,w2,w3;
-    xor xor1( w1, x1, y1 );
-    and and1( w2, w1, ci1 );
-    and and2( w3, x1, y1 );
-    xor xor2( sum1, w1, ci1 );
-    or  or1( co1, w2, w3 );
+    xor #1 xor1( w1, x1, y1 );
+    and #1  and1( w2, w1, ci1 );
+    and #1  and2( w3, x1, y1 );
+    xor #1  xor2( sum1, w1, ci1 );
+    or  #1  or1( co1, w2, w3 );
 
 endmodule
 
