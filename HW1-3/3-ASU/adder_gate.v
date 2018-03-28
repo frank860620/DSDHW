@@ -40,7 +40,7 @@ module half_adder_gate(A,B,Cin,carry,out);
         and (w10,P[3],P[2],G[1]);
         and (w11,P[3],P[2],P[1],G[0]);
         and (w12,P[3],P[2],P[1],P[0],Cin);
-        or(carry,w9,w10,w11,w12);
+        or(carry,G[3],w9,w10,w11,w12);
         
   
 
