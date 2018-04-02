@@ -16,7 +16,7 @@ module alu_rtl(
     wire [7:0] out_6,out_7,out_8,out_9,out_10,out_11;
     wire carry_0,carry_1;
     wire zero=0;
-    reg[7:0] alu_result;
+    wire[7:0] alu_result;
     assign {carry_0,out_0}=x+y;
     assign {carry_1,out_1}=x-y;
     assign out_2=x&y;
