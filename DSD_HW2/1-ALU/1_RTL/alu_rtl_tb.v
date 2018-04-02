@@ -25,8 +25,8 @@ module alu_rtl_tb;
 
     initial begin
         ctrl = 4'b0000;
-        x    = -8'd4;
-        y    = 8'd5;
+        x    = -8'd5;
+        y    = 8'd4;
         
         /*#(`CYCLE);
         // 0100 boolean not
