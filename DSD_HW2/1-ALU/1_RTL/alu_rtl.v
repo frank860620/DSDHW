@@ -41,8 +41,8 @@ module alu_rtl(
                       (ctrl==4'b1001)?out_9:
                       (ctrl==4'b1010)?out_10:
                       (ctrl==4'b1011)?out_11:zero;
-    assign carry==(ctrl==4'b0000)?carry_0:
-                  (ctrl==4'b0001)?carry_1:zero;
+    assign carry=(ctrl==4'b0000)?carry_0:
+                 (ctrl==4'b0001)?carry_1:zero;
     assign out[7:0]=alu_result[7:0];
 
 
