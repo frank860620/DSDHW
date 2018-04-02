@@ -25,27 +25,32 @@ module alu_rtl_tb;
 
     initial begin
         ctrl = 4'b0000;
-        x    = -8'd5;
+        x    = 8'd5;
         y    = 8'd4;
         
-        /*#(`CYCLE);
-        // 0100 boolean not
-        ctrl = 4'b0000;
-
+       
         
-        #(`HCYCLE);
-        if( out == 8'b0000_1001 ) $display( "PASS --- 0000 boolean not" );
-        else $display( "FAIL --- 0000 boolean not" );
+        // 0100 boolean not
+        
+
+        #2
+        if( out == 8'b0000_1001 ) $display( "PASS --- 0000 boolean add" );
+        else $display( "FAIL --- 0000 boolean add" );
+        
+        
+        
         
         // finish tb
         #(`CYCLE) $finish;
-        */
+        
     end
+    /*
     always #2 begin
     $display("ctrl=%b,x=%b,y=%b,carry=%b,out=%b",ctrl,x,y,carry,out);     
     ctrl = ctrl + 1;             
     end
     
     initial #(`CYCLE) $finish;
+    */
 
 endmodule
