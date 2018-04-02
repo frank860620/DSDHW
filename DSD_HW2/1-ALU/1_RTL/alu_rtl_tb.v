@@ -42,7 +42,7 @@ module alu_rtl_tb;
         */
     end
     always #2 begin
-    $display("x=%d,y=%d",x,y);     
+    $display("x=%d,y=%d,carry=%d,out=%d",x,y,carry,out);     
     ctrl = ctrl + 1;             
     end
     
