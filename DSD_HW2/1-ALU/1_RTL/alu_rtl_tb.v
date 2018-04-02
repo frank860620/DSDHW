@@ -46,6 +46,6 @@ module alu_rtl_tb;
     ctrl = ctrl + 1;             
     end
     
-    initial #(`CYCLE) $finish;
+    //initial #(`CYCLE) $finish;
 
 endmodule
