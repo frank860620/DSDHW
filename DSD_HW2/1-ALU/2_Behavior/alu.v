@@ -25,7 +25,7 @@ module alu(
       4'b0011:
       alu_result=x|y;
       4'b0100:
-      alu_result=~x
+      alu_result=~x;
       4'b0101:
       alu_result=x^y;
       4'b0110:
