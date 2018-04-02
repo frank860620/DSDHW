@@ -27,7 +27,7 @@ module alu_rtl(
     assign out_7=y << x[2:0];
     assign out_8=y >> x[2:0];
     assign out_9={x[7],x[7:1]};
-    assign out_10={x[7],x[7:1]};
+    assign out_10={x[6:0],x[7]};
     assign out_11={x[0],x[7:1]};
     assign out_12=(x==y)?1:0;
     assign alu_result=(ctrl==4'b0000)?out_0:
