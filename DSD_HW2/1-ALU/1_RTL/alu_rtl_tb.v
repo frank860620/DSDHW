@@ -32,9 +32,10 @@ module alu_rtl_tb;
         // 0100 boolean not
         ctrl = 4'b0000;
         
+        
         #(`HCYCLE);
-        if( out == 8'b0000_1001 ) $display( "PASS --- 0100 boolean not" );
-        else $display( "FAIL --- 0100 boolean not" );
+        if( out == 8'b0000_1001 ) $display( "PASS --- 0000 boolean not" );
+        else $display( "FAIL --- 0000 boolean not" );
         
         // finish tb
         #(`CYCLE) $finish;

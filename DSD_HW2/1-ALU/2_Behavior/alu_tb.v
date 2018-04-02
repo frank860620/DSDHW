@@ -1,6 +1,6 @@
 //behavior tb
 `timescale 1ns/10ps
-`define CYCLE		10
+`define CYCLE		5
 `define HCYCLE	5
 
 module alu_tb;
