@@ -48,7 +48,8 @@ module alu_rtl(
     assign out[7:0]=alu_result[7:0];
 
 
-
+$display("base 10 : %dns : op=%d x=%d y=%d carry=%d out=%d", $stime, ctrl, x, y, carry,out); // 印出 op, a, b, y 的 10 進位值。
+$display("base  2 : %dns : op=%b x=%b y=%b carry=%b out=%b", $stime, ctrl, x, y, carry,out); // 印出 op, a, b, y 的  2 進位值。
          
 
 endmodule

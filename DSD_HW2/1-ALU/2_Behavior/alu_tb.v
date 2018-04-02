@@ -1,7 +1,7 @@
 //behavior tb
 `timescale 1ns/10ps
-`define CYCLE		5
-`define HCYCLE	1
+`define CYCLE		10
+`define HCYCLE	5
 
 module alu_tb;
     reg  [3:0] ctrl;

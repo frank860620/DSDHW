@@ -1,7 +1,7 @@
 //rtl_tb
 `timescale 1ns/10ps
-`define CYCLE  10
-`define HCYCLE  5
+`define CYCLE  32
+`define HCYCLE  2
 
 module alu_rtl_tb;
     reg  [3:0] ctrl;
@@ -25,13 +25,13 @@ module alu_rtl_tb;
 
     initial begin
         ctrl = 4'b1101;
-        x    = 8'd4;
-        y    = 8'd5;
+        x    = 8'd5;
+        y    = 8'd4;
         
-        #(`CYCLE);
+        /*#(`CYCLE);
         // 0100 boolean not
         ctrl = 4'b0000;
-        
+
         
         #(`HCYCLE);
         if( out == 8'b0000_1001 ) $display( "PASS --- 0000 boolean not" );
@@ -39,6 +39,12 @@ module alu_rtl_tb;
         
         // finish tb
         #(`CYCLE) $finish;
+        */
     end
+    always #2 begin          
+    ctrl = ctrl + 1;             
+    end
+    
+    initial #(`CYCLE) $finish;
 
 endmodule
