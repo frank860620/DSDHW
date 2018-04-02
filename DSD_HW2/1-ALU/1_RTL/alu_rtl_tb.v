@@ -41,7 +41,8 @@ module alu_rtl_tb;
         #(`CYCLE) $finish;
         */
     end
-    always #2 begin          
+    always #2 begin
+    $display（“pass”）;          
     ctrl = ctrl + 1;             
     end
     
