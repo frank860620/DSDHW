@@ -1,6 +1,6 @@
 //rtl_tb
 `timescale 1ns/10ps
-`define CYCLE  32
+`define CYCLE  34
 `define HCYCLE  2
 
 module alu_rtl_tb;
