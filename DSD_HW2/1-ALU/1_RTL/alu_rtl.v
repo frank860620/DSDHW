@@ -13,7 +13,7 @@ module alu_rtl(
     output       carry;
     output [7:0] out;
     wire [7:0] out_0,out_1,out_2,out_3,out_4,out_5;
-    wire [7:0] out_6,out_7,out_8,out_9,out_10,out_11;
+    wire [7:0] out_6,out_7,out_8,out_9,out_10,out_11,out_12;
     wire carry_0,carry_1;
     wire zero=0;
     wire[7:0] alu_result;
@@ -27,8 +27,9 @@ module alu_rtl(
     assign out_7=y << x[2:0];
     assign out_8=y >> x[2:0];
     assign out_9={x[7],x[7:1]};
-    assign out_10={x[0],x[7:1]};
-    assign out_11=(x==y)?1:0;
+    assign out_10={x[7],x[7:1]};
+    assign out_11={x[0],x[7:1]};
+    assign out_12=(x==y)?1:0;
     assign alu_result=(ctrl==4'b0000)?out_0:
                       (ctrl==4'b0001)?out_1:
                       (ctrl==4'b0010)?out_2:
@@ -40,7 +41,8 @@ module alu_rtl(
                       (ctrl==4'b1000)?out_8:
                       (ctrl==4'b1001)?out_9:
                       (ctrl==4'b1010)?out_10:
-                      (ctrl==4'b1011)?out_11:zero;
+                      (ctrl==4'b1011)?out_11:
+                      (ctrl==4'b1100)?out_12:zero;
     assign carry=(ctrl==4'b0000)?carry_0:
                  (ctrl==4'b0001)?carry_1:zero;
     assign out[7:0]=alu_result[7:0];
