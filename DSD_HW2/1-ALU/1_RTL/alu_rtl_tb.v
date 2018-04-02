@@ -42,7 +42,7 @@ module alu_rtl_tb;
         */
     end
     always #2 begin
-    $display("PASS");     
+    $display("x=%d,y=%d",x,y);     
     ctrl = ctrl + 1;             
     end
     
