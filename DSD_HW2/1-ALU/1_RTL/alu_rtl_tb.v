@@ -24,7 +24,7 @@ module alu_rtl_tb;
 //    end
 
     initial begin
-        ctrl = 4'b1101;
+        ctrl = 4'b0000;
         x    = 8'd5;
         y    = 8'd4;
         
