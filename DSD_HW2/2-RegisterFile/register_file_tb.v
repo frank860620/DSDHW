@@ -23,7 +23,7 @@ module register_file_tb;
     );
 
     // write your test pattern here
-initial begin
+/*initial begin
     busW=8'd0;
     regX=8'd0;
     regY=8'd0;
@@ -33,6 +33,7 @@ initial begin
     WEN=0;
     Clk=0;
   end
+*/
 always begin #(`CYCLE * 0.5) Clk = ~Clk;
 end
 always @(posedge Clk) begin
