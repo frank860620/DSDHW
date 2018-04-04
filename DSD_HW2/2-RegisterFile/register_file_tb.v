@@ -21,8 +21,7 @@ module register_file_tb;
         busX ,
         busY
     );
-   assign regX = busX;
-   assign regY = busY;
+   
     // write your test pattern here
  initial begin
     busW=8'd0;
@@ -45,6 +44,16 @@ always @(posedge Clk) begin
   WEN= 1;
   RX = 3'd2;
   RY = 3'd2;
+  register_file rf1(
+        Clk  ,
+        WEN  ,
+        RW   ,
+        busW ,
+        RX   ,
+        RY   ,
+        regX ,
+        regY
+    );
   //#(`HCYCLE) Clk=1; #5 Clk=0;	// Generate single clock pulse
   if((regX != 42) || (regY != 42)) begin
   $display("Test Case 1 Failed");
