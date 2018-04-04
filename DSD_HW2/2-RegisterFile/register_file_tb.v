@@ -33,7 +33,7 @@ module register_file_tb;
     WEN=0;
     Clk=0;
   end
-$display("busX=%d,busY=%d",busX,busY);
+
 always begin #(`CYCLE * 0.5) Clk = ~Clk;
 end
 always @(posedge Clk) begin
@@ -50,6 +50,7 @@ always @(posedge Clk) begin
   if((regX != 42) || (regY != 42)) begin
   $display("Test Case 1 Failed");
   $display("regX=%d,regy=%d",regX,regY);
+  $display("busX=%d,busY=%d",busX,busY);
   end
 #(`CYCLE) $finish;
 end
