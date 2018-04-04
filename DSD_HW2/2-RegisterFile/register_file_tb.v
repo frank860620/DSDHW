@@ -4,7 +4,7 @@
 
 module register_file_tb;
     // port declaration for design-under-test
-    parameter pattern_num = 10;
+    parameter pattern_num = 100;
     reg Clk, WEN;
     reg  [2:0] RW, RX, RY;
     reg  [7:0] busW;
@@ -75,7 +75,7 @@ module register_file_tb;
             end
         end
     end
-    
+
     initial begin
         @(posedge stop) begin
             if(error == 0) begin
