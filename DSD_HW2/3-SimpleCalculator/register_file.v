@@ -33,6 +33,7 @@ always@(*) begin
         5: busX_reg = r_w[5];
         6: busX_reg = r_w[6];
         7: busX_reg = r_w[7];
+    default: busX_reg = 16'hXXXX;
     endcase
    case (RY)
         0: busY_reg = r_w[0];
@@ -43,6 +44,7 @@ always@(*) begin
         5: busY_reg = r_w[5];
         6: busY_reg = r_w[6];
         7: busY_reg = r_w[7];
+    default: busY_reg = 16'hXXXX;
     endcase
 end
 

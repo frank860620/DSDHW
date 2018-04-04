@@ -11,52 +11,55 @@ module register_file(
 input        Clk, WEN;
 input  [2:0] RW, RX, RY;
 input  [7:0] busW;
-output reg [7:0] busX, busY;
+output [7:0] busX, busY;
     
 // write your design here
-reg [7:0] r0_w, r1_w, r2_w, r3_w, r4_w, r5_w, r6_w, r7_w;
-reg [7:0] r0_r, r1_r, r2_r, r3_r, r4_r, r5_r, r6_r, r7_r;
-   
-always @(*) begin
+//reg [7:0] r0_w, r1_w, r2_w, r3_w, r4_w, r5_w, r6_w, r7_w;
+//reg [7:0] r0_r, r1_r, r2_r, r3_r, r4_r, r5_r, r6_r, r7_r;
+reg [7:0] r_w [0:7];
+reg [7:0] busY_reg, busX_reg;
+
+initial begin
+    r_w[0]=0;
+end    
+
+always@(*) begin
     case (RX)
-	0: busX = r0_w;
-	1: busX = r1_w;
-	2: busX = r2_w;
-	3: busX = r3_w;
-    4: busX = r4_w;
-    5: busX = r5_w;
-    6: busX = r6_w;
-    7: busX = r7_w;
-	default: busX = 16'hXXXX;
+        0: busX_reg = r_w[0];
+        1: busX_reg = r_w[1];
+        2: busX_reg = r_w[2];
+        3: busX_reg = r_w[3];
+        4: busX_reg = r_w[4];
+        5: busX_reg = r_w[5];
+        6: busX_reg = r_w[6];
+        7: busX_reg = r_w[7];
     endcase
-   end
-
-always @(*) begin
-    case (RY)
-	0: busY = r0_w;
-	1: busY = r1_w;
-	2: busY = r2_w;
-	3: busY = r3_w;
-    4: busY = r4_w;
-    5: busY = r5_w;
-    6: busY = r6_w;
-    7: busY = r7_w;
-	default: busY = 16'hXXXX;
+   case (RY)
+        0: busY_reg = r_w[0];
+        1: busY_reg = r_w[1];
+        2: busY_reg = r_w[2];
+        3: busY_reg = r_w[3];
+        4: busY_reg = r_w[4];
+        5: busY_reg = r_w[5];
+        6: busY_reg = r_w[6];
+        7: busY_reg = r_w[7];
     endcase
-   end
+end
 
-always @(posedge Clk) begin
+always@(posedge Clk) begin
     if (WEN) 
-	case (RW) 
-	  0: r0_w <= 0;
-	  1: r1_w <= busW;
-	  2: r2_w <= busW;
-	  3: r3_w <= busW;
-      4: r4_w <= busW;
-      5: r5_w <= busW;
-      6: r6_w <= busW;
-      7: r7_w <= busW;
-	endcase 
-   end 
+        case (RW) 
+            //0: r_w[0] <= busW;
+            1: r_w[1] <= busW;
+            2: r_w[2] <= busW;
+            3: r_w[3] <= busW;
+            4: r_w[4] <= busW;
+            5: r_w[5] <= busW;
+            6: r_w[6] <= busW;
+            7: r_w[7] <= busW;
+        endcase
+end	
+assign busX= busX_reg;
+assign busY= busY_reg;
 
 endmodule
