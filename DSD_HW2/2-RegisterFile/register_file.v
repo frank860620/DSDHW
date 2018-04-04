@@ -10,7 +10,7 @@ module register_file(
 );
 input        Clk, WEN;
 input  [2:0] RW, RX, RY;
-input  reg [7:0] busW;
+input  [7:0] busW;
 output reg [7:0] busX, busY;
     
 // write your design here
