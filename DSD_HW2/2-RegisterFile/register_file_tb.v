@@ -45,6 +45,7 @@ always @(posedge Clk) begin
   RX = 3'd2;
   RY = 3'd2;
   $display("Test Case 1 Begin");
+  $display("busX=%d,busY=%d",busX,busY);
   #(`HCYCLE)
   //#(`HCYCLE) Clk=1; #5 Clk=0;	// Generate single clock pulse
 
