@@ -51,8 +51,8 @@ always @(posedge Clk) begin
         busW ,
         RX   ,
         RY   ,
-        regX ,
-        regY
+        busX ,
+        busY
     );
   //#(`HCYCLE) Clk=1; #5 Clk=0;	// Generate single clock pulse
   if((regX != 42) || (regY != 42)) begin
