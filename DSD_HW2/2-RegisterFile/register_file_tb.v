@@ -25,8 +25,6 @@ module register_file_tb;
     // write your test pattern here
  initial begin
     busW=8'd0;
-    busX=8'd0;
-    busY=8'd0;
     RX=3'd0;
     RY=3'd0;
     RW=3'd0;
