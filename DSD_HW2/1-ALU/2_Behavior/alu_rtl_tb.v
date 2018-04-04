@@ -10,7 +10,7 @@ module alu_tb;
     wire       carry;
     wire [7:0] out;
     
-    alu_rtl alu1(
+    alu alu1(
         ctrl     ,
         x        ,
         y        ,
