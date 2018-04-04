@@ -22,12 +22,26 @@ module simple_calculator(
 
 // declaration of wire/reg
 // write your design here
-reg [7:0] r0_w, r1_w, r2_w, r3_w, r4_w, r5_w, r6_w, r7_w;
-reg [7:0] r0_r, r1_r, r2_r, r3_r, r4_r, r5_r, r6_r, r7_r;    
-wire [7:0] mux_out;
+ wire [7:0] mux_out,busX,Out;
 // submodule instantiation
-
-
+register_file rf( 
+    Clk ,
+    WEN ,
+    RW  ,
+    Out ,
+    RX  ,
+    RY  ,
+    busX,
+    busY
+    );
+mux m1(Sel,busX,DataIn,mux_out);
+alu a1(
+    Ctrl,
+    mux_out,
+    busY,
+    Carry,
+    Out 
+);
 
 
 endmodule
