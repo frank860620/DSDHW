@@ -21,12 +21,11 @@ module register_file_tb;
         busX ,
         busY
     );
-
+   assign regX = busX;
+   assign regY = busY;
     // write your test pattern here
  initial begin
     busW=8'd0;
-    regX=8'd0;
-    regY=8'd0;
     RX=3'd0;
     RY=3'd0;
     RW=3'd0;
