@@ -17,9 +17,9 @@ module alu(
     always @(x or y or ctrl) begin
     case (ctrl)
       4'b0000:
-      alu_result=x+y;
+      {carry,alu_result}=x+y;
       4'b0001:
-      alu_result=x-y;
+      {carry,alu_result}=x-y;
       4'b0010:
       alu_result=x&y;
       4'b0011:
