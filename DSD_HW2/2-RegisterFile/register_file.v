@@ -15,7 +15,7 @@ output reg [7:0] busX, busY;
     
 // write your design here
 reg [7:0] r0_w, r1_w, r2_w, r3_w, r4_w, r5_w, r6_w, r7_w;
-reg [7:0] r0_r=0, r1_r, r2_r, r3_r, r4_r, r5_r, r6_r, r7_r;
+reg [7:0] r0_r, r1_r, r2_r, r3_r, r4_r, r5_r, r6_r, r7_r;
    
 always @(*) begin
     case (RX)
