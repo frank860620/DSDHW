@@ -45,7 +45,7 @@ always @(*) begin
     endcase
    end
 
-always @(posedge clk) begin
+always @(posedge Clk) begin
     if (WEN) 
 	case (RW) 
 	  0: r0_w <= busW;
