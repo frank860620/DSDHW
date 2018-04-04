@@ -68,6 +68,7 @@ module alu_rtl_tb;
         #2
         if( out == 8'b0111_1111) $display( "PASS --- 1000 boolean add" );
         else $display( "FAIL --- 1000 boolean add" );
+        $display("ctrl=%b,x=%b,y=%b,carry=%b,out=%b",ctrl,x,y,carry,out);  
         ctrl = ctrl + 1;
         #2
         if( out == 8'b0000_0000) $display( "PASS --- 1001 boolean add" );
