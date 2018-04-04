@@ -39,6 +39,7 @@ always @(posedge Clk) begin
  // Test Case 1: 
   //   Write '42' to register 2, verify with Read Ports 1 and 2
   //   (Passes because example register file is hardwired to return 42)
+ $display(Clk);
   RW = 3'd2;
   busW = 8'd42;
   WEN= 1;
