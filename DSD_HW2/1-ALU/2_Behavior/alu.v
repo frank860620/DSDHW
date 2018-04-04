@@ -13,13 +13,15 @@ module alu(
     output       carry;
     output [7:0] out;
     reg [7:0] alu_result;
+    reg alu_carry;
     assign out=alu_result;
+    assign carry=alu_carry;
     always @(x or y or ctrl) begin
     case (ctrl)
       4'b0000:
-      {carry,alu_result}=x+y;
+      {alu_carry,alu_result}=x+y;
       4'b0001:
-      {carry,alu_result}=x-y;
+      {alu_carry,alu_result}=x-y;
       4'b0010:
       alu_result=x&y;
       4'b0011:
