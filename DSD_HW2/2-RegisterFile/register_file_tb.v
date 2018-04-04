@@ -23,7 +23,7 @@ module register_file_tb;
     );
 
     // write your test pattern here
-/*initial begin
+ initial begin
     busW=8'd0;
     regX=8'd0;
     regY=8'd0;
@@ -33,7 +33,7 @@ module register_file_tb;
     WEN=0;
     Clk=0;
   end
-*/
+$display("busX=%d,busY=%d",busX,busY);
 always begin #(`CYCLE * 0.5) Clk = ~Clk;
 end
 always @(posedge Clk) begin
