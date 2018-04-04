@@ -51,4 +51,5 @@ always @(posedge Clk) begin
   if((regX != 42) || (regY != 42)) begin
   $display("Test Case 1 Failed");
   end
+end
 endmodule
