@@ -19,28 +19,28 @@ reg [7:0] r0_r, r1_r, r2_r, r3_r, r4_r, r5_r, r6_r, r7_r;
    
 always @(*) begin
     case (RX)
-	0: busX = r0_r;
-	1: busX = r1_r;
-	2: busX = r2_r;
-	3: busX = r3_r;
-    4: busX = r4_r;
-    5: busX = r5_r;
-    6: busX = r6_r;
-    7: busX = r7_r;
+	0: busX = r0_w;
+	1: busX = r1_w;
+	2: busX = r2_w;
+	3: busX = r3_w;
+    4: busX = r4_w;
+    5: busX = r5_w;
+    6: busX = r6_w;
+    7: busX = r7_w;
 	default: busX = 16'hXXXX;
     endcase
    end
 
 always @(*) begin
     case (RY)
-	0: busY = r0_r;
-	1: busY = r1_r;
-	2: busY = r2_r;
-	3: busY = r3_r;
-    4: busY = r4_r;
-    5: busY = r5_r;
-    6: busY = r6_r;
-    7: busY = r7_r;
+	0: busY = r0_w;
+	1: busY = r1_w;
+	2: busY = r2_w;
+	3: busY = r3_w;
+    4: busY = r4_w;
+    5: busY = r5_w;
+    6: busY = r6_w;
+    7: busY = r7_w;
 	default: busY = 16'hXXXX;
     endcase
    end
