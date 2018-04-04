@@ -46,10 +46,14 @@ always @(posedge Clk) begin
   RY = 3'd2;
 
   //#(`HCYCLE) Clk=1; #5 Clk=0;	// Generate single clock pulse
+
   if((regX != 42) || (regY != 42)) begin
   $display("Test Case 1 Failed");
   $display("regX=%d,regy=%d",regX,regY);
   $display("busX=%d,busY=%d",busX,busY);
+  else
+  $display("Test Case 1 Pass");
+  $display("regX=%d,regy=%d",regX,regY);
   end
 #(`CYCLE) $finish;
 end
