@@ -56,6 +56,7 @@ always @(posedge Clk) begin
   begin
   $display("Test Case 1 Pass");
   $display("regX=%d,regy=%d",regX,regY);
+  $display("busX=%d,busY=%d",busX,busY);
   end
 #(`CYCLE) $finish;
 end
