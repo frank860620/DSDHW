@@ -48,8 +48,8 @@ always @(posedge Clk) begin
   $display("Test Case 1 Begin");
   $display("busX=%d,busY=%d",busX,busY);
   
-  #(`HCYCLE) Clk=1; #(`HCYCLE) Clk=0;	// Generate single clock pulse
-
+  //#(`HCYCLE) Clk=1; #(`HCYCLE) Clk=0;	// Generate single clock pulse
+ $display(Clk);
   if((busX != 42) || (busY != 42)) begin
   $display("Test Case 1 Failed");
   $display("regX=%d,regy=%d",regX,regY);
