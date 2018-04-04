@@ -25,15 +25,13 @@ module register_file_tb;
     // write your test pattern here
 initial begin
     busW=8'd0;
-    busX=8'd0;
-    busY=8'd0;
+    regX=8'd0;
+    regY=8'd0;
     RX=3'd0;
     RY=3'd0;
     RW=3'd0;
     WEN=0;
     Clk=0;
-    regX=busX;
-    regY=busY;
   end
 always begin #(`CYCLE * 0.5) Clk = ~Clk;
 end
