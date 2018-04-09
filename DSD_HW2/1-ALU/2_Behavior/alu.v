@@ -44,7 +44,7 @@ module alu(
       alu_result={x[0],x[7:1]};
       4'b1100:
       alu_result= (x==y)?1:0;
-      default: alu_result=0; 
+      default: {alu_carry,alu_result}=0; 
     endcase
       
     end
