@@ -19,13 +19,11 @@ output [7:0] busX, busY;
 reg [7:0] r_w [0:7];
 reg [7:0] busY_reg, busX_reg;
 
-initial begin
-    r_w[0]=0;
-end    
+
 
 always@(*) begin
     case (RX)
-        0: busX_reg = r_w[0];
+        0: busX_reg = 0;
         1: busX_reg = r_w[1];
         2: busX_reg = r_w[2];
         3: busX_reg = r_w[3];
@@ -36,7 +34,7 @@ always@(*) begin
     default: busX_reg = 16'hXXXX;
     endcase
    case (RY)
-        0: busY_reg = r_w[0];
+        0: busY_reg = 0;
         1: busY_reg = r_w[1];
         2: busY_reg = r_w[2];
         3: busY_reg = r_w[3];
