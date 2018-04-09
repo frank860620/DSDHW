@@ -87,6 +87,13 @@ module alu_rtl_tb;
         if( out == 8'b0000_0000) $display( "PASS --- 1100 boolean Equal" );
         else $display( "FAIL --- 1100 boolean Equal" );
         ctrl = ctrl + 1;
+        #2
+        ctrl = ctrl + 1;
+        #2
+        ctrl = ctrl + 1;
+        #2
+        ctrl = ctrl + 1;
+
 
         // finish tb
         #(`CYCLE) $finish;
