@@ -18,10 +18,10 @@ module alu_rtl_tb;
         out  
     );
 
-//    initial begin
-//        $fsdbDumpfile("alu.fsdb");
-//        $fsdbDumpvars;
-//    end
+    initial begin
+        $fsdbDumpfile("alu.fsdb");
+        $fsdbDumpvars;
+    end
 
     initial begin
         ctrl = 4'b1101;
