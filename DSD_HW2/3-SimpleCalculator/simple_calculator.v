@@ -51,8 +51,8 @@ module mux(Sel,a,b,out);
     input Sel;
     output [7:0] out;
     reg out;
-    always@(a or b or sel)begin
-      case(sel)
+    always@(a or b or Sel)begin
+      case(Sel)
       1'b1:out=a;
       1'b0:out=b;
       endcase
