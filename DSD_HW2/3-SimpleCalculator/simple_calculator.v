@@ -50,10 +50,12 @@ module mux(Sel,a,b,out);
     input [7:0] a,b;
     input Sel;
     output [7:0] out;
+    reg [7:0] out_reg;
+    assign out= out_reg;
     always@(a or b or sel)begin
       case(sel)
-      1b'1:out=a;
-      1b'0:out=b;
+      1b'1:out_reg=a;
+      1b'0:out_reg=b;
       endcase
     end
 endmodule
