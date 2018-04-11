@@ -16,8 +16,8 @@
 *------------------------------------------------
 
 Vdd vdd gnd 'SUPPLY'
-Vin1 a gnd pwl 0ns 0 95ns 0 100ns 1.0 400ns 1.0
-Vin2 b gnd pwl 0ns 0 295ns 0 300ns 1.0 495ns 1.0  500ns 0 600ns 0
+Vin1 a gnd pwl 0ns 0 95ns 0 100ns 1.0 400ns 1.0 795ns 1.0 800ns 0 1000ns 0  
+Vin2 b gnd pwl 0ns 0 295ns 0 300ns 1.0 495ns 1.0  500ns 0 600ns 0 795ns 0 800ns 1.0 1000ns 1.0
 
 *NAND
 M1 c a gnd gnd NMOS W='N1' L=2
