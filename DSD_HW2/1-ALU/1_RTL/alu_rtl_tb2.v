@@ -9,6 +9,7 @@ module alu_rtl_tb;
     reg  [7:0] y;
     wire       carry;
     wire [7:0] out;
+    integer error;
     
     alu_rtl alu1(
         ctrl     ,
