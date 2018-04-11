@@ -34,79 +34,94 @@ module alu_rtl_tb;
         //start to test
         #2
         if( out == 8'b0000_0000 && carry==1 ) $display( "PASS --- 0000 boolean add" );
-        else 
+        else begin
             error <= error + 1;
             $display( "FAIL --- 0000 boolean add" );
+        end
         ctrl = ctrl + 1;
         #2
         if( out == 8'b0000_0010 && carry==1 ) $display( "PASS --- 0001 boolean sub" );
-        else 
+        else begin
             error <= error + 1;
             $display( "FAIL --- 0001 boolean sub" );
+        end
         ctrl = ctrl + 1;
         #2
         if( out == 8'b0000_0001) $display( "PASS --- 0010 boolean and" );
-        else 
+        else begin
             error <= error + 1;
             $display( "FAIL --- 0010 boolean and" );
+        end
         ctrl = ctrl + 1;
         #2
         if( out == 8'b1111_1111) $display( "PASS --- 0011 boolean or" );
-        else 
+        else begin
             error <= error + 1;
             $display( "FAIL --- 0011 boolean or" );
+        end
         ctrl = ctrl + 1;
         #2
         if( out == 8'b1111_1110) $display( "PASS --- 0100 boolean not" );
-        else 
+        else begin
             error <= error + 1;
             $display( "FAIL --- 0100 boolean not" );
+        end
         ctrl = ctrl + 1;
         #2
         if( out == 8'b1111_1110) $display( "PASS --- 0101 boolean xor" );
-        else $display( "FAIL --- 0101 boolean xor" );
+        else begin 
+            error <= error + 1;
+            $display( "FAIL --- 0101 boolean xor" );
+        end
         ctrl = ctrl + 1;
         #2
         if( out == 8'b0000_0000) $display( "PASS --- 0110 boolean nor" );
-        else 
+        else begin
             error <= error + 1;
             $display( "FAIL --- 0110 boolean nor" );
+        end
         ctrl = ctrl + 1;
         #2
         if( out == 8'b1111_1110) $display( "PASS --- 0111 boolean Shift left logical variable" );
-        else 
+        else begin
             error <= error + 1;
             $display( "FAIL --- 0111 boolean Shift left logical variable" );
+        end
         ctrl = ctrl + 1;
         #2
         if( out == 8'b0111_1111) $display( "PASS --- 1000 boolean Shift right logical variable" );
-        else 
+        else begin
             error <= error + 1;
             $display( "FAIL --- 1000 boolean Shift right logical variable" );
+        end
         ctrl = ctrl + 1;
         #2
         if( out == 8'b0000_0000) $display( "PASS --- 1001 boolean Shift right arithmetic" );
-        else 
+        else begin
             error <= error + 1;
             $display( "FAIL --- 1001 boolean Shift right arithmetic" );
+        end
         ctrl = ctrl + 1;
         #2
         if( out == 8'b0000_0010) $display( "PASS --- 1010 boolean Rotate left" );
-        else 
+        else begin
             error <= error + 1;
             $display( "FAIL --- 1010 boolean Rotate left" );
+        end
         ctrl = ctrl + 1;
         #2
         if( out == 8'b1000_0000) $display( "PASS --- 1011 boolean Rotate right" );
-        else 
+        else begin
             error <= error + 1;
             $display( "FAIL --- 1011 boolean Rotate right" );
+        end
         ctrl = ctrl + 1;
         #2
         if( out == 8'b0000_0000) $display( "PASS --- 1100 boolean Equal" );
-        else 
+        else begin
             error <= error + 1;
             $display( "FAIL --- 1100 boolean Equal" );
+        end
         ctrl = ctrl + 1;
         #2
         ctrl = ctrl + 1;
