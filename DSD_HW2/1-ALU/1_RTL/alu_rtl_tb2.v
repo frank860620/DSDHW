@@ -134,7 +134,7 @@ module alu_rtl_tb;
 
 
         // finish tb
-        #(`CYCLE) $finish;
+    //#(`CYCLE) $finish;
         
     end
     /*
