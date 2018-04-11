@@ -129,7 +129,7 @@ module alu_rtl_tb;
                 $display("===============================\n");
             end
            $finish;
-        
+        end
     
 endmodule
 
