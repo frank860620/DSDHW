@@ -16,8 +16,8 @@
 *------------------------------------------------
 
 Vdd vdd gnd 'SUPPLY'
-Vin1 a gnd pwl 0ps 0 95ps 0 100ps 1.0 400ps 1.0
-Vin2 b gnd pwl 0ps 0 295ps 0 300ps 1.0 495ps 1.0  500ps 0 600ps 0
+Vin1 a gnd pwl 0ns 0 95ns 0 100ns 1.0 400ns 1.0
+Vin2 b gnd pwl 0ns 0 295ns 0 300ns 1.0 495ns 1.0  500ns 0 600ns 0
 
 *NAND
 M1 c a gnd gnd NMOS W='N1' L=2
@@ -42,5 +42,5 @@ M8 out2 b d vdd PMOS W='P2' L=2
 *------------------------------------------------
 * Stimulus
 *------------------------------------------------
-.tran 0.1ns 1ns 
+.tran 100ns 1000ns 
 .end
