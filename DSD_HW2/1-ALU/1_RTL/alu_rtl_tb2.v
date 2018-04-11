@@ -128,15 +128,13 @@ module alu_rtl_tb;
                 $display("There are %d errors.", error);
                 $display("===============================\n");
             end
-           // $finish;
+           $finish;
         end
     end
-
+endmodule
 
         // finish tb
     //#(`CYCLE) $finish;
-        
-    end
     /*
     always #2 begin
     $display("ctrl=%b,x=%b,y=%b,carry=%b,out=%b",ctrl,x,y,carry,out);     
@@ -146,4 +144,4 @@ module alu_rtl_tb;
     initial #(`CYCLE) $finish;
     */
 
-endmodule
+
