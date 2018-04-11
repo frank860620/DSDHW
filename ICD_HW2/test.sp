@@ -17,7 +17,7 @@
 
 Vdd vdd gnd 'SUPPLY'
 Vin1 a gnd pwl 0ps 0 95ps 0 100ps 1.0 400ps 1.0
-Vin2 b gnd pwl 0ps 0 95ps 0 100ps 1.0 295ps 1.0  300ps 0 400ps 0
+Vin2 b gnd pwl 0ps 0 295ps 0 300ps 1.0 495ps 1.0  500ps 0 600ps 0
 
 *NAND
 M1 c a gnd gnd NMOS W='N1' L=2
