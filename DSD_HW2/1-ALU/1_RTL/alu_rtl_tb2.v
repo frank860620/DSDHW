@@ -10,7 +10,7 @@ module alu_rtl_tb;
     wire       carry;
     wire [7:0] out;
     integer error;
-    
+
     alu_rtl alu1(
         ctrl     ,
         x        ,
@@ -19,22 +19,19 @@ module alu_rtl_tb;
         out  
     );
 
-    initial begin
+    /*initial begin
         $fsdbDumpfile("alu.fsdb");
         $fsdbDumpvars;
-    end
+    end*/
 
     initial begin
         ctrl = 4'b1101;
         x    = 8'b00000001;
         y    = 8'b11111111;
         error = 0;
-       
-        
-        // 0100 boolean not
-        
-
         ctrl = 4'b0000;
+        
+        //start to test
         #2
         if( out == 8'b0000_0000 && carry==1 ) $display( "PASS --- 0000 boolean add" );
         else 
@@ -119,23 +116,22 @@ module alu_rtl_tb;
         ctrl = ctrl + 1;
         
         
-            if(error == 0) begin
-                $display("==========================================\n");
-                $display("======  Congratulation! You Pass!  =======\n");
-                $display("==========================================\n");
-            end
-            else begin
-                $display("===============================\n");
-                $display("There are %d errors.", error);
-                $display("===============================\n");
-            end
-           $finish;
+        //count the error
+        if(error == 0) begin
+            $display("==========================================\n");
+            $display("======  Congratulation! You Pass!  =======\n");
+            $display("==========================================\n");
         end
-    
-endmodule
+        else begin
+            $display("===============================\n");
+            $display("There are %d errors.", error);
+            $display("===============================\n");
+        end
+    $finish;
+    end
+    endmodule
 
-        // finish tb
-    //#(`CYCLE) $finish;
+    
     /*
     always #2 begin
     $display("ctrl=%b,x=%b,y=%b,carry=%b,out=%b",ctrl,x,y,carry,out);     
