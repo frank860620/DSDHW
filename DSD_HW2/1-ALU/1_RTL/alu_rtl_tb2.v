@@ -116,8 +116,8 @@ module alu_rtl_tb;
         ctrl = ctrl + 1;
         #2
         ctrl = ctrl + 1;
-        initial begin
-        @(posedge stop) begin
+        
+        
             if(error == 0) begin
                 $display("==========================================\n");
                 $display("======  Congratulation! You Pass!  =======\n");
@@ -129,8 +129,8 @@ module alu_rtl_tb;
                 $display("===============================\n");
             end
            $finish;
-        end
-    end
+        
+    
 endmodule
 
         // finish tb
