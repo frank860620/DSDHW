@@ -7,7 +7,7 @@
 .param P1=4.0 
 .param N2=2.0 
 .param P2=8.0 
-.option scale=180n 
+.option scale=200n 
 .temp 70
 .option post
 
