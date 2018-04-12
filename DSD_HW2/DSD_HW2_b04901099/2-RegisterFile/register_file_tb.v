@@ -13,7 +13,7 @@ module register_file_tb;
     reg stop;
     reg [2:0] register_number;
     reg [7:0] register_value;
-    integer i,num,err;
+    integer i,num,error;
     
     // instantiate the design-under-test
     register_file rf(
@@ -30,7 +30,7 @@ module register_file_tb;
     // write your test pattern here
     initial begin
         Clk = 1'b1;
-        err = 0;
+        error = 0;
         stop = 0;
         i = 0;
         num = 0;
@@ -62,14 +62,14 @@ module register_file_tb;
     always@(posedge Clk) begin
         if((busX !== register_value) || (busY !== register_value)) begin
             if (register_number !== 0) begin
-                err <= err + 1;
+                error <= error + 1;
                 $display(busX);
                 $display(busY);
                 $display("An ERROR occurs at case %d : {register, register_value} =  {%b , %b}.\n", i, register_number, register_value);
             end
             else begin
                 if((busX !== 0) || (busY !== 0)) begin
-                    err <= err + 1;
+                    error <= error + 1;
                     $display("An ERROR occurs at case %d: Register[0] = %b", i, register_value);
                 end
             end
@@ -78,14 +78,14 @@ module register_file_tb;
 
     initial begin
         @(posedge stop) begin
-            if(err == 0) begin
+            if(error == 0) begin
                 $display("==========================================\n");
                 $display("======  Congratulation! You Pass!  =======\n");
                 $display("==========================================\n");
             end
             else begin
                 $display("===============================\n");
-                $display("There are %d errors.", err);
+                $display("There are %d errors.", error);
                 $display("===============================\n");
             end
             $finish;
