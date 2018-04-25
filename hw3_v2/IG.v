@@ -25,8 +25,8 @@ assign send=0;
 //assign in = img_di;
 for(i=0;i<=65279;i=i+1)
     if(counter != 256) begin
-       grad_M[i][9:0] =  rd_M(img_addr+1) - rd_M(img_addr);
-       grad_M[i][19:10] = rd_M(img_addr+256) - rd_M(img_addr);
+       grad_M[i][9:0] =  rd_M[img_addr+1] - rd_M[img_addr];
+       grad_M[i][19:10] = rd_M[img_addr+256] - rd_M[img_addr];
        counter = counter + 1; 
     end
     else if (counter == 256 && i == 65279)begin
