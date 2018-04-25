@@ -13,6 +13,8 @@ output [19:0] grad_do;
 // reg & wire
 reg [15:0] addr , addr_g;
 reg [7:0] rd_M[0:65535];
+reg [9:0] Gx;
+reg [9:0] Gy; 
 reg signed [19:0] grad_M[0:65535];
 integer i,counter,send;
 assign addr=0;
@@ -23,10 +25,11 @@ assign send=0;
 //------------------------------------------------------------------
 // combinational part
 //assign in = img_di;
-for(i=0;i<=65279;i=i+1) begin
+for (i=0;i<=65279;i=i+1) begin
     if(counter != 256) begin
-       grad_M[i][9:0] =  rd_M[img_addr+1] - rd_M[img_addr];
-       grad_M[i][19:10] = rd_M[img_addr+256] - rd_M[img_addr];
+       Gx =  rd_M[img_addr+1] - rd_M[img_addr];
+       Gy = rd_M[img_addr+256] - rd_M[img_addr];
+       grad_M = {Gx,Gy};
        counter = counter + 1; 
     end
     else if (counter == 256 && i == 65279)begin
