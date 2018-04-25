@@ -27,8 +27,8 @@ assign send=0;
 //assign in = img_di;
 for (i=0;i<=65279;i=i+1) begin
     if(counter != 256) begin
-       Gx =  rd_M[img_addr+1] - rd_M[img_addr];
-       Gy = rd_M[img_addr+256] - rd_M[img_addr];
+       Gx = rd_M[i+1] - rd_M[i];
+       Gy = rd_M[i+256] - rd_M[i];
        grad_M[i] = {Gx,Gy};
        counter = counter + 1; 
     end
