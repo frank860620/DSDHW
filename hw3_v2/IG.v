@@ -74,7 +74,7 @@ always @(posedge clk) begin
     if(img_rd && !reset)begin
     if(addr != 10) begin
         //$display("start to read");
-        img_addr<=addr-1;
+        img_addr<=addr;
         //rd_M[addr] <= img_di_reg;
         //$display("addr : %d, rd_M[addr] : %d",addr,rd_M[addr]);
         addr <= addr+1;
