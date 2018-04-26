@@ -30,8 +30,8 @@ if(reset)begin
     send = 0;
 end
 else begin
-    generate
-    genvar i;
+    
+    integer i;
     for (i=0;i<=65279;i=i+1) begin
         if(counter != 256) begin
         assign Gx = rd_M[i+1] - rd_M[i];
@@ -47,7 +47,7 @@ else begin
             assign counter = 1;
         end
     end
-    endgenerate
+    
     end
 end
 
