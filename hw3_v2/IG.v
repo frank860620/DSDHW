@@ -80,7 +80,6 @@ always @(posedge clk) begin
     if(init)begin
       img_rd <= 1;
       init <= 0;
-      $display("a");
     end
     else begin
     if(!delay) begin
@@ -88,16 +87,16 @@ always @(posedge clk) begin
         //img_addr<=addr;
         //rd_M[addr] <= img_di_reg;
         //$display("addr : %d, rd_M[addr] : %d",addr,rd_M[addr]);
-        $display("img_addr :",img_addr);
+        //$display("img_addr :",img_addr);
         img_addr <= img_addr+1;
         if(img_addr == 65535) delay = 1;
      end
     else begin
         //img_addr = addr-1;
-        $display("rd_M[0] = %d",rd_M[0]);
-        $display("rd_M[1] = %d",rd_M[1]);
-        $display("rd_M[65534] = %d",rd_M[65534]);
-        $display("rd_M[65535] = %d",rd_M[65535]);
+        //$display("rd_M[0] = %d",rd_M[0]);
+        //$display("rd_M[1] = %d",rd_M[1]);
+        //$display("rd_M[65534] = %d",rd_M[65534]);
+        //$display("rd_M[65535] = %d",rd_M[65535]);
         //$display("img_addr : %d",img_addr);
         img_rd <= 0;
         img_rd_rd <= 0;
