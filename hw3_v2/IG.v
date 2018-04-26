@@ -18,7 +18,7 @@ reg signed [9:0] Gy;
 reg signed [19:0] grad_M[0:65535];
 reg[7:0] counter,send;
 integer i;
-reg img_rd,grad_wr,done,calculate,img_rd_rd,init;
+reg img_rd,grad_wr,done,calculate,img_rd_rd,init,delay;
 reg [15:0] img_addr, grad_addr,M_addr;
 reg [7:0] img_di_reg;
 reg [19:0] grad_do;
@@ -37,6 +37,7 @@ if(reset)begin
     img_rd_rd = 1; 
     img_di_reg = img_di;
     init = 1;
+    delay = 0;
 end
 else if (calculate)begin
     $display("Let's start to calculate the gradient!");
@@ -75,13 +76,12 @@ always @(negedge clk) begin
     end
 always @(posedge clk) begin
     if(img_rd_rd && !reset)begin
-    img_rd <= 1;
-    /*if(init)begin
+    if(init)begin
       img_rd <= 1;
       init <= 0;
       $display("a");
-    end*/
-    //else begin
+    end
+    else begin
     if(img_addr != 10) begin
         //$display("start to read");
         //img_addr<=addr;
@@ -89,9 +89,11 @@ always @(posedge clk) begin
         //$display("addr : %d, rd_M[addr] : %d",addr,rd_M[addr]);
         $display("img_addr :",img_addr);
         $display("b");
-        //if(img_addr == 0) img_addr <= img_addr;
-        //else 
-        img_addr <= img_addr+1;
+        if(img_addr == 0 && delay == 0) begin
+        img_addr <= img_addr;
+        delay = 1;
+        end
+        else img_addr <= img_addr+1;
      end
     else begin
         //img_addr = addr-1;
@@ -105,7 +107,7 @@ always @(posedge clk) begin
 
     end
     
-    //end
+    end
     end
     else begin
     img_rd <= 0;
