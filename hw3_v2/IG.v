@@ -20,13 +20,13 @@ reg[7:0] counter,send;
 integer i;
 reg img_rd,grad_wr;
 reg [15:0] img_addr, grad_addr;
-reg [7:0] img_di;
+reg [7:0] img_di_reg;
 reg [19:0] grad_do;
 //wire [7:0] in;
 //------------------------------------------------------------------
 // combinational part
 //assign in = img_di;
-
+assign img_di_reg = img_di;
 always@(*)begin
 if(reset)begin
     counter = 1;
@@ -61,7 +61,7 @@ end
 //------------------------------------------------------------------
 // sequential part
 always @(img_di) begin
-    rd_M[img_addr]= img_di;
+    rd_M[img_addr]= img_di_reg;
     end
 always @(posedge clk) begin
     if(addr != 65536) begin
