@@ -18,8 +18,6 @@ reg signed [9:0] Gy;
 reg signed [19:0] grad_M[0:65535];
 reg[7:0] counter,send;
 integer i;
-assign addr=0;
-assign addr_g=0;
 //wire [7:0] in;
 //------------------------------------------------------------------
 // combinational part
@@ -29,6 +27,8 @@ always@(*)begin
 if(reset)begin
     counter = 1;
     send = 0;
+    addr = 0;
+    addr_g = 0;
 end
 else begin
     
