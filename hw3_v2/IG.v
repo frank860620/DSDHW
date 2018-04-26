@@ -92,9 +92,10 @@ always @(posedge clk) begin
         $display("end");
 
     end
-    else begin
-      img_rd = 0;
+    
     end
+    else begin
+    img_rd = 0;
     end
     //img_rd <= 0;
 end
