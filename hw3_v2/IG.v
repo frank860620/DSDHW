@@ -48,8 +48,8 @@ else if (calculate)begin
          Gx = rd_M[i+1] - rd_M[i];
          Gy = rd_M[i+256] - rd_M[i];
          grad_M[i] = {Gx,Gy};
-         $display("It's in%d round grad_M[i]=%d",i,grad_M[i]);
-         $display(grad_M[0]);
+         $display("It's in%d round grad_M[i]=%b",i,grad_M[i]);
+         $display("grad_M[0]=%b"grad_M[0]);
          counter = counter + 1; 
         end
         else if (counter == 256 && i == 65279)begin
