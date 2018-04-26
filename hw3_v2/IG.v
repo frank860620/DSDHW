@@ -76,8 +76,8 @@ always @(negedge clk) begin
 always @(posedge clk) begin
     if(img_rd_rd && !reset)begin
     if(init)begin
-      img_rd = 1;
-      init = 0;
+      img_rd <= 1;
+      init <= 0;
     end
     else begin
     if(img_addr != 10) begin
@@ -103,7 +103,7 @@ always @(posedge clk) begin
     end
     end
     else begin
-    img_rd = 0;
+    img_rd <= 0;
     end
     //img_rd <= 0;
 end
