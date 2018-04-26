@@ -91,6 +91,7 @@ always @(posedge clk) begin
         if(img_addr == 0 && delay != 2) begin
         img_addr <= img_addr;
         delay = delay + 1;
+        $display("delay :",delay);
         $display("b");
         end
         else img_addr <= img_addr+1;
