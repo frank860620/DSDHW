@@ -64,13 +64,15 @@ end
 //------------------------------------------------------------------
 // sequential part
 always @(negedge clk) begin
-    if(img_rd)begin
+    if(img_rd)
+    $display("start to read");
     rd_M[img_addr]= img_di_reg;
+    $display(img_di_reg);
     end
     end
 always @(posedge clk) begin
     if(img_rd && !reset)begin
-    if(addr != 65535) begin
+    if(addr != 10) begin
         //$display("start to read");
         img_addr<=addr;
         //rd_M[addr] <= img_di_reg;
