@@ -66,7 +66,7 @@ end
 always @(negedge clk) begin
     if(img_rd)begin
     //$display("start to read");
-    rd_M[img_addr]= img_di_reg;
+    rd_M[img_addr]= img_di;
     //$display(img_di_reg);
     end
     end
