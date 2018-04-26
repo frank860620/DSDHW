@@ -88,6 +88,7 @@ always @(posedge clk) begin
         $display("rd_M[1] = %d",rd_M[1]);
         $display("img_addr : %d",img_addr);
         img_rd <= 0;
+        img_rd_rd <= 0;
         calculate <= 1;
         $display("end");
 
