@@ -29,7 +29,7 @@ reg [19:0] grad_do;
 
 always@(*)begin
 if(reset)begin
-    $display("It's start to reset all things!!");
+    //$display("It's start to reset all things!!");
     counter = 1;
     send = 0;
     img_addr = 0;
@@ -49,14 +49,14 @@ else if (calculate && !send)begin
          Gx = rd_M[i+1] - rd_M[i];
          Gy = rd_M[i+256] - rd_M[i];
          grad_M[i] = {Gx,Gy};
-         $display("It's in%d round grad_M[i]=%b",i,grad_M[i]);
-         $display("grad_M[256]=%b",grad_M[256]);
+         //$display("It's in%d round grad_M[i]=%b",i,grad_M[i]);
+         //$display("grad_M[256]=%b",grad_M[256]);
          counter = counter + 1; 
         end
         else if (counter == 256 && i == 65279)begin
             counter = 1;
             send = 1;
-            $display("Let's send!");
+            //$display("Let's send!");
         end
         else begin 
             counter = 1;
@@ -75,7 +75,7 @@ always @(negedge clk) begin
     //$display("start to read");
     M_addr = img_addr -1;
     rd_M[M_addr]= img_di;
-    $display("M_addr = %d, rd_M[M_addr] = %d,img_di = %d",M_addr,rd_M[M_addr],img_di);
+    //$display("M_addr = %d, rd_M[M_addr] = %d,img_di = %d",M_addr,rd_M[M_addr],img_di);
     //$display("img_addr = %d, rd_M[img_addr] = %d,img_di = %d",img_addr,rd_M[img_addr],img_di);
     end
     end
@@ -105,7 +105,7 @@ always @(posedge clk) begin
         img_rd <= 0;
         img_rd_rd <= 0;
         calculate <= 1;
-        $display("end");
+       //$display("end");
 
     end
     
@@ -126,7 +126,7 @@ if(send && !done)begin
     //$display("Start to send!!");
     grad_wr <= 1;
     if(grad_wr)begin
-    $display("Start to send!!");
+    //$display("Start to send!!");
     if(addr_g ==0) begin
         grad_addr <= addr_g;
         addr_g <= addr_g + 1;
@@ -137,7 +137,7 @@ if(send && !done)begin
         addr_g <= addr_g + 1;
         grad_do <= grad_M[addr_g];
         //$display("grad_M[0] =%b",grad_M[0]);
-        $display("addr_g=%d, grad_do = %b",addr_g,grad_do);
+        //$display("addr_g=%d, grad_do = %b",addr_g,grad_do);
     end
     else begin
         grad_wr <= 0;
