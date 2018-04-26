@@ -80,6 +80,7 @@ always @(posedge clk) begin
         //img_addr<=addr;
         //rd_M[addr] <= img_di_reg;
         //$display("addr : %d, rd_M[addr] : %d",addr,rd_M[addr]);
+        $display("img_addr :",img_addr);
         img_addr <= img_addr+1;
      end
     else begin
