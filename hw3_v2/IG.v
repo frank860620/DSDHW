@@ -130,6 +130,7 @@ if(send && !done)begin
     if(addr_g ==0) begin
         grad_addr <= addr_g;
         addr_g <= addr_g + 1;
+        grad_do <= grad_M[addr_g];
     end
     else if(addr_g != 0 && addr_g != 65535) begin
         grad_addr <= addr_g;
