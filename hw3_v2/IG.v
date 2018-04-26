@@ -63,21 +63,21 @@ end
 
 //------------------------------------------------------------------
 // sequential part
-/*always @(img_di) begin
+always @(img_di) begin
     rd_M[img_addr]= img_di_reg;
-    end*/
+    end
 always @(posedge clk) begin
     if(img_rd !=0 && !reset)begin
     if(addr != 65536) begin
         //$display("start to read");
         img_addr<=addr;
-        rd_M[addr] <= img_di_reg;
+        //rd_M[addr] <= img_di_reg;
         $display("addr : %d, rd_M[addr] : %d",addr,rd_M[addr]);
         addr <= addr+1;
      end
     else begin
-        img_rd = 0;
-        calculate = 1;
+        img_rd <= 0;
+        calculate <= 1;
         $display("end");
     end
     end
