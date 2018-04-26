@@ -69,7 +69,7 @@ always @(negedge clk) begin
     if(img_rd)begin
     //$display("start to read");
     M_addr = img_addr -1;
-    rd_M[img_addr]= img_di;
+    rd_M[M_addr]= img_di;
     $display("M_addr = %d, rd_M[M_addr] = %d,img_di = %d",M_addr,rd_M[M_addr],img_di);
     //$display("img_addr = %d, rd_M[img_addr] = %d,img_di = %d",img_addr,rd_M[img_addr],img_di);
     end
