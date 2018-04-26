@@ -19,7 +19,7 @@ reg signed [19:0] grad_M[0:65535];
 reg[7:0] counter,send;
 integer i;
 reg img_rd,grad_wr,done,calculate;
-reg [15:0] img_addr, grad_addr;
+reg [15:0] img_addr, grad_addr,M_addr;
 reg [7:0] img_di_reg;
 reg [19:0] grad_do;
 //wire [7:0] in;
@@ -66,7 +66,8 @@ end
 always @(negedge clk) begin
     if(img_rd)begin
     //$display("start to read");
-    rd_M[img_addr]= img_di;
+    M_addr = img_addr -1;
+    rd_M[M_addr]= img_di;
     $display("img_addr = %d, rd_M[img_addr] = %d,img_di = %d",img_addr,rd_M[img_addr],img_di);
     end
     end
