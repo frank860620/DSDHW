@@ -59,10 +59,10 @@ always begin #(`CYCLE/2) clk = ~clk; end
 
 
 initial begin
-//	$fsdbDumpfile("IG.fsdb");
-//	$fsdbDumpvars;
-//  $fsdbDumpMDA(u_img_RAM.M);
-//  $fsdbDumpMDA(u_grad_RAM.M);
+	$fsdbDumpfile("IG.fsdb");
+	$fsdbDumpvars;
+    $fsdbDumpMDA(u_img_RAM.M);
+    $fsdbDumpMDA(u_grad_RAM.M);
     $dumpfile("IG.vcd");
     $dumpvars(0,testfixture); 
 end
