@@ -78,6 +78,7 @@ always @(posedge clk) begin
     if(init)begin
       img_rd <= 1;
       init <= 0;
+      $display("a");
     end
     else begin
     if(img_addr != 10) begin
@@ -86,6 +87,7 @@ always @(posedge clk) begin
         //rd_M[addr] <= img_di_reg;
         //$display("addr : %d, rd_M[addr] : %d",addr,rd_M[addr]);
         $display("img_addr :",img_addr);
+        $display("b");
         img_addr <= img_addr+1;
      end
     else begin
