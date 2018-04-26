@@ -72,8 +72,8 @@ initial begin
  	$display("START!!! Simulation Start .....\n");
  	$display("-----------------------------------------------------\n");
     #1; reset = 1'b0;
-    $display("reset = %d ",reset); 
     @(negedge clk) #1; reset = 1'b1; 
+    $display("reset = %d",reset)
     #(`CYCLE*3);    
     @(negedge clk) #1;  reset = 1'b0; 
 end
