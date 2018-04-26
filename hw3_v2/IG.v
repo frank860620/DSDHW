@@ -68,10 +68,10 @@ end
 always @(negedge clk) begin
     if(img_rd)begin
     //$display("start to read");
-    M_addr = img_addr -1;
-    rd_M[M_addr]= img_di;
-    $display("M_addr = %d, rd_M[M_addr] = %d,img_di = %d",M_addr,rd_M[M_addr],img_di);
-    //$display("img_addr = %d, rd_M[img_addr] = %d,img_di = %d",img_addr,rd_M[img_addr],img_di);
+    //M_addr = img_addr -1;
+    rd_M[img_addr]= img_di;
+    //$display("M_addr = %d, rd_M[M_addr] = %d,img_di = %d",M_addr,rd_M[M_addr],img_di);
+    $display("img_addr = %d, rd_M[img_addr] = %d,img_di = %d",img_addr,rd_M[img_addr],img_di);
     end
     end
 always @(posedge clk) begin
@@ -88,10 +88,10 @@ always @(posedge clk) begin
         //rd_M[addr] <= img_di_reg;
         //$display("addr : %d, rd_M[addr] : %d",addr,rd_M[addr]);
         $display("img_addr :",img_addr);
-        $display("b");
         if(img_addr == 0 && delay == 0) begin
         img_addr <= img_addr;
         delay = 1;
+        $display("b");
         end
         else img_addr <= img_addr+1;
      end
