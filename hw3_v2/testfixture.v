@@ -231,7 +231,10 @@ module grad_RAM (rd, wr, addr, datain, dataout, clk);
         if (rd) dataout <= M[addr];
     
     always@(posedge clk)   // write data at posedge clock
-        if (wr) M[addr] <= datain;
+        if (wr) begin 
+        M[addr] <= datain;
+        $display("M[0]=%b",M[0]);
+        end
     
 endmodule
 

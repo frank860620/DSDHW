@@ -135,7 +135,7 @@ if(send && !done)begin
         grad_addr <= addr_g;
         addr_g <= addr_g + 1;
         grad_do <= grad_M[addr_g];
-        $display("grad_M[0] =%b",grad_M[0]);
+        //$display("grad_M[0] =%b",grad_M[0]);
         $display("addr_g=%d, grad_do = %b",addr_g,grad_do);
     end
     else begin
