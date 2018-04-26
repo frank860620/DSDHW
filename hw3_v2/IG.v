@@ -76,10 +76,9 @@ always @(posedge clk) begin
         addr <= addr+1;
      end
     else begin
-        img_rd <= 0;
-        calculate <= 1;
+        img_rd = 0;
+        calculate = 1;
         $display("end");
-        $finish;
     end
     end
 end
