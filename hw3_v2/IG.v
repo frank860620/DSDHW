@@ -89,7 +89,7 @@ always @(posedge clk) begin
         //rd_M[addr] <= img_di_reg;
         //$display("addr : %d, rd_M[addr] : %d",addr,rd_M[addr]);
         $display("img_addr :",img_addr);
-        if(img_addr == 0 && delay != 2) begin
+        if(img_addr == 0 && delay != 3) begin
         img_addr <= img_addr;
         delay = delay + 1;
         $display("delay :",delay);
