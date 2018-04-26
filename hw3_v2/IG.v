@@ -67,6 +67,7 @@ always @(img_di) begin
     end
 always @(posedge clk) begin
     if(addr != 65536) begin
+        $display("start to read");
         img_rd <= 1;
         img_addr<=addr;
         addr <= addr+1;
