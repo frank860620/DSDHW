@@ -24,8 +24,8 @@ assign addr_g=0;
 // combinational part
 //assign in = img_di;
 if(reset)begin
-    counter = 0;
-    send = 0;
+    assign counter = 0;
+    assign send = 0;
 end
 
 generate
