@@ -18,8 +18,7 @@ reg signed [9:0] Gy;
 reg signed [19:0] grad_M[0:65535];
 reg[7:0] counter,send;
 integer i;
-reg img_rd,grad_wr,done,calculate,img_rd_rd,init;
-reg [1:0] delay;
+reg img_rd,grad_wr,done,calculate,img_rd_rd,init,delay;
 reg [15:0] img_addr, grad_addr,M_addr;
 reg [7:0] img_di_reg;
 reg [19:0] grad_do;
@@ -69,10 +68,10 @@ end
 always @(negedge clk) begin
     if(img_rd)begin
     //$display("start to read");
-    //M_addr = img_addr -1;
+    M_addr = img_addr -1;
     rd_M[img_addr]= img_di;
-    //$display("M_addr = %d, rd_M[M_addr] = %d,img_di = %d",M_addr,rd_M[M_addr],img_di);
-    $display("img_addr = %d, rd_M[img_addr] = %d,img_di = %d",img_addr,rd_M[img_addr],img_di);
+    $display("M_addr = %d, rd_M[M_addr] = %d,img_di = %d",M_addr,rd_M[M_addr],img_di);
+    //$display("img_addr = %d, rd_M[img_addr] = %d,img_di = %d",img_addr,rd_M[img_addr],img_di);
     end
     end
 always @(posedge clk) begin
@@ -83,19 +82,14 @@ always @(posedge clk) begin
       $display("a");
     end
     else begin
-    if(img_addr != 10) begin
+    if(!delay) begin
         //$display("start to read");
         //img_addr<=addr;
         //rd_M[addr] <= img_di_reg;
         //$display("addr : %d, rd_M[addr] : %d",addr,rd_M[addr]);
         $display("img_addr :",img_addr);
-        if(img_addr == 0 && delay != 3) begin
-        img_addr <= img_addr;
-        delay = delay + 1;
-        $display("delay :",delay);
-        $display("b");
-        end
-        else img_addr <= img_addr+1;
+        img_addr <= img_addr+1;
+        if(img_addr == 65535) delay = 1;
      end
     else begin
         //img_addr = addr-1;
