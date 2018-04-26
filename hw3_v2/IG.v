@@ -67,7 +67,7 @@ end
     rd_M[img_addr]= img_di_reg;
     end*/
 always @(posedge clk) begin
-    if(img_rd && !reset)begin
+    if(img_rd !=0 && !reset)begin
     if(addr != 65536) begin
         //$display("start to read");
         img_addr<=addr;
@@ -78,6 +78,8 @@ always @(posedge clk) begin
     else begin
         img_rd <= 0;
         calculate <= 1;
+        $display("end");
+        $finish;
     end
     end
 end
