@@ -63,8 +63,12 @@ initial begin
 //	$fsdbDumpvars;
 //  $fsdbDumpMDA(u_img_RAM.M);
 //  $fsdbDumpMDA(u_grad_RAM.M);
-    $dumpfile("IG.vcd");
-    $dumpvars(0,testfixture); 
+    $fsdbDumpfile("IG.fsdb");
+    $fsdbDumpvars;
+    $fsdbDumpMDA(u_img_RAM.M);
+    $fsdbDumpMDA(u_grad_RAM.M);
+    //$dumpfile("IG.vcd");
+    //$dumpvars(0,testfixture); 
 end
 
 initial begin
