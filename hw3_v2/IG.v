@@ -79,7 +79,7 @@ always @(posedge clk) begin
       img_rd = 1;
       init = 0;
     end*/
-    else begin
+    //else begin
     if(img_addr != 65535) begin
         //$display("start to read");
         //img_addr<=addr;
@@ -100,7 +100,7 @@ always @(posedge clk) begin
 
     end
     
-    end
+    //end
     end
     else begin
     img_rd <= 0;
