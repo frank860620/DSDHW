@@ -23,30 +23,33 @@ assign addr_g=0;
 //------------------------------------------------------------------
 // combinational part
 //assign in = img_di;
-always@(reset)begin
-    counter=1;
-    send=0;
-end
 
-generate
-genvar i;
-for (i=0;i<=65279;i=i+1) begin
-    if(counter != 256) begin
-       assign Gx = rd_M[i+1] - rd_M[i];
-       assign Gy = rd_M[i+256] - rd_M[i];
-       assign grad_M[i] = {Gx,Gy};
-       assign counter = counter + 1; 
+always@(*)begin
+if(reset)begin
+    count = 1;
+    send = 0;
+end
+else begin
+    generate
+    genvar i;
+    for (i=0;i<=65279;i=i+1) begin
+        if(counter != 256) begin
+        assign Gx = rd_M[i+1] - rd_M[i];
+        assign Gy = rd_M[i+256] - rd_M[i];
+        assign grad_M[i] = {Gx,Gy};
+        assign counter = counter + 1; 
+        end
+        else if (counter == 256 && i == 65279)begin
+            assign counter = 1;
+            assign send = 1;
+        end
+        else begin 
+            assign counter = 1;
+        end
     end
-    else if (counter == 256 && i == 65279)begin
-        assign counter = 1;
-        assign send = 1;
-    end
-    else begin 
-        assign counter = 1;
+    endgenerate
     end
 end
-endgenerate
-
 
 
 
@@ -76,6 +79,7 @@ always @(posedge clk) begin
     end
     else begin
         grad_wr <= 0;
+        done <=1;
     end
 end
 endmodule
