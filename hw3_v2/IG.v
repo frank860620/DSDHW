@@ -82,6 +82,7 @@ always @(send) begin
     grad_do <= grad_M[addr_g];
 end
 always @(posedge clk) begin
+    $display("start to write");
     if(addr_g != 65536) begin
         grad_addr <= addr_g;
         addr_g <= addr_g + 1;
