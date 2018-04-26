@@ -49,7 +49,7 @@ end
 always @(img_di) begin
     rd_M[img_addr]= img_di;
     end
-always @(posedge) begin
+always @(posedge clk) begin
     if(addr != 65536) begin
         img_rd <= 1;
         img_addr<=addr;
@@ -63,7 +63,7 @@ always @(send) begin
     grad_wr <= 1;
     grad_do <= grad_M[addr_g];
 end
-always @(posedge) begin
+always @(posedge clk) begin
     if(addr_g != 65536) begin
         grad_addr <= addr_g;
         addr_g <= addr_g + 1;
