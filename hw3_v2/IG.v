@@ -35,17 +35,17 @@ else begin
     //integer i;
     for (i=0;i<=65279;i=i+1) begin
         if(counter != 256) begin
-        assign Gx = rd_M[i+1] - rd_M[i];
-        assign Gy = rd_M[i+256] - rd_M[i];
-        assign grad_M[i] = {Gx,Gy};
-        assign counter = counter + 1; 
+         Gx = rd_M[i+1] - rd_M[i];
+         Gy = rd_M[i+256] - rd_M[i];
+         grad_M[i] = {Gx,Gy};
+         counter = counter + 1; 
         end
         else if (counter == 256 && i == 65279)begin
-            assign counter = 1;
-            assign send = 1;
+            counter = 1;
+            send = 1;
         end
         else begin 
-            assign counter = 1;
+            counter = 1;
         end
     end
     
