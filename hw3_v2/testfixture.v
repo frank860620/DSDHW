@@ -233,7 +233,8 @@ module grad_RAM (rd, wr, addr, datain, dataout, clk);
     always@(posedge clk)   // write data at posedge clock
         if (wr) begin 
         M[addr] <= datain;
-        $display("M[0]=%b",M[0]);
+        $display("addr=%d, M[addr]=%b",addr,M[addr]);
+        if(addr == 10) $finish;
         end
     
 endmodule
