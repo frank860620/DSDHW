@@ -75,7 +75,6 @@ initial begin
     @(negedge clk) #1; reset = 1'b1; 
     #(`CYCLE*3);    
     @(negedge clk) #1;  reset = 1'b0;
-    $display("reset = %d ,start!",reset);
 end
 
 initial begin
