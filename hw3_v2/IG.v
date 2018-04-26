@@ -18,6 +18,10 @@ reg signed [9:0] Gy;
 reg signed [19:0] grad_M[0:65535];
 reg[7:0] counter,send;
 integer i;
+reg img_rd,grad_wr;
+reg [15:0] img_addr, grad_addr;
+reg[7:0] img_di;
+reg[19:0] grad_do;
 //wire [7:0] in;
 //------------------------------------------------------------------
 // combinational part
