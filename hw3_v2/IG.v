@@ -29,7 +29,7 @@ reg [19:0] grad_do;
 
 always@(*)begin
 if(reset)begin
-    //$display("It's start to reset all things!!");
+    $display("It's start to reset all things!!");
     counter = 1;
     send = 0;
     addr = 0;
