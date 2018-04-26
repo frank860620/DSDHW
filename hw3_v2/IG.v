@@ -125,6 +125,7 @@ if(send && !done)begin
     //$display("Start to send!!");
     grad_wr <= 1;
     if(grad_wr)begin
+    $display("Start to send!!");
     if(addr_g ==0) begin
         grad_addr <= addr_g;
         addr_g <= addr_g + 1;
