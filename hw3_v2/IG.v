@@ -38,7 +38,7 @@ if(reset)begin
     img_di_reg = img_di;
 end
 else if (calculate)begin
-    
+    $display("Let's start to calculate the gradient!");
     //integer i;
     for (i=0;i<=65279;i=i+1) begin
         if(counter != 256) begin
