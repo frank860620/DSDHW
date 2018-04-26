@@ -44,7 +44,7 @@ else if (calculate)begin
     //integer i;
     for (i=0;i<=65279;i=i+1) begin
         if(counter != 256) begin
-         $display("Let's start to calculate the gradient!");
+         $display("Let's start to calculate the gradient! It's in %d round",i);
          Gx = rd_M[i+1] - rd_M[i];
          Gy = rd_M[i+256] - rd_M[i];
          grad_M[i] = {Gx,Gy};
