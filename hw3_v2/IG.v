@@ -17,6 +17,7 @@ reg signed [9:0] Gx;
 reg signed [9:0] Gy; 
 reg signed [19:0] grad_M[0:65535];
 reg[7:0] counter,send;
+integer i;
 assign addr=0;
 assign addr_g=0;
 //wire [7:0] in;
@@ -31,7 +32,7 @@ if(reset)begin
 end
 else begin
     
-    integer i;
+    //integer i;
     for (i=0;i<=65279;i=i+1) begin
         if(counter != 256) begin
         assign Gx = rd_M[i+1] - rd_M[i];
