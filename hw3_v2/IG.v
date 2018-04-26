@@ -38,6 +38,7 @@ if(reset)begin
     img_di_reg = img_di;
     init = 1;
     delay = 0;
+    done = 0;
 end
 else if (calculate && !send)begin
     
