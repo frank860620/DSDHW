@@ -34,6 +34,7 @@ if(reset)begin
     send = 0;
     addr = 0;
     addr_g = 0;
+    img_rd = 1; 
     img_di_reg = img_di;
 end
 else if (calculate)begin
@@ -66,9 +67,9 @@ always @(img_di) begin
     rd_M[img_addr]= img_di_reg;
     end
 always @(posedge clk) begin
+    if(img_rd && !reset)begin
     if(addr != 65536) begin
         $display("start to read");
-        img_rd <= 1;
         img_addr<=addr;
         addr <= addr+1;
      end
@@ -76,13 +77,15 @@ always @(posedge clk) begin
         img_rd <= 0;
         calculate <= 1;
     end
+    end
 end
+
 always @(send) begin
     grad_wr <= 1;
     grad_do <= grad_M[addr_g];
 end
 always @(posedge clk) begin
-    $display("start to write");
+   if(grad_wr)begin
     if(addr_g != 65536) begin
         grad_addr <= addr_g;
         addr_g <= addr_g + 1;
@@ -90,6 +93,7 @@ always @(posedge clk) begin
     else begin
         grad_wr <= 0;
         done <=1;
+    end
     end
 end
 endmodule
