@@ -16,7 +16,7 @@ reg [7:0] rd_M[0:65535];
 reg signed [9:0] Gx;
 reg signed [9:0] Gy; 
 reg signed [19:0] grad_M[0:65535];
-reg[7:0] counter,send;
+reg[8:0] counter,send;
 integer i;
 reg img_rd,grad_wr,done,calculate,img_rd_rd,init,delay;
 reg [15:0] img_addr, grad_addr,M_addr;
