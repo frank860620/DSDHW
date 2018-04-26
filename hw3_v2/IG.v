@@ -65,9 +65,9 @@ end
 // sequential part
 always @(negedge clk) begin
     if(img_rd)begin
-    $display("start to read");
+    //$display("start to read");
     rd_M[img_addr]= img_di_reg;
-    $display(img_di_reg);
+    //$display(img_di_reg);
     end
     end
 always @(posedge clk) begin
