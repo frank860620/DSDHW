@@ -73,7 +73,7 @@ initial begin
  	$display("-----------------------------------------------------\n");
     #1; reset = 1'b0;
     @(negedge clk) #1; reset = 1'b1; 
-    $display("reset = %d",reset)
+    $display("reset = %d",reset);
     #(`CYCLE*3);    
     @(negedge clk) #1;  reset = 1'b0; 
 end
