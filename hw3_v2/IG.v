@@ -39,7 +39,7 @@ if(reset)begin
     init = 1;
     delay = 0;
 end
-else if (calculate)begin
+else if (calculate && !send)begin
     
     //integer i;
     for (i=0;i<=65279;i=i+1) begin
@@ -116,12 +116,14 @@ always @(posedge clk) begin
     //img_rd <= 0;
 end
 
-always @(send) begin
+/*always @(send) begin
     grad_wr <= 1;
     grad_do <= grad_M[addr_g];
-end
+end*/
 always @(posedge clk) begin
-   if(grad_wr)begin
+if(send)begin
+    $display("Start to send!!");
+    if(grad_wr)begin
     if(addr_g != 65536) begin
         grad_addr <= addr_g;
         addr_g <= addr_g + 1;
@@ -132,5 +134,8 @@ always @(posedge clk) begin
     end
     end
 end
+  
+end
+   
 endmodule
 
