@@ -74,7 +74,7 @@ always @(negedge clk) begin
     end
 always @(posedge clk) begin
     if(img_rd_rd && !reset)begin
-    img_rd <= 1;
+    img_rd = 1;
     if(img_addr != 10) begin
         //$display("start to read");
         //img_addr<=addr;
@@ -91,6 +91,9 @@ always @(posedge clk) begin
         calculate <= 1;
         $display("end");
 
+    end
+    else begin
+      img_rd = 0;
     end
     end
     //img_rd <= 0;
