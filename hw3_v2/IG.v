@@ -27,7 +27,7 @@ assign addr_g=0;
 
 always@(*)begin
 if(reset)begin
-    count = 1;
+    counter = 1;
     send = 0;
 end
 else begin
