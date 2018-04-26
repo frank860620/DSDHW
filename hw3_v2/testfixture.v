@@ -201,7 +201,7 @@ module img_RAM (reset, rd, wr, addr, datain, dataout, clk);
     always@(negedge clk)   // read data at negedge clock
         if (rd) begin
         dataout <= M[addr];
-        $display("Start to read!!");
+        $display("Start to read!!",dataout);
         end
     
     always@(posedge clk)   // write data at posedge clock
