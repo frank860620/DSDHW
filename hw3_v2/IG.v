@@ -65,7 +65,7 @@ end
 //------------------------------------------------------------------
 // sequential part
 always @(negedge clk) begin
-    if(img_rd_rd)begin
+    if(img_rd)begin
     //$display("start to read");
     //M_addr = img_addr -1;
     rd_M[img_addr]= img_di;
