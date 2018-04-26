@@ -18,7 +18,7 @@ reg signed [9:0] Gy;
 reg signed [19:0] grad_M[0:65535];
 reg[7:0] counter,send;
 integer i;
-reg img_rd,grad_wr,done,calculate,img_rd_rd;
+reg img_rd,grad_wr,done,calculate,img_rd_rd,init;
 reg [15:0] img_addr, grad_addr,M_addr;
 reg [7:0] img_di_reg;
 reg [19:0] grad_do;
@@ -36,6 +36,7 @@ if(reset)begin
     addr_g = 0;
     img_rd_rd = 1; 
     img_di_reg = img_di;
+    init = 1;
 end
 else if (calculate)begin
     $display("Let's start to calculate the gradient!");
@@ -74,7 +75,11 @@ always @(negedge clk) begin
     end
 always @(posedge clk) begin
     if(img_rd_rd && !reset)begin
-    img_rd = 1;
+    if(init)begin
+      img_rd = 1;
+      init = 0;
+    end
+    else begin
     if(img_addr != 10) begin
         //$display("start to read");
         //img_addr<=addr;
@@ -95,6 +100,7 @@ always @(posedge clk) begin
 
     end
     
+    end
     end
     else begin
     img_rd = 0;
