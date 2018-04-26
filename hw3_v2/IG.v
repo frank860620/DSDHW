@@ -18,7 +18,7 @@ reg signed [9:0] Gy;
 reg signed [19:0] grad_M[0:65535];
 reg[7:0] counter,send;
 integer i;
-reg img_rd,grad_wr,done;
+reg img_rd,grad_wr,done,calculate;
 reg [15:0] img_addr, grad_addr;
 reg [7:0] img_di_reg;
 reg [19:0] grad_do;
@@ -29,14 +29,14 @@ reg [19:0] grad_do;
 
 always@(*)begin
 if(reset)begin
-    $display("It's start to reset all things!!");
+    //$display("It's start to reset all things!!");
     counter = 1;
     send = 0;
     addr = 0;
     addr_g = 0;
     img_di_reg = img_di;
 end
-else begin
+else if (calculate)begin
     
     //integer i;
     for (i=0;i<=65279;i=i+1) begin
@@ -73,6 +73,7 @@ always @(posedge clk) begin
      end
     else begin
         img_rd <= 0;
+        calculate <= 1;
     end
 end
 always @(send) begin
