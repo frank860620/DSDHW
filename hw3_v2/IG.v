@@ -121,12 +121,19 @@ end
     grad_do <= grad_M[addr_g];
 end*/
 always @(posedge clk) begin
-if(send)begin
-    $display("Start to send!!");
+if(send && !done)begin
+    //$display("Start to send!!");
+    grad_wr <= 1;
     if(grad_wr)begin
-    if(addr_g != 65536) begin
+    if(addr_g ==0) begin
         grad_addr <= addr_g;
         addr_g <= addr_g + 1;
+    end
+    else if(addr_g != 0 && addr_g != 65535) begin
+        grad_addr <= addr_g;
+        addr_g <= addr_g + 1;
+        grad_do <= grad_M[addr_g];
+        $display("addr_g=%d, grad_do = %b",addr_g,grad_do);
     end
     else begin
         grad_wr <= 0;
