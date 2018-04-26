@@ -83,7 +83,6 @@ always @(posedge clk) begin
         $display("end");
     end
     end
-    else
     //img_rd <= 0;
 end
 
