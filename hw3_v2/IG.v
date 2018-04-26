@@ -32,7 +32,7 @@ if(reset)begin
     $display("It's start to reset all things!!");
     counter = 1;
     send = 0;
-    addr = 0;
+    img_addr = 0;
     addr_g = 0;
     img_rd = 1; 
     img_di_reg = img_di;
@@ -73,15 +73,15 @@ always @(negedge clk) begin
     end
 always @(posedge clk) begin
     if(img_rd && !reset)begin
-    if(addr != 65536) begin
+    if(img_addr != 10) begin
         //$display("start to read");
-        img_addr<=addr;
+        //img_addr<=addr;
         //rd_M[addr] <= img_di_reg;
         //$display("addr : %d, rd_M[addr] : %d",addr,rd_M[addr]);
-        addr <= addr+1;
+        img_addr <= img_addr+1;
      end
     else begin
-        img_addr = addr-1;
+        //img_addr = addr-1;
         $display("img_addr : %d",img_addr);
         img_rd <= 0;
         calculate <= 1;
