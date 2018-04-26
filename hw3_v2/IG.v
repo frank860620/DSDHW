@@ -32,17 +32,17 @@ generate
 genvar i;
 for (i=0;i<=65279;i=i+1) begin
     if(counter != 256) begin
-       Gx = rd_M[i+1] - rd_M[i];
-       Gy = rd_M[i+256] - rd_M[i];
-       grad_M[i] = {Gx,Gy};
-       counter = counter + 1; 
+       assign Gx = rd_M[i+1] - rd_M[i];
+       assign Gy = rd_M[i+256] - rd_M[i];
+       assign grad_M[i] = {Gx,Gy};
+       assign counter = counter + 1; 
     end
     else if (counter == 256 && i == 65279)begin
-        counter = 1;
-        send = 1;
+        assign counter = 1;
+        assign send = 1;
     end
     else begin 
-        counter = 1;
+        assign counter = 1;
     end
 end
 endgenerate
