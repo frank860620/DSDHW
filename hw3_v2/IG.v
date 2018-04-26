@@ -84,7 +84,7 @@ always @(posedge clk) begin
     end
     end
     else
-    img_rd <= 0;
+    //img_rd <= 0;
 end
 
 always @(send) begin
