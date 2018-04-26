@@ -83,10 +83,12 @@ always @(posedge clk) begin
      end
     else begin
         //img_addr = addr-1;
+        $display("rd_M[0] = %d",rd_M[0]);
         $display("img_addr : %d",img_addr);
         img_rd <= 0;
         calculate <= 1;
         $display("end");
+
     end
     end
     //img_rd <= 0;
