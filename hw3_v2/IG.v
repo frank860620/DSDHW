@@ -16,7 +16,7 @@ reg [7:0] rd_M[0:65535];
 reg signed [9:0] Gx;
 reg signed [9:0] Gy; 
 reg signed [19:0] grad_M[0:65535];
-integer i,counter,send;
+integer counter,send;
 assign addr=0;
 assign addr_g=0;
 assign counter=1;
@@ -25,6 +25,8 @@ assign send=0;
 //------------------------------------------------------------------
 // combinational part
 //assign in = img_di;
+generate
+genvar i;
 for (i=0;i<=65279;i=i+1) begin
     if(counter != 256) begin
        assign Gx = rd_M[i+1] - rd_M[i];
@@ -40,6 +42,7 @@ for (i=0;i<=65279;i=i+1) begin
         assign counter = 1;
     end
 end
+endgenerate
 
 
 
