@@ -18,7 +18,7 @@ reg signed [9:0] Gy;
 reg signed [19:0] grad_M[0:65535];
 reg[7:0] counter,send;
 integer i;
-reg img_rd,grad_wr,done,calculate;
+reg img_rd,grad_wr,done,calculate,img_rd_rd;
 reg [15:0] img_addr, grad_addr,M_addr;
 reg [7:0] img_di_reg;
 reg [19:0] grad_do;
@@ -34,7 +34,7 @@ if(reset)begin
     send = 0;
     img_addr = 0;
     addr_g = 0;
-    img_rd = 1; 
+    img_rd_rd = 1; 
     img_di_reg = img_di;
 end
 else if (calculate)begin
@@ -73,8 +73,9 @@ always @(negedge clk) begin
     end
     end
 always @(posedge clk) begin
-    if(img_rd && !reset)begin
-    #1if(img_addr != 10) begin
+    if(img_rd_rd && !reset)begin
+    img_rd <= 1;
+    if(img_addr != 10) begin
         //$display("start to read");
         //img_addr<=addr;
         //rd_M[addr] <= img_di_reg;
