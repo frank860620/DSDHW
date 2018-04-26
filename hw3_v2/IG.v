@@ -40,10 +40,11 @@ if(reset)begin
     delay = 0;
 end
 else if (calculate)begin
-    $display("Let's start to calculate the gradient!");
+    
     //integer i;
     for (i=0;i<=65279;i=i+1) begin
         if(counter != 256) begin
+         $display("Let's start to calculate the gradient!");
          Gx = rd_M[i+1] - rd_M[i];
          Gy = rd_M[i+256] - rd_M[i];
          grad_M[i] = {Gx,Gy};
@@ -97,7 +98,7 @@ always @(posedge clk) begin
         $display("rd_M[1] = %d",rd_M[1]);
         $display("rd_M[65534] = %d",rd_M[65534]);
         $display("rd_M[65535] = %d",rd_M[65535]);
-        $display("img_addr : %d",img_addr);
+        //$display("img_addr : %d",img_addr);
         img_rd <= 0;
         img_rd_rd <= 0;
         calculate <= 1;
