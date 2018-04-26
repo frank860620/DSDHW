@@ -26,13 +26,14 @@ reg [19:0] grad_do;
 //------------------------------------------------------------------
 // combinational part
 //assign in = img_di;
-assign img_di_reg = img_di;
+
 always@(*)begin
 if(reset)begin
     counter = 1;
     send = 0;
     addr = 0;
     addr_g = 0;
+    img_di_reg = img_di;
 end
 else begin
     
