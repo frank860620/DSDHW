@@ -59,10 +59,10 @@ always begin #(`CYCLE/2) clk = ~clk; end
 
 
 initial begin
-	$fsdbDumpfile("IG.fsdb");
-	$fsdbDumpvars;
-    $fsdbDumpMDA(u_img_RAM.M);
-    $fsdbDumpMDA(u_grad_RAM.M);
+//	$fsdbDumpfile("IG.fsdb");
+//	$fsdbDumpvars;
+//  $fsdbDumpMDA(u_img_RAM.M);
+//  $fsdbDumpMDA(u_grad_RAM.M);
     $dumpfile("IG.vcd");
     $dumpvars(0,testfixture); 
 end
@@ -71,7 +71,8 @@ initial begin
 	$display("-----------------------------------------------------\n");
  	$display("START!!! Simulation Start .....\n");
  	$display("-----------------------------------------------------\n");
-    #1; reset = 1'b0; 
+    #1; reset = 1'b0;
+    $display("reset = %d ",reset); 
     @(negedge clk) #1; reset = 1'b1; 
     #(`CYCLE*3);    
     @(negedge clk) #1;  reset = 1'b0; 
