@@ -67,7 +67,7 @@ always @(negedge clk) begin
     if(img_rd)begin
     //$display("start to read");
     rd_M[img_addr]= img_di;
-    $display(img_di);
+    $display("img_addr = %d, rd_M[img_addr] = %d,img_di = %d",img_addr,rd_M[img_addr],img_di);
     end
     end
 always @(posedge clk) begin
@@ -76,7 +76,7 @@ always @(posedge clk) begin
         //$display("start to read");
         img_addr<=addr;
         //rd_M[addr] <= img_di_reg;
-        $display("addr : %d, rd_M[addr] : %d",addr,rd_M[addr]);
+        //$display("addr : %d, rd_M[addr] : %d",addr,rd_M[addr]);
         addr <= addr+1;
      end
     else begin
