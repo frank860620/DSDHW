@@ -55,6 +55,7 @@ else if (calculate)begin
         else if (counter == 256 && i == 65279)begin
             counter = 1;
             send = 1;
+            $display("Let's send!");
         end
         else begin 
             counter = 1;
