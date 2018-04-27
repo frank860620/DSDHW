@@ -63,7 +63,7 @@ end
 always @(negedge clk) begin
     if(img_rd)begin
     M_addr = img_addr -1;
-    rd_M[M_addr]= img_di;
+    rd_M[M_addr] <= img_di;
     end
     end
 always @(posedge clk) begin
