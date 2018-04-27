@@ -19,7 +19,7 @@ reg signed [19:0] grad_M[0:65535];
 reg[8:0] counter;
 integer i;
 reg img_rd,grad_wr,done,calculate,img_rd_rd,init,delay,send;
-reg [15:0] img_addr, grad_addr,M_addr;
+reg [15:0] img_addr,grad_addr,M_addr;
 reg [19:0] grad_do;
 //------------------------------------------------------------------
 // combinational part
@@ -75,7 +75,7 @@ always @(posedge clk) begin
     else begin
     if(!delay) begin
         img_addr <= img_addr+1;
-        if(img_addr == 65535) delay = 1;
+        if(img_addr == 65535) delay <= 1;
      end
     else begin
         img_rd <= 0;
