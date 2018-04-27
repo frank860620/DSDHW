@@ -20,7 +20,6 @@ reg[8:0] counter,send;
 integer i;
 reg img_rd,grad_wr,done,calculate,img_rd_rd,init,delay;
 reg [15:0] img_addr, grad_addr,M_addr;
-reg [7:0] img_di_reg;
 reg [19:0] grad_do;
 //wire [7:0] in;
 //------------------------------------------------------------------
@@ -35,7 +34,6 @@ if(reset)begin
     img_addr = 0;
     addr_g = 0;
     img_rd_rd = 1; 
-    img_di_reg = img_di;
     init = 1;
     delay = 0;
     done = 0;
