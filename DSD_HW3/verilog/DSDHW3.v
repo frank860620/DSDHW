@@ -234,8 +234,12 @@ case (ALUctrl)
   //default: ALUresult = 0;
 endcase
 end
-if(ALUctrl == 4'b0110 && ALUresult == 0) ALUzero = 1;
-else ALUzero = 0;
+if(ALUctrl == 4'b0110 && ALUresult == 0) begin
+ALUzero = 1;
+end
+else begin 
+ALUzero = 0;
+end
 
 endmodule
 
