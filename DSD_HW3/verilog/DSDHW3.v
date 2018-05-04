@@ -214,6 +214,7 @@ case(ALU_CtrlIn)
     default: ALUctrl = 4'b1111;
 endcase
 end
+end
 endmodule
 
 //ALU
@@ -232,7 +233,7 @@ case (ALUctrl)
     4'b0111 : ALUresult = (ALUin1 < ALUin2) ? 1 : 0;
   //default: ALUresult = 0;
 endcase
-
+end
 if(ALUctrl == 4'b0110 && ALUresult == 0) ALUzero = 1;
 else ALUzero = 0;
 
