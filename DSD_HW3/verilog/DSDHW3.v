@@ -90,7 +90,7 @@ wire [31:0] Inst_15_0_signext;
 wire [31:0] br_signext_sl2;
 
 assign opcode = IR[31:26];
-assign funct  = Inst[5:0];
+assign funct  = IR[5:0];
 assign Inst_25_0   = IR[25:0];
 assign Inst_25_21  = IR[25:21];
 assign Inst_20_16  = IR[20:16];
@@ -259,7 +259,7 @@ endmodule
 module Control_Unit(opcode, RegDST, Jump, Branch, MemRead, MemToReg, ALUOp, MemWrite, ALUSrc, RegWrite);
 input[5:0] opcode;
 output RegDST;  //Write Destination register location
-output jump;
+output Jump;
 output Branch; //1 when opcode is beq
 output MemRead; //Read from Data memory
 output MemToReg; //Send ALU(0)/Load memory(1) output to register
@@ -287,7 +287,7 @@ assign MemtoReg  = (opcode==`LW);
 assign RegWrite  = (opcode!=`SW) && (opcode!=`BEQ) && (opcode!=`J);  
 assign MemRead   = (opcode==`LW);
 assign MemWrite  = (opcode==`SW) && (opcode !=`J) && (opcode !=`JAL);
-assign jump      = (opcode==`J) || (opcode== `JAL);
+assign Jump      = (opcode==`J) || (opcode== `JAL);
 assign Branch    = (opcode==`BEQ);
 
 always@(*)begin
