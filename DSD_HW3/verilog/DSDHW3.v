@@ -115,7 +115,7 @@ pc pc_0 (.clk               (clk           ),
 
 //Control Unit
 Control_Unit Control_Unit_0( .opcode     (opcode     ),
-                             .RegDest    (RegDest    ),
+                             .RegDST     (RegDST     ),
                              .ALUSrc     (ALUSrc     ),
                              .MemToReg   (MemToReg   ),
                              .RegWrite   (RegWrite   ),
@@ -123,7 +123,7 @@ Control_Unit Control_Unit_0( .opcode     (opcode     ),
                              .MemWrite   (MemWrite   ),
                              .Jump       (Jump       ),
                              .Branch     (branch     ),
-                             .ALU_ctrl   (ALU_Control)
+                             .ALUOp      (ALUOp      )
                             );
 //Register
 Register register_0(.clk      (clk         ),
@@ -337,11 +337,11 @@ assign ReadData2 = (Reg_R2==5'd0) ? 32'd0 : register[Reg_R2];
 
 endmodule
 
-module pc(clk, rst, br_signextend_sl2, Inst_25_0, jump, branch, ALUzero, pc, pc_plus_8);
+module pc(clk, rst, br_signextend_sl2, Inst_25_0, Jump, branch, ALUzero, pc, pc_plus_8);
 input clk, rst;
 input [31:0] br_signextend_sl2;
 input [25:0] Inst_25_0;
-input jump;
+input Jump;
 input branch;
 input ALUzero;
 output [31:0] pc;
@@ -361,7 +361,7 @@ begin
   if (rst==1'b1) begin
     pc_val <= 31'd0;
   end 
-  else if (jump==1'b1) begin
+  else if (Jump==1'b1) begin
     pc_val <= {pc_plus_4[31:28],Inst_25_0,2'b00};
   end 
   else if (branch_EN==1'b1) begin
