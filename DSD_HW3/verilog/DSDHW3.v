@@ -221,7 +221,7 @@ endmodule
 module ALU(ALUresult, ALUzero, ALUin1, ALUin2, ALUctrl);
 input [31:0] ALUin1,ALUin2;
 input [3:0] ALUctrl;
-output reg ALUzero;
+output  ALUzero;
 output reg[31:0] ALUresult;
 
 always@(ALUin1 or ALUin2 or ALUctrl)begin
@@ -234,12 +234,8 @@ case (ALUctrl)
   //default: ALUresult = 0;
 endcase
 end
-if(ALUctrl == 4'b0110 && ALUresult == 0) begin
-ALUzero = 1;
-end
-else begin 
-ALUzero = 0;
-end
+assign ALUzero = (ALUctrl == 4'b0110 && ALUresult == 0) ? 1 : 0;
+
 
 endmodule
 
