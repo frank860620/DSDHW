@@ -68,7 +68,7 @@ wire MemToReg;
 wire RegWrite; 
 wire MemRead;
 wire MemWrite;
-wire jump;
+wire Jump;
 wire branch;
 wire ALUzero;
 wire [3:0]  ALU_Control;
@@ -106,9 +106,9 @@ pc pc_0 (.clk               (clk           ),
           .rst              (rst_n         ), 
           .br_signextend_sl2(br_signext_sl2), 
           .Inst_25_0        (Inst_25_0     ),
-          .jump             (jump          ), 
+          .Jump             (Jump          ), 
           .branch           (branch        ),
-          .ALuzero          (ALuzero       ),
+          .ALUzero          (ALUzero       ),
           .pc               (pc            ),
           .pc_plus_8        (pc_plus_8     )
          );
@@ -117,13 +117,13 @@ pc pc_0 (.clk               (clk           ),
 Control_Unit Control_Unit_0( .opcode     (opcode     ),
                              .RegDest    (RegDest    ),
                              .ALUSrc     (ALUSrc     ),
-                             .MemtoReg   (MemtoReg   ),
+                             .MemToReg   (MemToReg   ),
                              .RegWrite   (RegWrite   ),
                              .MemRead    (MemRead    ),
                              .MemWrite   (MemWrite   ),
-                             .Jump       (jump       ),
+                             .Jump       (Jump       ),
                              .Branch     (branch     ),
-                             .ALU_Control(ALU_Control)
+                             .ALU_ctrl   (ALU_Control)
                             );
 //Register
 Register register_0(.clk      (clk         ),
