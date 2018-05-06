@@ -360,7 +360,8 @@ assign branch_EN = branch & ALUzero;
 assign br_loc = pc_plus_4 + br_signextend_sl2;
 //assign pc = pc_val;
 
-always @ (posedge clk or negedge rst)             
+always @ (posedge clk or negedge rst) 
+$display("rst =%d ",rst);            
 begin
   if (rst==1'b0) begin
     pc_val = 31'd0;
