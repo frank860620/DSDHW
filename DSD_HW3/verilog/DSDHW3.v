@@ -198,6 +198,7 @@ input [1:0] ALUOp;
 input [5:0] ALU_CtrlIn;
 
 always@(ALUOp)begin
+$display("ALUOp =%d",ALUOp);
 if(ALUOp != 2'b10)begin
 case (ALUOp)
   2'b00 : ALUctrl = 4'b0010; //lw,sw
