@@ -337,7 +337,7 @@ always@(RegWrite)begin
 if((RegWrite==1'b1) && (Reg_W!=5'd0)) begin
     register[Reg_W] = WriteData;
 end
-$display("WriteData = %d", WriteData);
+//$display("WriteData = %d", WriteData);
 end
 
 
