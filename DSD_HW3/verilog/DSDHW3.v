@@ -102,7 +102,7 @@ assign shamt       = {27'd0,IR[10:6]};
 
 //==== combinational part =================================
 //PC
-pc pc_0 (.clk               (clk           ),
+pc pc_0 ( .clk              (clk           ),
           .rst              (rst_n         ), 
           .br_signextend_sl2(br_signext_sl2), 
           .Inst_25_0        (Inst_25_0     ),
@@ -180,7 +180,8 @@ mux MUX_MemToReg(.in0(ALU_Result),
                  .sel(MemToReg)
                 );
 
-
+assign IR_addr = pc;
+assign RF_writedata = r_wr_data;
 
 
 
