@@ -367,7 +367,7 @@ register[28]=0;
 register[29]=0;
 register[30]=0;
 register[31]=0;
-$display("register[0]=%d",register[0]);
+$display("register[31]=%d",register[0]);
 end
 
 
