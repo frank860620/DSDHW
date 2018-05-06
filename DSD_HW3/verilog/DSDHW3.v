@@ -97,6 +97,9 @@ assign Inst_20_16  = IR[20:16];
 assign Inst_15_11  = IR[15:11];
 assign Inst_15_0   = IR[15:0];
 assign shamt       = {27'd0,IR[10:6]};
+assign OEN = 0;
+assign WEN = MemWrite;
+assign CEN = 0;
 
 
 
@@ -183,8 +186,8 @@ mux1 MUX_MemToReg(.in0(ALU_Result),
 
 assign IR_addr = pc;
 assign RF_writedata = r_wr_data;
-always@(ReadDataMem)begin
-$display("ReadDataMem=%d",ReadDataMem);
+always@(MemWrite)begin
+$display("WEN =%d",WEN);
 end
 
 
