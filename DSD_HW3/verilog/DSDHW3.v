@@ -449,7 +449,7 @@ input sel;
 output reg[31:0] out;
 
 always @(in0 or in1 or sel)begin
-$display("Sel=%d",sel);
+$display("Sel=%d,in1=%d,in0=%d",sel,in1,in0);
 if (sel==1'b1) begin
    out = in1;
   end 
