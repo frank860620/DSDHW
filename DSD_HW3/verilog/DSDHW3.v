@@ -229,6 +229,7 @@ output  ALUzero;
 output reg[31:0] ALUresult;
 
 always@(ALUin1 or ALUin2 or ALUctrl)begin
+$display("ALUin1=%d, ALUin2=%d",ALUin1,ALUin2);
 case (ALUctrl)
     4'b0010 : ALUresult = ALUin1 + ALUin2;
     4'b0110 : ALUresult = ALUin1 - ALUin2;
