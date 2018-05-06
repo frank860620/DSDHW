@@ -127,6 +127,7 @@ Control_Unit Control_Unit_0( .opcode     (opcode     ),
                             );
 //Register
 Register register_0(.clk      (clk         ),
+                    .rst      (rst_n       ),
                     .RegWrite (RegWrite    ),
                     .Reg_R1   (r_rd_addr1  ),
                     .Reg_R2   (Inst_20_16  ),
