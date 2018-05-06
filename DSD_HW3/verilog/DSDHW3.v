@@ -364,6 +364,8 @@ begin
   if (rst==1'b0) begin
     pc_val = 31'd0;
     $display("Start to reset!! pc_val = %d",pc_val);
+    pc = pc_val;
+    $display("pc = %d",pc);
   end 
   if (Jump==1'b1) begin
     pc_val = {pc_plus_4[31:28],Inst_25_0,2'b00};
@@ -377,10 +379,11 @@ begin
 end
 
 //assign pc = pc_val;
-always@(pc_val)begin
+/*always@(pc_val)begin
 pc = pc_val;
 $display("pc = %d",pc);
 end
+*/
 endmodule
 
 module signextend(in, out);
