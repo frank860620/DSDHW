@@ -332,10 +332,13 @@ reg[31:0] register[1:31];
     register[Reg_W] <= WriteData;
   end
 end*/
+always@(RegWrite)begin
 if((RegWrite==1'b1) && (Reg_W!=5'd0)) begin
     register[Reg_W] = WriteData;
 end
 $display("WriteData = %d", WriteData);
+end
+
 
 assign ReadData1 = (Reg_R1==5'd0) ? 32'd0 : register[Reg_R1];   
 assign ReadData2 = (Reg_R2==5'd0) ? 32'd0 : register[Reg_R2];
