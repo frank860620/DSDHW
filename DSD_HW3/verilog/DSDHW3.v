@@ -183,6 +183,9 @@ mux1 MUX_MemToReg(.in0(ALU_Result),
 
 assign IR_addr = pc;
 assign RF_writedata = r_wr_data;
+always@(ReadDataMem)begin
+$display("ReadDataMem=%d",ReadDataMem);
+end
 
 
 
