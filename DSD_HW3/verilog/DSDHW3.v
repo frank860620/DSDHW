@@ -179,7 +179,7 @@ mux MUX_MemToReg(.in0(ALU_Result),
                  .out(r_wr_data),
                  .sel(MemToReg)
                 );
-$display("r_wr_data = %d", r_wr_data);
+
 assign IR_addr = pc;
 assign RF_writedata = r_wr_data;
 
@@ -327,11 +327,15 @@ output [31:0] ReadData2;
 
 reg[31:0] register[1:31];
 
-always@(posedge clk) begin
+/*always@(posedge clk) begin
   if((RegWrite==1'b1) && (Reg_W!=5'd0)) begin
     register[Reg_W] <= WriteData;
   end
+end*/
+if((RegWrite==1'b1) && (Reg_W!=5'd0)) begin
+    register[Reg_W] = WriteData;
 end
+$display("WriteData = %d", WriteData);
 
 assign ReadData1 = (Reg_R1==5'd0) ? 32'd0 : register[Reg_R1];   
 assign ReadData2 = (Reg_R2==5'd0) ? 32'd0 : register[Reg_R2];
