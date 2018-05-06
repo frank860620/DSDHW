@@ -130,7 +130,7 @@ Register register_0(.clk      (clk         ),
                     .RegWrite (RegWrite    ),
                     .Reg_R1   (r_rd_addr1  ),
                     .Reg_R2   (Inst_20_16  ),
-                    .Reg_W    (r_wr_addr   ),
+                    .Reg_W    (r_wr_addr0   ),
                     .WriteData(r_wr_data   ),
                     .ReadData1(r_rd_data1  ),
                     .ReadData2(r_rd_data2  )
@@ -179,7 +179,7 @@ mux MUX_MemToReg(.in0(ALU_Result),
                  .out(r_wr_data),
                  .sel(MemToReg)
                 );
-
+$display("r_wr_data = %d", r_wr_data)
 assign IR_addr = pc;
 assign RF_writedata = r_wr_data;
 
