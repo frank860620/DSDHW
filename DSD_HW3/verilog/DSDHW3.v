@@ -343,7 +343,7 @@ end
 
 assign ReadData1 = (Reg_R1==5'd0) ? 32'd0 : register[Reg_R1];   
 assign ReadData2 = (Reg_R2==5'd0) ? 32'd0 : register[Reg_R2];
-
+$display()
 endmodule
 
 module pc(clk, rst, br_signextend_sl2, Inst_25_0, Jump, branch, ALUzero, pc, pc_plus_8);
@@ -367,7 +367,7 @@ assign br_loc = pc_plus_4 + br_signextend_sl2;
 
 always @ (*)             
 begin
-  if (rst==1'b1) begin
+  if (rst==1'b0) begin
     pc_val = 31'd0;
     $display("Start to reset!! pc_val = %d",pc_val);
   end 
