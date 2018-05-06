@@ -234,6 +234,7 @@ case (ALUctrl)
     4'b0111 : ALUresult = (ALUin1 < ALUin2) ? 1 : 0;
   //default: ALUresult = 0;
 endcase
+$display("ALUresult =%d",ALUresult);
 end
 assign ALUzero = (ALUctrl == 4'b0110 && ALUresult == 0) ? 1 : 0;
 
@@ -364,27 +365,16 @@ always @ (posedge clk or negedge rst)
 begin 
   if (rst==1'b0) begin
     pc_val = 31'd0;
-    //$display("Start to reset!! pc_val = %d",pc_val);
-    //pc = pc_val;
-    $display("pc = %d",pc);
+    //$display("pc = %d",pc);
   end 
  else if (Jump==1'b1) begin
     pc_val = {pc_plus_4[31:28],Inst_25_0,2'b00};
-    //$display("Start to Jump!! pc_val = %d",pc_val);
-   // pc = pc_val;
-    //$display("pc = %d",pc);
   end 
   else if (branch_EN==1'b1) begin
     pc_val = br_loc;
-    $display("Start to Branch!! pc_val = %d",pc_val);
-    //pc = pc_val;
-    $display("pc = %d",pc);
   end
   else begin
     pc_val = pc_plus_4;
-    $display("4!!pc_val = %d",pc_val);
-    //pc = pc_val;
-    $display("pc = %d",pc);
   end
 end
 
