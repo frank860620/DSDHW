@@ -343,7 +343,7 @@ end
 
 assign ReadData1 = (Reg_R1==5'd0) ? 32'd0 : register[Reg_R1];   
 assign ReadData2 = (Reg_R2==5'd0) ? 32'd0 : register[Reg_R2];
-$display("ReadData1 =%d, ReadData2 =%d", ReadData1,ReadData2);
+//$display("ReadData1 =%d, ReadData2 =%d", ReadData1,ReadData2);
 endmodule
 
 module pc(clk, rst, br_signextend_sl2, Inst_25_0, Jump, branch, ALUzero, pc, pc_plus_8);
