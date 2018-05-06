@@ -369,7 +369,7 @@ $display("rst =%d ",rst);
     pc = pc_val;
     $display("pc = %d",pc);
   end 
-  if (Jump==1'b1) begin
+ else if (Jump==1'b1) begin
     pc_val = {pc_plus_4[31:28],Inst_25_0,2'b00};
     $display("Start to Jump!! pc_val = %d",pc_val);
     pc = pc_val;
