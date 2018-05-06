@@ -367,7 +367,6 @@ register[28]=0;
 register[29]=0;
 register[30]=0;
 register[31]=0;
-$display("register[31]=%d",register[0]);
 end
 
 
@@ -450,6 +449,7 @@ input sel;
 output reg[31:0] out;
 
 always @(in0 or in1 or sel)begin
+$display("Sel=%d",sel);
 if (sel==1'b1) begin
    out = in1;
   end 
