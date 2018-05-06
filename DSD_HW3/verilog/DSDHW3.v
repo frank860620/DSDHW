@@ -174,7 +174,7 @@ mux MUX_Src(.in0(ReadData2        ),
            );
 
 //Multiplexer to select write back to Register from ALU or MEM
-mux MUX_MemToReg(.in0(ALU_Result),
+mux1 MUX_MemToReg(.in0(ALU_Result),
                  .in1(ReadDataMem),
                  .out(r_wr_data),
                  .sel(MemToReg)
@@ -327,18 +327,12 @@ output [31:0] ReadData2;
 
 reg[31:0] register[1:31];
 
-/*always@(posedge clk) begin
+always@(posedge clk) begin
   if((RegWrite==1'b1) && (Reg_W!=5'd0)) begin
     register[Reg_W] <= WriteData;
   end
-end*/
-always@(RegWrite)begin
+end
 
-if((RegWrite==1'b1) && (Reg_W!=5'd0)) begin
-    register[Reg_W] = WriteData;
-end
-//$display("WriteData = %d", WriteData);
-end
 
 
 assign ReadData1 = (Reg_R1==5'd0) ? 32'd0 : register[Reg_R1];   
@@ -398,4 +392,21 @@ always @(*) begin
 end
 
 assign out = ext;
+endmodule
+
+module mux1(out, sel, in0, in1);
+input [31:0] in0, in1;
+input sel;
+output reg[31:0] out;
+
+always @(in0 or in1 or sel)begin
+if (sel==1'b1) begin
+   out = in1;
+  end 
+  else begin 
+   out = in0;
+  end
+$display("ReadDataMem = %d",out);
+end
+
 endmodule
