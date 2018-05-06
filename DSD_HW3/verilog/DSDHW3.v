@@ -361,8 +361,8 @@ assign br_loc = pc_plus_4 + br_signextend_sl2;
 //assign pc = pc_val;
 
 always @ (posedge clk or negedge rst) 
-$display("rst =%d ",rst);            
 begin
+$display("rst =%d ",rst);  
   if (rst==1'b0) begin
     pc_val = 31'd0;
     $display("Start to reset!! pc_val = %d",pc_val);
