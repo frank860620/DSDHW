@@ -382,7 +382,7 @@ begin
   end
   else begin
     pc_val = pc_plus_4;
-    $display("pc_val = %d",pc_val);
+    $display("4!!pc_val = %d",pc_val);
     pc = pc_val;
     $display("pc = %d",pc);
   end
