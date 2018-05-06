@@ -358,23 +358,30 @@ assign pc_plus_4 = pc_val + 32'd4;
 assign pc_plus_8 = pc_val + 32'd8;
 assign branch_EN = branch & ALUzero;
 assign br_loc = pc_plus_4 + br_signextend_sl2;
-assign pc = pc_val;
+//assign pc = pc_val;
 
 always @ (posedge clk or negedge rst)             
 begin
   if (rst==1'b0) begin
     pc_val = 31'd0;
     $display("Start to reset!! pc_val = %d",pc_val);
+    pc = pc_val;
     $display("pc = %d",pc);
   end 
   if (Jump==1'b1) begin
     pc_val = {pc_plus_4[31:28],Inst_25_0,2'b00};
+    pc = pc_val;
+    $display("pc = %d",pc);
   end 
   else if (branch_EN==1'b1) begin
     pc_val = br_loc;
+    pc = pc_val;
+    $display("pc = %d",pc);
   end
   else begin
     pc_val = pc_plus_4;
+    pc = pc_val;
+    $display("pc = %d",pc);
   end
 end
 
