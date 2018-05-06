@@ -179,7 +179,7 @@ mux MUX_MemToReg(.in0(ALU_Result),
                  .out(r_wr_data),
                  .sel(MemToReg)
                 );
-$display("r_wr_data = %d", r_wr_data)
+$display("r_wr_data = %d", r_wr_data);
 assign IR_addr = pc;
 assign RF_writedata = r_wr_data;
 
