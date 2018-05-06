@@ -347,7 +347,7 @@ input [25:0] Inst_25_0;
 input Jump;
 input branch;
 input ALUzero;
-output [31:0] pc;
+output reg[31:0] pc;
 output [31:0] pc_plus_8;
 
 reg  [31:0] pc_val;
