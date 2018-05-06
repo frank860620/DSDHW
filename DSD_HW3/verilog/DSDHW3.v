@@ -205,6 +205,7 @@ case (ALUOp)
   2'b01 : ALUctrl = 4'b0110; //beq
     default: ALUctrl = 4'b1111;
 endcase
+$display("ALUctrl =%d",ALUctrl);
 end
 else begin
 case(ALU_CtrlIn)
@@ -215,6 +216,7 @@ case(ALU_CtrlIn)
     6'b101010 : ALUctrl = 4'b0111; //slt
     default: ALUctrl = 4'b1111;
 endcase
+$display("ALUctrl =%d",ALUctrl);
 end
 end
 endmodule
