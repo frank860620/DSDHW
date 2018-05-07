@@ -477,7 +477,7 @@ input Jump;
 input branch;
 input ALUzero;
 input _JR;
-input[4:0] r_rd_data1;
+input[31:0] r_rd_data1;
 output [31:0] pc;
 output [31:0] pc_plus_4;
 
