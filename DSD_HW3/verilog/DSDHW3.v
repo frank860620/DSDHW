@@ -211,7 +211,9 @@ $display("opcode=%b",opcode);
 //$display("Done!!");
 //$display("r_rd_data1=%d",r_rd_data1);
 end
-
+always@(Jump)begin
+$display("Jump!! %d",Jump);
+end
 /*always@(A)begin
 $display("A=%d",A);
 $display("WEN=%d",WEN);
