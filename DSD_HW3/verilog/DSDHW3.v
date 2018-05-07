@@ -232,7 +232,7 @@ output reg[3:0] ALUctrl;
 input [1:0] ALUOp;  
 input [5:0] ALU_CtrlIn;
 
-always@(ALUOp)begin
+always@(ALUOp or ALU_CtrlIn)begin
 $display("ALUOp =%d",ALUOp);
 if(ALUOp != 2'b10)begin
 case (ALUOp)
