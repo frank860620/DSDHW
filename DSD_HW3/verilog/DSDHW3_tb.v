@@ -250,7 +250,6 @@ module ROM128x32 (
 		//begin
 		//	$display("mem[%d] = %h", i, mem[i]);
 		//end
-		$display("mem[4]=%d",mem[4]);
 	end	
 	
 	always @(addr)begin 

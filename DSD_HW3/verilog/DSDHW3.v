@@ -48,7 +48,7 @@ module SingleCycle_MIPS(
     input  [31:0] ReadDataMem;  // read_data from memory
     output        CEN;  // chip_enable, 0 when you read/write data from/to memory
     output        WEN;  // write_enable, 0 when you write data into SRAM & 1 when you read data from SRAM
-    output [6:0] A;  // address
+    output [8:2] A;  // address
     output [31:0] ReadData2;  // write_data to memory
     output        OEN;  // output_enable, 0
 
