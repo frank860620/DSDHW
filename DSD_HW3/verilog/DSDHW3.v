@@ -191,16 +191,11 @@ always@(MemWrite)begin
 $display("WEN =%d",WEN);
 end
 always@(IR)begin
-$display("pc=%b",pc);
-//IR_addr = pc;
 Inst_25_0   = IR[25:0];
 Inst_25_21  = IR[25:21];
 Inst_20_16  = IR[20:16];
 Inst_15_11  = IR[15:11];
 Inst_15_0   = IR[15:0];
-$display("IR_addr=%b",IR_addr);
-$display("IR=%h",IR);
-$display("Inst_25_21=%b",Inst_25_21);
 end
 
 
@@ -399,7 +394,10 @@ end
 
 assign ReadData1 = (Reg_R1==5'd0) ? 32'd0 : register[Reg_R1];   
 assign ReadData2 = (Reg_R2==5'd0) ? 32'd0 : register[Reg_R2];
-//$display("ReadData1 =%d, ReadData2 =%d", ReadData1,ReadData2);
+always@(ReadData1)begin
+$display("ReadData1 =%d, ReadData2 =%d", ReadData1,ReadData2);
+end
+
 endmodule
 
 module pc(clk, rst, br_signextend_sl2, Inst_25_0, Jump, branch, ALUzero, pc, pc_plus_8);
