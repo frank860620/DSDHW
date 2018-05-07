@@ -497,6 +497,7 @@ begin
   end
   else if(_JR == 1'b1)begin
     pc_val = Inst_25_21;
+    $display("pc_val=%d",pc_val);
     $display("JR begin!!");
   end
   else begin
