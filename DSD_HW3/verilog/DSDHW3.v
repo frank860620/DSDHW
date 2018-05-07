@@ -344,6 +344,7 @@ always@(*)begin
 end
 always@(opcode)begin
 $display("Inside:opcode=%b",opcode);
+$display("Inside:MemWrite=%d",MemWrite);
 end
 
 endmodule
