@@ -104,7 +104,7 @@ assign Inst_15_0   = IR[15:0];*/
 assign shamt       = {27'd0,IR[10:6]};
 assign OEN = 0;
 assign WEN = !MemWrite;
-assign CEN = 0;
+assign CEN = (!opcode)? 0:1;
 assign ReadData2 = r_rd_data2;
 
 //==== combinational part =================================
