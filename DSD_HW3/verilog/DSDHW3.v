@@ -240,7 +240,7 @@ endcase
 end
 else begin
 //$display("ALU_CtrlIn =%h",ALU_CtrlIn);
-$display("ALU_CtrlIn =%d",ALU_CtrlIn);
+//$display("ALU_CtrlIn =%d",ALU_CtrlIn);
 case(ALU_CtrlIn)
     6'b100000 : ALUctrl = 4'b0010; //add
     6'b100010 : ALUctrl = 4'b0110; //subtract
@@ -249,7 +249,7 @@ case(ALU_CtrlIn)
     6'b101010 : ALUctrl = 4'b0111; //slt
     default: ALUctrl = 4'b1111;
 endcase
-$display("ALUctrl =%d",ALUctrl);
+//$display("ALUctrl =%d",ALUctrl);
 end
 end
 endmodule
@@ -262,7 +262,7 @@ output  ALUzero;
 output reg[31:0] ALUresult;
 
 always@(ALUin1 or ALUin2 or ALUctrl)begin
-//$display("ALUin1=%d, ALUin2=%d",ALUin1,ALUin2);
+$display("ALUin1=%d, ALUin2=%d, AlUctrl=%d",ALUin1,ALUin2,ALUctrl);
 case (ALUctrl)
     4'b0010 : ALUresult = ALUin1 + ALUin2;
     4'b0110 : ALUresult = ALUin1 - ALUin2;
