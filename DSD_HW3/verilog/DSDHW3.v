@@ -48,7 +48,7 @@ module SingleCycle_MIPS(
     input  [31:0] ReadDataMem;  // read_data from memory
     output        CEN;  // chip_enable, 0 when you read/write data from/to memory
     output        WEN;  // write_enable, 0 when you write data into SRAM & 1 when you read data from SRAM
-    output  [6:0] A;  // address
+    output reg[6:0] A;  // address
     output [31:0] ReadData2;  // write_data to memory
     output        OEN;  // output_enable, 0
 
@@ -100,7 +100,7 @@ assign shamt       = {27'd0,IR[10:6]};
 assign OEN = 0;
 assign WEN = MemWrite;
 assign CEN = 0;
-assign A = pc[6:0];
+//assign A = pc[6:0];
 assign ReadData2 = r_rd_data2;
 
 //==== combinational part =================================
@@ -192,6 +192,7 @@ $display("WEN =%d",WEN);
 end
 always@(pc)begin
 $display("pc=%b",pc);
+A =pc;
 $display("A=%d",A);
 end
 
