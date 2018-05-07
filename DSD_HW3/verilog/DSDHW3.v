@@ -43,8 +43,7 @@ module SingleCycle_MIPS(
     //-------- processor ----------------------------------
     input         clk, rst_n;
     input  [31:0] IR;
-    output reg[31:0] IR_addr; 
-    output [31:0]RF_writedata;
+    output [31:0] IR_addr ,RF_writedata;
     //-------- data memory --------------------------------
     input  [31:0] ReadDataMem;  // read_data from memory
     output        CEN;  // chip_enable, 0 when you read/write data from/to memory
@@ -101,7 +100,6 @@ assign shamt       = {27'd0,IR[10:6]};
 assign OEN = 0;
 assign WEN = MemWrite;
 assign CEN = 0;
-//assign A = pc[6:0];
 assign ReadData2 = r_rd_data2;
 
 //==== combinational part =================================
@@ -186,14 +184,14 @@ mux1 MUX_MemToReg(.in0(ALU_Result),
                 );
 
 
-//assign IR_addr = pc;
+assign IR_addr = pc;
 assign RF_writedata = r_wr_data;
 always@(MemWrite)begin
 $display("WEN =%d",WEN);
 end
 always@(pc)begin
 $display("pc=%b",pc);
-IR_addr = pc;
+//IR_addr = pc;
 $display("IR_addr=%b",IR_addr);
 $display("IR=%b",IR);
 $display("Inst_25_21=%b",Inst_25_21);
