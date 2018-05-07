@@ -450,7 +450,9 @@ always@(posedge clk) begin
     $display("Start to write!!,WriteData =%d",WriteData);
   end
 end
-
+always@(register[31])begin
+$display("register[31]=%d",register[31]);
+end
 
 
 assign ReadData1 = (Reg_R1==5'd0) ? 32'd0 : register[Reg_R1];   
