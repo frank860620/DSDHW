@@ -490,6 +490,7 @@ begin
   end 
  else if (Jump==1'b1) begin
     pc_val = {pc_plus_4[31:28],Inst_25_0,2'b00};
+    $display("pc_val=%d",pc_val);
   end 
   else if (branch_EN==1'b1) begin
     pc_val = br_loc;
@@ -502,10 +503,10 @@ begin
     pc_val = pc_plus_4;
   end
 end
-always@(pc_val)begin
-$display("pc_val=%d",pc_val);
-$display("pc=%d",pc);
-end
+//always@(pc_val)begin
+//$display("pc_val=%d",pc_val);
+//$display("pc=%d",pc);
+//end
 
 //assign pc = pc_val;
 //always@(pc_val)begin
