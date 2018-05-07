@@ -65,7 +65,7 @@ wire [4:0] Inst_15_11;
 wire [15:0] Inst_15_0;*/
 wire [31:0] shamt; 
 wire [31:0] pc; 
-wire [5:0] opcode;
+reg [5:0] opcode;
 reg [5:0] funct;
 wire RegDST;
 wire ALUSrc;
