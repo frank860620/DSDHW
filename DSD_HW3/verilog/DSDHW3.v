@@ -192,9 +192,6 @@ mux2 MUX_MemToReg(.in0(ALU_Result),
 assign IR_addr = pc;
 assign RF_writedata = r_wr_data;
 assign A = ALU_Result[6:0];
-always@(MemWrite)begin
-$display("WEN =%d",WEN);
-end
 always@(Inst_25_21)begin
 $display("IR=%h",IR);
 $display("Inst_25_21=%d",Inst_25_21);
@@ -209,6 +206,7 @@ Inst_15_0   = IR[15:0];
 end*/
 always@(A)begin
 $display("A=%d",A);
+$display("WEN=%d",WEN);
 end
 always@(MemRead)begin
 $display("Start to read from datamemory!!",MemRead);
