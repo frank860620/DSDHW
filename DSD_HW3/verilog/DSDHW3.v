@@ -120,7 +120,7 @@ pc pc_0 ( .clk              (clk           ),
           .pc               (pc            ),
           .pc_plus_4        (pc_plus_4     ),
           ._JR              (_JR           ),
-          .jump_reg         (r_rd_data1    )
+          .r_rd_data1         (r_rd_data1    )
          );
 
 //Control Unit
@@ -469,7 +469,7 @@ end
 
 endmodule
 
-module pc(clk, rst, br_signextend_sl2, Inst_25_0, Jump, branch, ALUzero, pc, pc_plus_4,_JR,jump_reg);
+module pc(clk, rst, br_signextend_sl2, Inst_25_0, Jump, branch, ALUzero, pc, pc_plus_4,_JR,r_rd_data1);
 input clk, rst;
 input [31:0] br_signextend_sl2;
 input [25:0] Inst_25_0;
@@ -477,7 +477,7 @@ input Jump;
 input branch;
 input ALUzero;
 input _JR;
-input[4:0] jump_reg;
+input[4:0] r_rd_data1;
 output [31:0] pc;
 output [31:0] pc_plus_4;
 
@@ -494,7 +494,7 @@ assign Inst_25_21 = Inst_25_0[25:21];
 
 always @ (posedge clk or negedge rst) 
 begin 
-$display("jump_reg =%d",jump_reg);
+$display("r_rd_data1 =%d",r_rd_data1);
   if (rst==1'b0) begin
     pc_val = 31'd0;
     //$display("pc = %d",pc);
@@ -507,7 +507,7 @@ $display("jump_reg =%d",jump_reg);
     pc_val = br_loc;
   end
   else if(_JR == 1'b1)begin
-    pc_val = jump_reg;
+    pc_val = r_rd_data1;
     $display("JR begin!!");
     $display("pc_val=%d",pc_val);
   end
