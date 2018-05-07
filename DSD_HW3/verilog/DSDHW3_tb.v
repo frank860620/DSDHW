@@ -247,10 +247,10 @@ module ROM128x32 (
 		$readmemh ("instructions.txt", mem);
 		$display("Reading instruction memory......");
 		//
-		//for ( i=0; i<19; i=i+1 )
-		//begin
-		//	$display("mem[%d] = %h", i, mem[i]);
-		//end
+		for ( i=0; i<19; i=i+1 )
+		begin
+			$display("mem[%d] = %h", i, mem[i]);
+		end
 	end	
 	
 	always @(addr) data = mem[addr];
