@@ -207,10 +207,9 @@ end*/
 always@(A)begin
 $display("A=%d",A);
 $display("WEN=%d",WEN);
-end
-always@(MemRead)begin
 $display("Start to read from datamemory!!",MemRead);
 end
+
 //==== sequential part ====================================
 
 
