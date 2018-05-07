@@ -87,9 +87,9 @@ wire [4:0]  r_wr_addr0;
 wire [31:0] r_wr_data;
 wire [31:0] r_rd_data1;
 wire [31:0] r_rd_data2;
-wire [31:0] mem_alu_data_out;
+wire [31:0] r_wr_data0;
 wire [31:0] pc_plus_8;        //PC + 8 to be written to GPR[31] on JAL
-wire isJAL;    //Set when Instruction is JAL
+wire _JAL;    //Set when Instruction is JAL
 wire isSLL_SRL;//Set when Instruction is SLL or SRL
 wire [31:0] Inst_15_0_signext; 
 wire [31:0] br_signext_sl2;
@@ -130,7 +130,8 @@ Control_Unit Control_Unit_0( .opcode     (opcode     ),
                              .MemWrite   (MemWrite   ),
                              .Jump       (Jump       ),
                              .Branch     (branch     ),
-                             .ALUOp      (ALUOp      )
+                             .ALUOp      (ALUOp      ),
+                             ._JAL        (_JAL       ),
                             );
 //Register
 Register register_0(.clk      (clk         ),
@@ -138,23 +139,23 @@ Register register_0(.clk      (clk         ),
                     .RegWrite (RegWrite    ),
                     .Reg_R1   (Inst_25_21  ),
                     .Reg_R2   (Inst_20_16  ),
-                    .Reg_W    (r_wr_addr0  ),
+                    .Reg_W    (r_wr_addr  ),
                     .WriteData(r_wr_data   ),
                     .ReadData1(r_rd_data1  ),
                     .ReadData2(r_rd_data2  )
                     );
 //ALU_Control
 ALUControl ALUControl_0(.ALUctrl    (ALU_Control),
-	                    .ALUOp      (ALUOp      ),
-	                    .ALU_CtrlIn (func       )
+	                      .ALUOp      (ALUOp      ),
+	                      .ALU_CtrlIn (func       )
                         );
 
 //ALU
 ALU ALU_0(.ALUin1    (r_rd_data1  ),
-	      .ALUin2    (ALU_datain2 ),
-	      .ALUctrl   (ALU_Control ),
-	      .ALUresult (ALU_Result  ),
-	      .ALUzero   (ALUzero     )
+	        .ALUin2    (ALU_datain2 ),
+	        .ALUctrl   (ALU_Control ),
+	        .ALUresult (ALU_Result  ),
+	        .ALUzero   (ALUzero     )
          );
 
 //Sign_extend
@@ -173,6 +174,12 @@ mux MUX_RegDST(.in0(Inst_20_16),
                .out(r_wr_addr0),
                .sel(RegDST    )
               );
+mux MUX_RegDST_1(.in0(r_wr_addr0),
+                 .in1(5'd31     ),
+                 .out(r_wr_addr ),
+                 .sel(_JAL      )
+                );
+
 
 //ALU operand source Mux
 mux MUX_Src(.in0(r_rd_data2       ),
@@ -182,11 +189,17 @@ mux MUX_Src(.in0(r_rd_data2       ),
            );
 
 //Multiplexer to select write back to Register from ALU or MEM
-mux MUX_MemToReg(.in0(ALU_Result),
+mux MUX_MemToReg(.in0(ALU_Result ),
                  .in1(ReadDataMem),
-                 .out(r_wr_data),
-                 .sel(MemToReg)
+                 .out(r_wr_data0 ),
+                 .sel(MemToReg   )
                 );
+//Multiplexer selects this data and JAL address(PC+8)
+mux MUX_MemToReg_1(.in0(r_wr_data0),
+                   .in1(pc_plus_8 ),
+                   .out(r_wr_data ),
+                   .sel(_JAL      ),
+                  );
 
 
 assign IR_addr = pc;
@@ -303,7 +316,7 @@ end
 endmodule
 
 //Control Unit
-module Control_Unit(opcode, RegDST, Jump, Branch, MemRead, MemToReg, ALUOp, MemWrite, ALUSrc, RegWrite);
+module Control_Unit(opcode, RegDST, Jump, Branch, MemRead, MemToReg, ALUOp, MemWrite, ALUSrc, RegWrite,_JAL);
 input[5:0] opcode;
 output RegDST;  //Write Destination register location
 output Jump;
@@ -313,7 +326,8 @@ output MemToReg; //Send ALU(0)/Load memory(1) output to register
 output reg[1:0] ALUOp; //Defines the ALU operation
 output MemWrite; //Write to Data Memory
 output ALUSrc; //2nd input to ALU; ALUSrc=0-> Read data 2; ALUSrc=1->Immediate 
-output RegWrite; 
+output RegWrite;
+output _JAL; 
 
 `define ADD  6'b100000
 `define SUB  6'b100010
@@ -336,7 +350,7 @@ assign MemRead   = (opcode==`LW);
 assign MemWrite  = (opcode==`SW) && (opcode !=`J) && (opcode !=`JAL);
 assign Jump      = (opcode==`J) || (opcode== `JAL);
 assign Branch    = (opcode==`BEQ);
-
+assign _JAL      = (opcode==`JAL);
 
 always@(*)begin
     if(opcode == 6'b0) ALUOp = 2'b10;
@@ -345,10 +359,7 @@ always@(*)begin
         else ALUOp = 2'b01;
     end
 end
-always@(opcode)begin
-//$display("Inside:opcode=%b",opcode);
-//$display("Inside:MemWrite=%d",MemWrite);
-end
+
 
 endmodule
 
