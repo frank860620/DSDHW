@@ -256,6 +256,7 @@ module ROM128x32 (
 	always @(addr)begin 
 	$display("addr=%d",addr);
 	data = mem[addr];
+	$display("data=%h",data);
 	end
 endmodule
 
