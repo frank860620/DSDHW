@@ -245,7 +245,7 @@ module ROM128x32 (
 	initial begin
 		// Initialize the instruction memory
 		$readmemh ("instructions.txt", mem);
-		//$display("Reading instruction memory......");
+		$display("Reading instruction memory......");
 		//
 		//for ( i=0; i<19; i=i+1 )
 		//begin
