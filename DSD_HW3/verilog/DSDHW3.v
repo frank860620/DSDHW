@@ -417,7 +417,7 @@ end
 assign ReadData1 = (Reg_R1==5'd0) ? 32'd0 : register[Reg_R1];   
 assign ReadData2 = (Reg_R2==5'd0) ? 32'd0 : register[Reg_R2];
 always@(*)begin
-//$display("Reg_R1=%b",Reg_R1);
+$display("Reg_R1=%b",Reg_R1);
 //$display("ReadData1 =%d, ReadData2 =%d", ReadData1,ReadData2);
 end
 
@@ -461,10 +461,10 @@ begin
 end
 
 //assign pc = pc_val;
-always@(pc_val)begin
+//always@(pc_val)begin
 //pc = pc_val;
-$display("Inside:pc = %d",pc);
-end
+//$display("Inside:pc = %d",pc);
+//end
 
 endmodule
 
