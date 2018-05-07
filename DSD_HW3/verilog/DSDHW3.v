@@ -193,7 +193,7 @@ always@(pc)begin
 $display("pc=%b",pc);
 //IR_addr = pc;
 $display("IR_addr=%b",IR_addr);
-$display("IR=%b",IR);
+$display("IR=%h",IR);
 $display("Inst_25_21=%b",Inst_25_21);
 end
 
