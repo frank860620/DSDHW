@@ -146,7 +146,7 @@ Register register_0(.clk      (clk         ),
 //ALU_Control
 ALUControl ALUControl_0(.ALUctrl    (ALU_Control),
 	                    .ALUOp      (ALUOp      ),
-	                    .ALU_CtrlIn (IR[5:0]       )
+	                    .ALU_CtrlIn (func       )
                         );
 
 //ALU
@@ -203,6 +203,9 @@ Inst_15_0   = IR[15:0];
 $display("pc=%d",pc);
 $display("IR=%h",IR);
 $display("Inst_25_21=%d",Inst_25_21);
+end
+always@(func)begin
+$display("func=%d",func);
 end
 
 /*always@(A)begin
