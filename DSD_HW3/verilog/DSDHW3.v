@@ -275,7 +275,7 @@ case (ALUctrl)
     4'b0111 : ALUresult = (ALUin1 < ALUin2) ? 1 : 0;
   default: ALUresult = 0;
 endcase
-//$display("ALUresult =%d",ALUresult);
+$display("ALUresult =%d",ALUresult);
 end
 assign ALUzero = (ALUctrl == 4'b0110 && ALUresult == 0) ? 1 : 0;
 
