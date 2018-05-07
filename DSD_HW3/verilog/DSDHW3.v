@@ -269,7 +269,7 @@ case (ALUctrl)
     4'b0000 : ALUresult = ALUin1 & ALUin2;
     4'b0001 : ALUresult = ALUin1 | ALUin2;
     4'b0111 : ALUresult = (ALUin1 < ALUin2) ? 1 : 0;
-  //default: ALUresult = 0;
+  default: ALUresult = 0;
 endcase
 //$display("ALUresult =%d",ALUresult);
 end
