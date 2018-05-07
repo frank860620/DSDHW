@@ -209,7 +209,9 @@ $display("A=%d",A);
 $display("WEN=%d",WEN);
 $display("Start to read from datamemory!!",MemRead);
 end
-
+always(*)begin
+  $display("RF_writedata=%d",RF_writedata);
+end
 //==== sequential part ====================================
 
 
