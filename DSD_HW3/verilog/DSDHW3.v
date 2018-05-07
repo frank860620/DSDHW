@@ -170,14 +170,14 @@ mux MUX_RegDST(.in0(Inst_20_16),
               );
 
 //ALU operand source Mux
-mux MUX_Src(.in0(r_rd_data2       ),
+mux1 MUX_Src(.in0(r_rd_data2       ),
             .in1(Inst_15_0_signext),
             .out(ALU_datain2      ),
             .sel(ALUSrc           )
            );
 
 //Multiplexer to select write back to Register from ALU or MEM
-mux1 MUX_MemToReg(.in0(ALU_Result),
+mux MUX_MemToReg(.in0(ALU_Result),
                  .in1(ReadDataMem),
                  .out(r_wr_data),
                  .sel(MemToReg)
@@ -466,14 +466,14 @@ input sel;
 output reg[31:0] out;
 
 always @(in0 or in1 or sel)begin
-$display("Sel=%d,in1=%d,in0=%d",sel,in1,in0);
+$display("Sel=%d,Inst_15_0_signext=%b,r_rd_data2=%b",sel,in1,in0);
 if (sel==1'b1) begin
    out = in1;
   end 
   else begin 
    out = in0;
   end
-$display("ReadDataMem = %d",out);
+$display("ALU_datain2 = %b",out);
 end
 
 endmodule
