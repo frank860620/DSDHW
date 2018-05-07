@@ -53,11 +53,16 @@ module SingleCycle_MIPS(
     output        OEN;  // output_enable, 0
 
 //==== reg/wire declaration ===============================
-reg [25:0] Inst_25_0;
+/*reg [25:0] Inst_25_0;
 reg [4:0] Inst_25_21;
 reg [4:0] Inst_20_16;
 reg [4:0] Inst_15_11;
-reg [15:0] Inst_15_0;
+reg [15:0] Inst_15_0;*/
+wire [25:0] Inst_25_0;
+wire [4:0] Inst_25_21;
+wire [4:0] Inst_20_16;
+wire [4:0] Inst_15_11;
+wire [15:0] Inst_15_0;
 wire [31:0] shamt; 
 wire [31:0] pc; 
 wire [5:0] opcode;
@@ -91,11 +96,11 @@ wire [31:0] br_signext_sl2;
 
 assign opcode = IR[31:26];
 assign funct  = IR[5:0];
-//assign Inst_25_0   = IR[25:0];
-//assign Inst_25_21  = IR[25:21];
-//assign Inst_20_16  = IR[20:16];
-//assign Inst_15_11  = IR[15:11];
-//assign Inst_15_0   = IR[15:0];
+assign Inst_25_0   = IR[25:0];
+assign Inst_25_21  = IR[25:21];
+assign Inst_20_16  = IR[20:16];
+assign Inst_15_11  = IR[15:11];
+assign Inst_15_0   = IR[15:0];
 assign shamt       = {27'd0,IR[10:6]};
 assign OEN = 0;
 assign WEN = MemWrite;
@@ -190,13 +195,14 @@ assign A = ALU_Result[6:0];
 always@(MemWrite)begin
 $display("WEN =%d",WEN);
 end
+/*
 always@(IR)begin
 Inst_25_0   = IR[25:0];
 Inst_25_21  = IR[25:21];
 Inst_20_16  = IR[20:16];
 Inst_15_11  = IR[15:11];
 Inst_15_0   = IR[15:0];
-end
+end*/
 always@(A)begin
 $display("A=%d",A);
 end
