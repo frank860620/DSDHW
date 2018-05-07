@@ -64,8 +64,6 @@ module SingleCycle_tb;
 		//begin
 		//	$display("data_mem[%d] = %h", i, i_MIPS.Data_memory.mem[i]);
 		//end
-		$display("Data_memory[4]=%d",Data_memory.mem[0]);
-		$display("Data_memory[4]=%d",Data_memory.mem[1]);
 		$dumpfile("SingleCycleRTL.vcd");
 		$dumpvars;
 		//$fsdbDumpfile("SingleCycleRTL.fsdb");			
@@ -252,6 +250,7 @@ module ROM128x32 (
 		//begin
 		//	$display("mem[%d] = %h", i, mem[i]);
 		//end
+		$display("mem[4]=%d",mem[4]);
 	end	
 	
 	always @(addr)begin 
