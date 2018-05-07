@@ -199,6 +199,7 @@ Inst_15_0   = IR[15:0];
 end
 always@(A)begin
 $display("A=%d",A);
+end
 //==== sequential part ====================================
 
 
