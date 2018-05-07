@@ -242,8 +242,10 @@ always@(*)begin
   $display("IR=%h",IR);
   $display("RF_writedata=%d",RF_writedata);
   $display("r_wr_addr=%d",r_wr_addr);
-  $display("_JAL=%d",_JAL);
-  $display("pc_plus_4=%d",pc_plus_4);
+  //$display("_JAL=%d",_JAL);
+  //$display("pc_plus_4=%d",pc_plus_4);
+  $display("_JR=%d",_JR);
+  $display("r_rd_data1=%d",r_rd_data1);
 end
 //==== sequential part ====================================
 
@@ -476,7 +478,7 @@ input branch;
 input ALUzero;
 input _JR;
 input[4:0] jump_reg;
-output reg[31:0] pc;
+output [31:0] pc;
 output [31:0] pc_plus_4;
 
 reg  [31:0] pc_val;
@@ -487,7 +489,7 @@ assign pc_plus_4 = pc_val + 32'd4;
 assign pc_plus_8 = pc_val + 32'd8;
 assign branch_EN = branch & ALUzero;
 assign br_loc = pc_plus_4 + br_signextend_sl2;
-//assign pc = pc_val;
+assign pc = pc_val;
 assign Inst_25_21 = Inst_25_0[25:21];
 
 always @ (posedge clk or negedge rst) 
@@ -495,26 +497,22 @@ begin
 $display("jump_reg =%d",jump_reg);
   if (rst==1'b0) begin
     pc_val = 31'd0;
-    pc = pc_val;
     //$display("pc = %d",pc);
   end 
  else if (Jump==1'b1) begin
     pc_val = {pc_plus_4[31:28],Inst_25_0,2'b00};
-    pc = pc_val;
     //$display("pc_val=%d",pc_val);
   end 
   else if (branch_EN==1'b1) begin
     pc_val = br_loc;
-    pc = pc_val;
   end
   else if(_JR == 1'b1)begin
-    pc = jump_reg;
+    pc_val = jump_reg;
     //$display("JR begin!!");
     //$display("pc_val=%d",pc_val);
   end
   else begin
     pc_val = pc_plus_4;
-    pc = pc_val;
   end
 end
 //always@(pc_val)begin
