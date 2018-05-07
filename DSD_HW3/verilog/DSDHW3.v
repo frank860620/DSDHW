@@ -358,7 +358,7 @@ assign Jump      = (opcode==`J) || (opcode== `JAL);
 assign Branch    = (opcode==`BEQ);
 assign _JAL      = (opcode==`JAL);
 assign _JR       = (opcode==6'b0) && (func==`JR);
-always@(opcode or func)begin
+always@(_JAL or _JR)begin
 $display("opcode = %b",opcode);
 $display("func =%b",func);
 $display("JAL!!! %d",_JAL);
