@@ -240,6 +240,7 @@ end*/
 always@(*)begin
   $display("IR_addr =%d",IR_addr);
   $display("RF_writedata=%d",RF_writedata);
+  $display("r_wr_addr=%d",r_wr_addr);
 end
 //==== sequential part ====================================
 
