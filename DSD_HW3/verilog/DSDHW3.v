@@ -192,7 +192,7 @@ mux MUX_MemToReg(.in0(ALU_Result),
 assign IR_addr = pc;
 assign RF_writedata = r_wr_data;
 assign A = ALU_Result[6:0];
-always@(Inst_25_21)begin
+always@(IR)begin
 $display("IR=%h",IR);
 $display("Inst_25_21=%d",Inst_25_21);
 end
