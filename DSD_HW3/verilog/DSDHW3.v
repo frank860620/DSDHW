@@ -349,13 +349,13 @@ output _JAL;
 assign RegDST    = (opcode==6'b0);
 assign ALUSrc    = (opcode!=6'b0) && (opcode!=`BEQ);
 assign MemToReg  = (opcode==`LW);
-assign RegWrite  = (opcode!=`SW) && (opcode!=`BEQ) && (opcode!=`J)&&(!((opcode==6'b0) &&  (funct==`JR)));  
+assign RegWrite  = (opcode!=`SW) && (opcode!=`BEQ) && (opcode!=`J)&&(!((opcode==6'b0) &&  (func==`JR)));  
 assign MemRead   = (opcode==`LW);
 assign MemWrite  = (opcode==`SW) && (opcode !=`J) && (opcode !=`JAL);
 assign Jump      = (opcode==`J) || (opcode== `JAL);
 assign Branch    = (opcode==`BEQ);
 assign _JAL      = (opcode==`JAL);
-assign _JR       = (opcode==6'b0) && (funct==`JR);
+assign _JR       = (opcode==6'b0) && (func==`JR);
 
 always@(*)begin
     if(opcode == 6'b0) ALUOp = 2'b10;
