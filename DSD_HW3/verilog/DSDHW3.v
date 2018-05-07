@@ -243,6 +243,7 @@ always@(*)begin
   $display("RF_writedata=%d",RF_writedata);
   $display("r_wr_addr=%d",r_wr_addr);
   $display("_JAL=%d",_JAL);
+  $display("pc_plus_8=%d",pc_plus_8);
 end
 //==== sequential part ====================================
 
