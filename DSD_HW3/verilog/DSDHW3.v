@@ -190,7 +190,9 @@ assign RF_writedata = r_wr_data;
 always@(MemWrite)begin
 $display("WEN =%d",WEN);
 end
-
+always@(pc)begin
+$display("A=%d",A);
+end
 
 
 //==== sequential part ====================================
