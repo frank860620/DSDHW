@@ -461,7 +461,6 @@ input Jump;
 input branch;
 input ALUzero;
 input _JR;
-input [4:0]
 output [31:0] pc;
 output [31:0] pc_plus_8;
 
