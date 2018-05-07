@@ -191,6 +191,7 @@ always@(MemWrite)begin
 $display("WEN =%d",WEN);
 end
 always@(pc)begin
+$display("pc=%d",pc);
 $display("A=%d",A);
 end
 
