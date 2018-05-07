@@ -207,8 +207,8 @@ end
 always@(*)begin
 $display("func=%b",func);
 $display("opcode=%b",opcode);
-$display("CEN=%d",CEN);
-$display("Done!!");
+//$display("CEN=%d",CEN);
+//$display("Done!!");
 //$display("r_rd_data1=%d",r_rd_data1);
 end
 
@@ -344,8 +344,8 @@ always@(*)begin
     end
 end
 always@(opcode)begin
-$display("Inside:opcode=%b",opcode);
-$display("Inside:MemWrite=%d",MemWrite);
+//$display("Inside:opcode=%b",opcode);
+//$display("Inside:MemWrite=%d",MemWrite);
 end
 
 endmodule
