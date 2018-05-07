@@ -207,6 +207,7 @@ end
 always@(*)begin
 $display("func=%b",func);
 $display("opcode=%b",opcode);
+$display("r_rd_data1=%d",r_rd_data1);
 end
 
 /*always@(A)begin
@@ -420,7 +421,7 @@ assign ReadData2 = (Reg_R2==5'd0) ? 32'd0 : register[Reg_R2];
 always@(*)begin
 $display("Reg_R1=%b",Reg_R1);
 $display("Reg_R2=%b",Reg_R2);
-$display("register[Reg_R2]=%d",register[Reg_R2]);
+//$display("register[Reg_R2]=%d",register[Reg_R2]);
 //$display("ReadData1 =%d, ReadData2 =%d", ReadData1,ReadData2);
 end
 
