@@ -350,7 +350,7 @@ output _JR;
 assign RegDST    = (opcode==6'b0);
 assign ALUSrc    = (opcode!=6'b0) && (opcode!=`BEQ);
 assign MemToReg  = (opcode==`LW);
-assign RegWrite  = (opcode!=`SW) && (opcode!=`BEQ) && (opcode!=`J);//&&(!((opcode==6'b0) &&  (func==`JR)));  
+assign RegWrite  = (opcode!=`SW) && (opcode!=`BEQ) && (opcode!=`J);  
 assign MemRead   = (opcode==`LW);
 assign MemWrite  = (opcode==`SW) && (opcode !=`J) && (opcode !=`JAL);
 assign Jump      = (opcode==`J) || (opcode== `JAL);
@@ -490,6 +490,7 @@ begin
   end
   else if(_JR == 1'b1)begin
     pc_val = Inst_25_21;
+    $display("JR begin!!");
   end
   else begin
     pc_val = pc_plus_4;
