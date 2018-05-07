@@ -237,7 +237,7 @@ $display("A=%d",A);
 $display("WEN=%d",WEN);
 $display("Start to read from datamemory!!",MemRead);
 end*/
-always@(*)begin
+/*always@(*)begin
   $display("IR_addr =%d",IR_addr);
   $display("IR=%h",IR);
   $display("RF_writedata=%d",RF_writedata);
@@ -246,7 +246,7 @@ always@(*)begin
   //$display("pc_plus_4=%d",pc_plus_4);
   $display("_JR=%d",_JR);
   $display("r_rd_data1=%d",r_rd_data1);
-end
+end*/
 //==== sequential part ====================================
 
 
@@ -448,24 +448,15 @@ end
 always@(posedge clk) begin
   if((RegWrite==1'b1) && (Reg_W!=5'd0)) begin
     register[Reg_W] = WriteData;
-    $display("Reg_W=%b",Reg_W);
-    $display("Start to write!!,WriteData =%d",WriteData);
+
   end
 end
-always@(*)begin
-$display("register[31]=%d",register[31]);
-end
+
 
 
 assign ReadData1 = (Reg_R1==5'd0) ? 32'd0 : register[Reg_R1];   
 assign ReadData2 = (Reg_R2==5'd0) ? 32'd0 : register[Reg_R2];
-always@(posedge clk)begin
-$display("RegWrite=%d",RegWrite);
-$display("Reg_R1=%b",Reg_R1);
-$display("Reg_R2=%b",Reg_R2);
-//$display("register[Reg_R2]=%d",register[Reg_R2]);
-$display("ReadData1 =%d, ReadData2 =%d", ReadData1,ReadData2);
-end
+
 
 endmodule
 
@@ -494,7 +485,6 @@ assign Inst_25_21 = Inst_25_0[25:21];
 
 always @ (posedge clk or negedge rst) 
 begin 
-$display("Inside:r_rd_data1 =%d",r_rd_data1);
   if (rst==1'b0) begin
     pc_val = 31'd0;
     //$display("pc = %d",pc);
@@ -508,8 +498,6 @@ $display("Inside:r_rd_data1 =%d",r_rd_data1);
   end
   else if(_JR==1'b1)begin
     pc_val = r_rd_data1;
-    $display("JR begin!!");
-    $display("pc_val=%d",pc_val);
   end
   else begin
     pc_val = pc_plus_4;
