@@ -175,14 +175,14 @@ mux MUX_RegDST(.in0(Inst_20_16),
               );
 
 //ALU operand source Mux
-mux1 MUX_Src(.in0(r_rd_data2       ),
+mux MUX_Src(.in0(r_rd_data2       ),
             .in1(Inst_15_0_signext),
             .out(ALU_datain2      ),
             .sel(ALUSrc           )
            );
 
 //Multiplexer to select write back to Register from ALU or MEM
-mux2 MUX_MemToReg(.in0(ALU_Result),
+mux MUX_MemToReg(.in0(ALU_Result),
                  .in1(ReadDataMem),
                  .out(r_wr_data),
                  .sel(MemToReg)
