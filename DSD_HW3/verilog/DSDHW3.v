@@ -461,11 +461,11 @@ begin
 end
 
 //assign pc = pc_val;
-/*always@(pc_val)begin
-pc = pc_val;
+always@(pc_val)begin
+//pc = pc_val;
 $display("pc = %d",pc);
 end
-*/
+
 endmodule
 
 module signextend(in, out);
