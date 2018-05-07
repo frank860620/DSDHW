@@ -90,7 +90,8 @@ wire [31:0] r_rd_data2;
 wire [31:0] r_wr_data0;
 wire [31:0] pc_plus_8;        //PC + 8 to be written to GPR[31] on JAL
 wire _JAL;    //Set when Instruction is JAL
-wire isSLL_SRL;//Set when Instruction is SLL or SRL
+wire _JR;     //Set when Instruction is JR
+//wire isSLL_SRL;//Set when Instruction is SLL or SRL
 wire [31:0] Inst_15_0_signext; 
 wire [31:0] br_signext_sl2;
 
@@ -117,7 +118,8 @@ pc pc_0 ( .clk              (clk           ),
           .branch           (branch        ),
           .ALUzero          (ALUzero       ),
           .pc               (pc            ),
-          .pc_plus_8        (pc_plus_8     )
+          .pc_plus_8        (pc_plus_8     ),
+          ._JR              (_JR           )
          );
 
 //Control Unit
@@ -131,7 +133,8 @@ Control_Unit Control_Unit_0( .opcode     (opcode     ),
                              .Jump       (Jump       ),
                              .Branch     (branch     ),
                              .ALUOp      (ALUOp      ),
-                             ._JAL       (_JAL       )
+                             ._JAL       (_JAL       ),
+                             ._JR        (_JR        )
                             );
 //Register
 Register register_0(.clk      (clk         ),
@@ -316,8 +319,9 @@ end
 endmodule
 
 //Control Unit
-module Control_Unit(opcode, RegDST, Jump, Branch, MemRead, MemToReg, ALUOp, MemWrite, ALUSrc, RegWrite,_JAL);
+module Control_Unit(opcode, func, RegDST, Jump, Branch, MemRead, MemToReg, ALUOp, MemWrite, ALUSrc, RegWrite,_JAL,_JR);
 input[5:0] opcode;
+input[5:0] func;
 output RegDST;  //Write Destination register location
 output Jump;
 output Branch; //1 when opcode is beq
@@ -340,17 +344,18 @@ output _JAL;
 
 `define J    6'b000010
 `define JAL  6'b000011
-
+`define JR   6'b001000
 
 assign RegDST    = (opcode==6'b0);
 assign ALUSrc    = (opcode!=6'b0) && (opcode!=`BEQ);
 assign MemToReg  = (opcode==`LW);
-assign RegWrite  = (opcode!=`SW) && (opcode!=`BEQ) && (opcode!=`J);  
+assign RegWrite  = (opcode!=`SW) && (opcode!=`BEQ) && (opcode!=`J)&&(!((opcode==6'b0) &&  (funct==`JR)));  
 assign MemRead   = (opcode==`LW);
 assign MemWrite  = (opcode==`SW) && (opcode !=`J) && (opcode !=`JAL);
 assign Jump      = (opcode==`J) || (opcode== `JAL);
 assign Branch    = (opcode==`BEQ);
 assign _JAL      = (opcode==`JAL);
+assign _JR       = (opcode==6'b0) && (funct==`JR);
 
 always@(*)begin
     if(opcode == 6'b0) ALUOp = 2'b10;
@@ -447,25 +452,29 @@ end
 
 endmodule
 
-module pc(clk, rst, br_signextend_sl2, Inst_25_0, Jump, branch, ALUzero, pc, pc_plus_8);
+module pc(clk, rst, br_signextend_sl2, Inst_25_0, Jump, branch, ALUzero, pc, pc_plus_8,_JR);
 input clk, rst;
 input [31:0] br_signextend_sl2;
 input [25:0] Inst_25_0;
 input Jump;
 input branch;
 input ALUzero;
+input _JR;
+input [4:0]
 output [31:0] pc;
 output [31:0] pc_plus_8;
 
 reg  [31:0] pc_val;
 wire [31:0] br_loc, pc_plus_4;
 wire branch_EN;
+wire  [4:0] Inst_25_21;
 
 assign pc_plus_4 = pc_val + 32'd4;       
 assign pc_plus_8 = pc_val + 32'd8;
 assign branch_EN = branch & ALUzero;
 assign br_loc = pc_plus_4 + br_signextend_sl2;
 assign pc = pc_val;
+assign Inst_25_21 = Inst_25_0[25:21];
 
 always @ (posedge clk or negedge rst) 
 begin 
@@ -478,6 +487,9 @@ begin
   end 
   else if (branch_EN==1'b1) begin
     pc_val = br_loc;
+  end
+  else if(_JR == 1'b1)begin
+    pc_val = Inst_25_21;
   end
   else begin
     pc_val = pc_plus_4;
