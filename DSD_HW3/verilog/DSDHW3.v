@@ -184,14 +184,6 @@ mux1 MUX_MemToReg(.in0(ALU_Result),
                  .sel(MemToReg)
                 );
 
-HSs18n_128x32 Dara_Mem(.Q(ReadDataMem),
-                       .CLK(clk      ),
-                       .CEN(CEN      ),
-                       .WEN(WEN      ),
-                       .A  (A        ),
-                       .D  (ReadData2),
-                       .OEN(OEN      )
-                       );
 
 assign IR_addr = pc;
 assign RF_writedata = r_wr_data;
