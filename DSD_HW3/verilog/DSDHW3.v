@@ -229,18 +229,18 @@ input [1:0] ALUOp;
 input [5:0] ALU_CtrlIn;
 
 always@(ALUOp)begin
-$display("ALUOp =%d",ALUOp);
+//$display("ALUOp =%d",ALUOp);
 if(ALUOp != 2'b10)begin
 case (ALUOp)
   2'b00 : ALUctrl = 4'b0010; //lw,sw
   2'b01 : ALUctrl = 4'b0110; //beq
     default: ALUctrl = 4'b1111;
 endcase
-$display("ALUctrl =%d",ALUctrl);
+//$display("ALUctrl =%d",ALUctrl);
 end
 else begin
-$display("ALU_CtrlIn =%h",ALU_CtrlIn);
-$display("ALU_CtrlIn =%d",ALU_CtrlIn);
+//$display("ALU_CtrlIn =%h",ALU_CtrlIn);
+//$display("ALU_CtrlIn =%d",ALU_CtrlIn);
 case(ALU_CtrlIn)
     6'b100000 : ALUctrl = 4'b0010; //add
     6'b100010 : ALUctrl = 4'b0110; //subtract
@@ -249,7 +249,7 @@ case(ALU_CtrlIn)
     6'b101010 : ALUctrl = 4'b0111; //slt
     default: ALUctrl = 4'b1111;
 endcase
-$display("ALUctrl =%d",ALUctrl);
+//$display("ALUctrl =%d",ALUctrl);
 end
 end
 endmodule
@@ -262,7 +262,7 @@ output  ALUzero;
 output reg[31:0] ALUresult;
 
 always@(ALUin1 or ALUin2 or ALUctrl)begin
-$display("ALUin1=%d, ALUin2=%d",ALUin1,ALUin2);
+//$display("ALUin1=%d, ALUin2=%d",ALUin1,ALUin2);
 case (ALUctrl)
     4'b0010 : ALUresult = ALUin1 + ALUin2;
     4'b0110 : ALUresult = ALUin1 - ALUin2;
@@ -271,7 +271,7 @@ case (ALUctrl)
     4'b0111 : ALUresult = (ALUin1 < ALUin2) ? 1 : 0;
   //default: ALUresult = 0;
 endcase
-$display("ALUresult =%d",ALUresult);
+//$display("ALUresult =%d",ALUresult);
 end
 assign ALUzero = (ALUctrl == 4'b0110 && ALUresult == 0) ? 1 : 0;
 
@@ -406,7 +406,7 @@ end
 always@(WriteData) begin
   if((RegWrite==1'b1) && (Reg_W!=5'd0)) begin
     register[Reg_W] = WriteData;
-    $display("Start to write!!,WriteData =%d",WriteData);
+    //$display("Start to write!!,WriteData =%d",WriteData);
   end
 end
 
@@ -415,8 +415,8 @@ end
 assign ReadData1 = (Reg_R1==5'd0) ? 32'd0 : register[Reg_R1];   
 assign ReadData2 = (Reg_R2==5'd0) ? 32'd0 : register[Reg_R2];
 always@(*)begin
-$display("Reg_R1=%b",Reg_R1);
-$display("ReadData1 =%d, ReadData2 =%d", ReadData1,ReadData2);
+//$display("Reg_R1=%b",Reg_R1);
+//$display("ReadData1 =%d, ReadData2 =%d", ReadData1,ReadData2);
 end
 
 endmodule
