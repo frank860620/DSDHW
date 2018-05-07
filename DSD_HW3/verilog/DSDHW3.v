@@ -402,6 +402,7 @@ register[28]=0;
 register[29]=0;
 register[30]=0;
 register[31]=0;
+$display("register[1]=%d",register[1]);
 end
 
 
@@ -419,7 +420,7 @@ assign ReadData2 = (Reg_R2==5'd0) ? 32'd0 : register[Reg_R2];
 always@(*)begin
 $display("Reg_R1=%b",Reg_R1);
 $display("Reg_R2=%b",Reg_R2);
-$display("register[1]=%d",register[1]);
+//$display("register[1]=%d",register[1]);
 //$display("ReadData1 =%d, ReadData2 =%d", ReadData1,ReadData2);
 end
 
