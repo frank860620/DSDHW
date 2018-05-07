@@ -261,8 +261,8 @@ input [3:0] ALUctrl;
 output  ALUzero;
 output reg[31:0] ALUresult;
 
-always@(*)begin
-$display("ALUin1=%d, ALUin2=%d, AlUctrl=%d",ALUin1,ALUin2,ALUctrl);
+always@(ALUin1 or ALUin2 or ALUctrl)begin
+//$display("ALUin1=%d, ALUin2=%d, AlUctrl=%d",ALUin1,ALUin2,ALUctrl);
 case (ALUctrl)
     4'b0010 : ALUresult = ALUin1 + ALUin2;
     4'b0110 : ALUresult = ALUin1 - ALUin2;
@@ -416,7 +416,7 @@ assign ReadData1 = (Reg_R1==5'd0) ? 32'd0 : register[Reg_R1];
 assign ReadData2 = (Reg_R2==5'd0) ? 32'd0 : register[Reg_R2];
 always@(*)begin
 //$display("Reg_R1=%b",Reg_R1);
-//$display("ReadData1 =%d, ReadData2 =%d", ReadData1,ReadData2);
+$display("ReadData1 =%d, ReadData2 =%d", ReadData1,ReadData2);
 end
 
 endmodule
