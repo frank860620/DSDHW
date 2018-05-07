@@ -182,7 +182,7 @@ mux1 MUX_Src(.in0(r_rd_data2       ),
            );
 
 //Multiplexer to select write back to Register from ALU or MEM
-mux MUX_MemToReg(.in0(ALU_Result),
+mux1 MUX_MemToReg(.in0(ALU_Result),
                  .in1(ReadDataMem),
                  .out(r_wr_data),
                  .sel(MemToReg)
