@@ -100,8 +100,8 @@ assign shamt       = {27'd0,IR[10:6]};
 assign OEN = 0;
 assign WEN = MemWrite;
 assign CEN = 0;
-
-
+assign A = pc[6:0];
+assign ReadData2 = r_rd_data2;
 
 //==== combinational part =================================
 //PC
@@ -171,7 +171,7 @@ mux MUX_RegDST(.in0(Inst_20_16),
               );
 
 //ALU operand source Mux
-mux MUX_Src(.in0(ReadData2        ),
+mux MUX_Src(.in0(r_rd_data2       ),
             .in1(Inst_15_0_signext),
             .out(ALU_datain2      ),
             .sel(ALUSrc           )
@@ -183,6 +183,15 @@ mux1 MUX_MemToReg(.in0(ALU_Result),
                  .out(r_wr_data),
                  .sel(MemToReg)
                 );
+
+HSs18n_128x32 Dara_Mem(.Q(ReadDataMem),
+                       .CLK(clk      ),
+                       .CEN(CEN      ),
+                       .WEN(WEN      ),
+                       .A  (A        ),
+                       .D  (ReadData2),
+                       .OEN(OEN      )
+                       );
 
 assign IR_addr = pc;
 assign RF_writedata = r_wr_data;
