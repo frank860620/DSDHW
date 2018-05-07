@@ -66,7 +66,7 @@ wire [15:0] Inst_15_0;*/
 wire [31:0] shamt; 
 wire [31:0] pc; 
 wire [5:0] opcode;
-reg [5:0] funct;
+reg [5:0] func;
 wire RegDST;
 wire ALUSrc;
 wire MemToReg;
@@ -194,8 +194,7 @@ assign RF_writedata = r_wr_data;
 assign A = ALU_Result[8:2];
 always@(IR)begin
 //opcode = IR[31:26];
-funct  = IR[5:0];
-$display("func=%d",func);
+//func  = IR[5:0];
 Inst_25_0   = IR[25:0];
 Inst_25_21  = IR[25:21];
 Inst_20_16  = IR[20:16];
@@ -205,7 +204,9 @@ $display("pc=%d",pc);
 $display("IR=%h",IR);
 $display("Inst_25_21=%d",Inst_25_21);
 end
-
+always@(func)begin
+$display("func=%d",func);
+end
 
 /*always@(A)begin
 $display("A=%d",A);
