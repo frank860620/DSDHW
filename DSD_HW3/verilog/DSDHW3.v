@@ -198,6 +198,7 @@ Inst_25_21  = IR[25:21];
 Inst_20_16  = IR[20:16];
 Inst_15_11  = IR[15:11];
 Inst_15_0   = IR[15:0];
+$display("pc=%d",pc);
 $display("IR=%h",IR);
 $display("Inst_25_21=%d",Inst_25_21);
 end
