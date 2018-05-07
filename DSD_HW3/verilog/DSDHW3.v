@@ -342,6 +342,9 @@ always@(*)begin
         else ALUOp = 2'b01;
     end
 end
+always@(opcode)begin
+$display("Inside:opcode=%b",opcode);
+end
 
 endmodule
 
