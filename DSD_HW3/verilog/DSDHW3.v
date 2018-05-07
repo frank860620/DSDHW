@@ -422,7 +422,7 @@ always@(*)begin
 $display("Reg_R1=%b",Reg_R1);
 $display("Reg_R2=%b",Reg_R2);
 //$display("register[Reg_R2]=%d",register[Reg_R2]);
-//$display("ReadData1 =%d, ReadData2 =%d", ReadData1,ReadData2);
+$display("ReadData1 =%d, ReadData2 =%d", ReadData1,ReadData2);
 end
 
 endmodule
