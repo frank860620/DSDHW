@@ -297,7 +297,7 @@ output RegWrite;
 
 assign RegDST    = (opcode==6'b0);
 assign ALUSrc    = (opcode!=6'b0) && (opcode!=`BEQ);
-assign MemtoReg  = (opcode==`LW);
+assign MemToReg  = (opcode==`LW);
 assign RegWrite  = (opcode!=`SW) && (opcode!=`BEQ) && (opcode!=`J);  
 assign MemRead   = (opcode==`LW);
 assign MemWrite  = (opcode==`SW) && (opcode !=`J) && (opcode !=`JAL);
