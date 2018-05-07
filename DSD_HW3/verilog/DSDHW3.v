@@ -88,7 +88,7 @@ wire [31:0] r_wr_data;
 wire [31:0] r_rd_data1;
 wire [31:0] r_rd_data2;
 wire [31:0] r_wr_data0;
-wire [31:0] pc_plus_8;        //PC + 8 to be written to GPR[31] on JAL
+wire [31:0] pc_plus_4;        //PC + 8 to be written to GPR[31] on JAL
 wire _JAL;    //Set when Instruction is JAL
 wire _JR;     //Set when Instruction is JR
 //wire isSLL_SRL;//Set when Instruction is SLL or SRL
@@ -118,7 +118,7 @@ pc pc_0 ( .clk              (clk           ),
           .branch           (branch        ),
           .ALUzero          (ALUzero       ),
           .pc               (pc            ),
-          .pc_plus_8        (pc_plus_8     ),
+          .pc_plus_4        (pc_plus_4     ),
           ._JR              (_JR           ),
           .jump_reg         (r_rd_data1    )
          );
@@ -201,7 +201,7 @@ mux MUX_MemToReg(.in0(ALU_Result ),
                 );
 //Multiplexer selects this data and JAL address(PC+8)
 mux MUX_MemToReg_1(.in0(r_wr_data0),
-                   .in1(pc_plus_8 ),
+                   .in1(pc_plus_4 ),
                    .out(r_wr_data ),
                    .sel(_JAL      )
                   );
@@ -243,7 +243,7 @@ always@(*)begin
   $display("RF_writedata=%d",RF_writedata);
   $display("r_wr_addr=%d",r_wr_addr);
   $display("_JAL=%d",_JAL);
-  $display("pc_plus_8=%d",pc_plus_8);
+  $display("pc_plus_4=%d",pc_plus_4);
 end
 //==== sequential part ====================================
 
@@ -465,7 +465,7 @@ end
 
 endmodule
 
-module pc(clk, rst, br_signextend_sl2, Inst_25_0, Jump, branch, ALUzero, pc, pc_plus_8,_JR,jump_reg);
+module pc(clk, rst, br_signextend_sl2, Inst_25_0, Jump, branch, ALUzero, pc, pc_plus_4,_JR,jump_reg);
 input clk, rst;
 input [31:0] br_signextend_sl2;
 input [25:0] Inst_25_0;
@@ -475,10 +475,10 @@ input ALUzero;
 input _JR;
 input[4:0] jump_reg;
 output [31:0] pc;
-output [31:0] pc_plus_8;
+output [31:0] pc_plus_4;
 
 reg  [31:0] pc_val;
-wire [31:0] br_loc, pc_plus_4;
+wire [31:0] br_loc, pc_plus_8;
 wire branch_EN;
 
 assign pc_plus_4 = pc_val + 32'd4;       
