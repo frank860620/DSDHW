@@ -203,14 +203,14 @@ $display("IR=%h",IR);
 $display("Inst_25_21=%d",Inst_25_21);
 end
 
-/*always@(A)begin
+always@(A)begin
 $display("A=%d",A);
 $display("WEN=%d",WEN);
 $display("Start to read from datamemory!!",MemRead);
 end
 always@(*)begin
   $display("RF_writedata=%d",RF_writedata);
-end*/
+end
 //==== sequential part ====================================
 
 
