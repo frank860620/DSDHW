@@ -66,7 +66,7 @@ wire [15:0] Inst_15_0;*/
 wire [31:0] shamt; 
 wire [31:0] pc; 
 wire [5:0] opcode;
-wire [5:0] funct;
+reg [5:0] funct;
 wire RegDST;
 wire ALUSrc;
 wire MemToReg;
@@ -94,8 +94,8 @@ wire isSLL_SRL;//Set when Instruction is SLL or SRL
 wire [31:0] Inst_15_0_signext; 
 wire [31:0] br_signext_sl2;
 
-assign opcode = IR[31:26];
-assign funct  = IR[5:0];
+//assign opcode = IR[31:26];
+//assign funct  = IR[5:0];
 /*assign Inst_25_0   = IR[25:0];
 assign Inst_25_21  = IR[25:21];
 assign Inst_20_16  = IR[20:16];
@@ -193,6 +193,8 @@ assign IR_addr = pc;
 assign RF_writedata = r_wr_data;
 assign A = ALU_Result[8:2];
 always@(IR)begin
+opcode = IR[31:26];
+funct  = IR[5:0];
 Inst_25_0   = IR[25:0];
 Inst_25_21  = IR[25:21];
 Inst_20_16  = IR[20:16];
