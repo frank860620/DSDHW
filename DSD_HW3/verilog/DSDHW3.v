@@ -351,8 +351,7 @@ output _JR;
 assign RegDST    = (opcode==6'b0);
 assign ALUSrc    = (opcode!=6'b0) && (opcode!=`BEQ);
 assign MemToReg  = (opcode==`LW);
-assign RegWrite  = (opcode!=`SW) && (opcode!=`BEQ) && (opcode!=`J)&&  
-                   (!((opcode==6'd0) &&  (funct==`JR)));  
+assign RegWrite  = (opcode!=`SW) && (opcode!=`BEQ) && (opcode!=`J) && (!((opcode==6'd0) &&  (funct==`JR))); 
 assign MemRead   = (opcode==`LW);
 assign MemWrite  = (opcode==`SW) && (opcode !=`J) && (opcode !=`JAL);
 assign Jump      = (opcode==`J) || (opcode== `JAL);
