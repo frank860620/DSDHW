@@ -256,7 +256,7 @@ input [1:0] ALUOp;
 input [5:0] ALU_CtrlIn;
 
 always@(ALUOp or ALU_CtrlIn)begin
-$display("ALUOp =%d",ALUOp);
+//$display("ALUOp =%d",ALUOp);
 if(ALUOp != 2'b10)begin
 case (ALUOp)
   2'b00 : ALUctrl = 4'b0010; //lw,sw
@@ -495,15 +495,15 @@ $display("jump_reg =%d",jump_reg);
   end 
  else if (Jump==1'b1) begin
     pc_val = {pc_plus_4[31:28],Inst_25_0,2'b00};
-    $display("pc_val=%d",pc_val);
+    //$display("pc_val=%d",pc_val);
   end 
   else if (branch_EN==1'b1) begin
     pc_val = br_loc;
   end
   else if(_JR == 1'b1)begin
     pc_val = jump_reg;
-    $display("JR begin!!");
-    $display("pc_val=%d",pc_val);
+    //$display("JR begin!!");
+    //$display("pc_val=%d",pc_val);
   end
   else begin
     pc_val = pc_plus_4;
