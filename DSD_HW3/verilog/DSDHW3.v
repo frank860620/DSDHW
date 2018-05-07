@@ -205,7 +205,7 @@ $display("IR=%h",IR);
 $display("Inst_25_21=%d",Inst_25_21);
 end
 always@(*)begin
-$display("func=%d",func);
+$display("func=%b",func);
 end
 
 /*always@(A)begin
