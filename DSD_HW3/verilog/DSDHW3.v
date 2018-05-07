@@ -210,6 +210,9 @@ end*/
 always@(A)begin
 $display("A=%d",A);
 end
+always@(MemRead)begin
+$display("Start to read from datamemory!!",MemRead);
+end
 //==== sequential part ====================================
 
 
@@ -321,9 +324,7 @@ assign MemRead   = (opcode==`LW);
 assign MemWrite  = (opcode==`SW) && (opcode !=`J) && (opcode !=`JAL);
 assign Jump      = (opcode==`J) || (opcode== `JAL);
 assign Branch    = (opcode==`BEQ);
-always@(*)begin
-$display("Start to read fromo datamemory!!",MemRead);
-end
+
 
 always@(*)begin
     if(opcode == 6'b0) ALUOp = 2'b10;
