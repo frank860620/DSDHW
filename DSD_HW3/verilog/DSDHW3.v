@@ -394,7 +394,7 @@ end
 
 assign ReadData1 = (Reg_R1==5'd0) ? 32'd0 : register[Reg_R1];   
 assign ReadData2 = (Reg_R2==5'd0) ? 32'd0 : register[Reg_R2];
-always@(ReadData1)begin
+always@(*)begin
 $display("ReadData1 =%d, ReadData2 =%d", ReadData1,ReadData2);
 end
 
