@@ -192,10 +192,8 @@ $display("WEN =%d",WEN);
 end
 always@(pc)begin
 $display("pc=%b",pc);
-A =pc;
-$display("A=%d",A);
+$display("Inst_25_21=%b",Inst_25_21);
 end
-
 
 //==== sequential part ====================================
 
