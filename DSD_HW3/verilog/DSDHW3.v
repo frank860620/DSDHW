@@ -195,7 +195,7 @@ $display("pc=%b",pc);
 //IR_addr = pc;
 $display("IR_addr=%b",IR_addr);
 $display("IR=%h",IR);
-$display("Inst_25_21=%b",Inst_25_21);
+$display("Inst_25_21=%b",IR[25:21]);
 end
 
 //==== sequential part ====================================
