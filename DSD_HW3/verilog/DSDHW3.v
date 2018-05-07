@@ -200,9 +200,9 @@ Inst_25_21  = IR[25:21];
 Inst_20_16  = IR[20:16];
 Inst_15_11  = IR[15:11];
 Inst_15_0   = IR[15:0];
-$display("pc=%d",pc);
-$display("IR=%h",IR);
-$display("Inst_25_21=%d",Inst_25_21);
+//$display("pc=%d",pc);
+//$display("IR=%h",IR);
+//$display("Inst_25_21=%d",Inst_25_21);
 end
 always@(*)begin
 $display("func=%b",func);
@@ -267,7 +267,7 @@ output reg[31:0] ALUresult;
 
 always@(ALUin1 or ALUin2 or ALUctrl)begin
 //$display("ALUctrl =%d",ALUctrl);
-$display("ALUin1=%d, ALUin2=%d, AlUctrl=%d",ALUin1,ALUin2,ALUctrl);
+//$display("ALUin1=%d, ALUin2=%d, AlUctrl=%d",ALUin1,ALUin2,ALUctrl);
 case (ALUctrl)
     4'b0010 : ALUresult = ALUin1 + ALUin2;
     4'b0110 : ALUresult = ALUin1 - ALUin2;
@@ -276,7 +276,7 @@ case (ALUctrl)
     4'b0111 : ALUresult = (ALUin1 < ALUin2) ? 1 : 0;
   default: ALUresult = 0;
 endcase
-$display("ALUresult =%d",ALUresult);
+//$display("ALUresult =%d",ALUresult);
 end
 assign ALUzero = (ALUctrl == 4'b0110 && ALUresult == 0) ? 1 : 0;
 
