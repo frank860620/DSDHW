@@ -486,6 +486,7 @@ assign Inst_25_21 = Inst_25_0[25:21];
 
 always @ (posedge clk or negedge rst) 
 begin 
+$display("jump_reg =%d",jump_reg);
   if (rst==1'b0) begin
     pc_val = 31'd0;
     //$display("pc = %d",pc);
@@ -499,8 +500,8 @@ begin
   end
   else if(_JR == 1'b1)begin
     pc_val = jump_reg;
-    $display("pc_val=%d",pc_val);
     $display("JR begin!!");
+    $display("pc_val=%d",pc_val);
   end
   else begin
     pc_val = pc_plus_4;
