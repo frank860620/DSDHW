@@ -229,7 +229,7 @@ input [1:0] ALUOp;
 input [5:0] ALU_CtrlIn;
 
 always@(ALUOp)begin
-//$display("ALUOp =%d",ALUOp);
+$display("ALUOp =%d",ALUOp);
 if(ALUOp != 2'b10)begin
 case (ALUOp)
   2'b00 : ALUctrl = 4'b0010; //lw,sw
@@ -240,7 +240,7 @@ endcase
 end
 else begin
 //$display("ALU_CtrlIn =%h",ALU_CtrlIn);
-//$display("ALU_CtrlIn =%d",ALU_CtrlIn);
+$display("ALU_CtrlIn =%d",ALU_CtrlIn);
 case(ALU_CtrlIn)
     6'b100000 : ALUctrl = 4'b0010; //add
     6'b100010 : ALUctrl = 4'b0110; //subtract
