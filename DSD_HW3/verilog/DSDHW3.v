@@ -182,7 +182,7 @@ mux1 MUX_Src(.in0(r_rd_data2       ),
            );
 
 //Multiplexer to select write back to Register from ALU or MEM
-mux1 MUX_MemToReg(.in0(ALU_Result),
+mux2 MUX_MemToReg(.in0(ALU_Result),
                  .in1(ReadDataMem),
                  .out(r_wr_data),
                  .sel(MemToReg)
@@ -488,6 +488,23 @@ if (sel==1'b1) begin
    out = in0;
   end
 $display("ALU_datain2 = %b",out);
+end
+
+endmodule
+module mux2(out, sel, in0, in1);
+input [31:0] in0, in1;
+input sel;
+output reg[31:0] out;
+
+always @(in0 or in1 or sel)begin
+$display("Sel=%d,ReadDataMem=%b,ALU_Result=%b",sel,in1,in0);
+if (sel==1'b1) begin
+   out = in1;
+  end 
+  else begin 
+   out = in0;
+  end
+$display("r_wr_data = %b",out);
 end
 
 endmodule
