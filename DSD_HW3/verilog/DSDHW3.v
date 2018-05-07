@@ -207,7 +207,7 @@ end
 always@(*)begin
 $display("func=%b",func);
 $display("opcode=%b",opcode);
-$display("r_rd_data1=%d",r_rd_data1);
+//$display("r_rd_data1=%d",r_rd_data1);
 end
 
 /*always@(A)begin
