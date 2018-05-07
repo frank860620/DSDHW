@@ -197,10 +197,8 @@ Inst_20_16  = IR[20:16];
 Inst_15_11  = IR[15:11];
 Inst_15_0   = IR[15:0];
 end
-always@(ALU_datain2)begin
-$display("Outside:ALU_datain2 =%b",ALU_datain2);
-end
-
+always@(A)begin
+$display("A=%d",A);
 //==== sequential part ====================================
 
 
