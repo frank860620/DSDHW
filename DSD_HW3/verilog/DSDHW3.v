@@ -321,8 +321,8 @@ assign MemRead   = (opcode==`LW);
 assign MemWrite  = (opcode==`SW) && (opcode !=`J) && (opcode !=`JAL);
 assign Jump      = (opcode==`J) || (opcode== `JAL);
 assign Branch    = (opcode==`BEQ);
-always@(MemRead)begin
-$display("Start to read fromo datamemory!!");
+always@(*)begin
+$display("Start to read fromo datamemory!!",MemRead);
 end
 
 always@(*)begin
