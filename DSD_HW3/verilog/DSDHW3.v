@@ -418,7 +418,7 @@ end
 
 assign ReadData1 = (Reg_R1==5'd0) ? 32'd0 : register[Reg_R1];   
 assign ReadData2 = (Reg_R2==5'd0) ? 32'd0 : register[Reg_R2];
-always@(*)begin
+always@(posedge clk)begin
 $display("Reg_R1=%b",Reg_R1);
 $display("Reg_R2=%b",Reg_R2);
 //$display("register[Reg_R2]=%d",register[Reg_R2]);
