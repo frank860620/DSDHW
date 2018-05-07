@@ -357,11 +357,11 @@ assign Jump      = (opcode==`J) || (opcode== `JAL);
 assign Branch    = (opcode==`BEQ);
 assign _JAL      = (opcode==`JAL);
 assign _JR       = (opcode==6'b0) && (func==`JR);
-always(_JAL)begin
-$display("JAL!!!",_JAL);
+always@(_JAL)begin
+$display("JAL!!! %d",_JAL);
 end
 always@(_JR)begin
-$display("JR!!!",_JR);
+$display("JR!!! %d",_JR);
 end
 always@(*)begin
     if(opcode == 6'b0) ALUOp = 2'b10;
