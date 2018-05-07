@@ -203,11 +203,11 @@ $display("IR=%h",IR);
 $display("Inst_25_21=%d",Inst_25_21);
 end
 
-always@(A)begin
+/*always@(A)begin
 $display("A=%d",A);
 $display("WEN=%d",WEN);
 $display("Start to read from datamemory!!",MemRead);
-end
+end*/
 /*always@(*)begin
   $display("RF_writedata=%d",RF_writedata);
 end*/
@@ -234,6 +234,8 @@ endcase
 $display("ALUctrl =%d",ALUctrl);
 end
 else begin
+$display("ALU_CtrlIn =%h",ALU_CtrlIn);
+$display("ALU_CtrlIn =%d",ALU_CtrlIn);
 case(ALU_CtrlIn)
     6'b100000 : ALUctrl = 4'b0010; //add
     6'b100010 : ALUctrl = 4'b0110; //subtract
