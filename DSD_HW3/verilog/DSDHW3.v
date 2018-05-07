@@ -237,6 +237,7 @@ $display("WEN=%d",WEN);
 $display("Start to read from datamemory!!",MemRead);
 end*/
 always@(*)begin
+  $display("IR_addr =%d",IR_addr);
   $display("RF_writedata=%d",RF_writedata);
 end
 //==== sequential part ====================================
