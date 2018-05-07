@@ -103,7 +103,7 @@ assign Inst_15_11  = IR[15:11];
 assign Inst_15_0   = IR[15:0];
 assign shamt       = {27'd0,IR[10:6]};
 assign OEN = 0;
-assign WEN = MemWrite;
+assign WEN = !MemWrite;
 assign CEN = 0;
 assign ReadData2 = r_rd_data2;
 
