@@ -473,6 +473,7 @@ end
 assign out = ext;
 endmodule
 
+/*
 module mux1(out, sel, in0, in1);
 input [31:0] in0, in1;
 input sel;
@@ -507,3 +508,4 @@ $display("r_wr_data = %b",out);
 end
 
 endmodule
+*/
