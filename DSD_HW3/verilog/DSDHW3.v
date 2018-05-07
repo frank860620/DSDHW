@@ -332,6 +332,7 @@ output MemWrite; //Write to Data Memory
 output ALUSrc; //2nd input to ALU; ALUSrc=0-> Read data 2; ALUSrc=1->Immediate 
 output RegWrite;
 output _JAL; 
+output _JR;
 
 `define ADD  6'b100000
 `define SUB  6'b100010
