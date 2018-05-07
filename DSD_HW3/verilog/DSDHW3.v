@@ -192,6 +192,7 @@ $display("WEN =%d",WEN);
 end
 always@(pc)begin
 $display("pc=%b",pc);
+$display("IR_addr=%b",IR_addr);
 $display("IR=%b",IR);
 $display("Inst_25_21=%b",Inst_25_21);
 end
