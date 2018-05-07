@@ -193,17 +193,15 @@ assign IR_addr = pc;
 assign RF_writedata = r_wr_data;
 assign A = ALU_Result[6:0];
 always@(IR)begin
-$display("IR=%h",IR);
-$display("Inst_25_21=%d",Inst_25_21);
-end
-
-always@(IR)begin
 Inst_25_0   = IR[25:0];
 Inst_25_21  = IR[25:21];
 Inst_20_16  = IR[20:16];
 Inst_15_11  = IR[15:11];
 Inst_15_0   = IR[15:0];
+$display("IR=%h",IR);
+$display("Inst_25_21=%d",Inst_25_21);
 end
+
 /*always@(A)begin
 $display("A=%d",A);
 $display("WEN=%d",WEN);
