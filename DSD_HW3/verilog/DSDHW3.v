@@ -239,6 +239,7 @@ $display("Start to read from datamemory!!",MemRead);
 end*/
 always@(*)begin
   $display("IR_addr =%d",IR_addr);
+  $display("IR=%d",IR);
   $display("RF_writedata=%d",RF_writedata);
   $display("r_wr_addr=%d",r_wr_addr);
   $display("_JAL=%d",_JAL);
