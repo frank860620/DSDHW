@@ -66,7 +66,7 @@ wire [15:0] Inst_15_0;*/
 wire [31:0] shamt; 
 wire [31:0] pc; 
 wire [5:0] opcode;
-wire [5:0] func;
+wire [5:0] funct;
 wire RegDST;
 wire ALUSrc;
 wire MemToReg;
@@ -146,7 +146,7 @@ Register register_0(.clk      (clk         ),
 //ALU_Control
 ALUControl ALUControl_0(.ALUctrl    (ALU_Control),
 	                    .ALUOp      (ALUOp      ),
-	                    .ALU_CtrlIn (func       )
+	                    .ALU_CtrlIn (funct       )
                         );
 
 //ALU
