@@ -195,7 +195,7 @@ assign A = ALU_Result[6:0];
 always@(MemWrite)begin
 $display("WEN =%d",WEN);
 end
-always@(IR)begin
+always@(Inst_25_21)begin
 $display("IR=%h",IR);
 $display("Inst_25_21=%d",Inst_25_21);
 end
