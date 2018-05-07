@@ -189,7 +189,7 @@ assign RF_writedata = r_wr_data;
 always@(MemWrite)begin
 $display("WEN =%d",WEN);
 end
-always@(pc)begin
+always@(IR)begin
 $display("pc=%b",pc);
 //IR_addr = pc;
 $display("IR_addr=%b",IR_addr);
