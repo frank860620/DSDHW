@@ -196,7 +196,7 @@ always@(MemWrite)begin
 $display("WEN =%d",WEN);
 end
 always@(IR)begin
-$display("IR=%d",IR);
+$display("IR=%h",IR);
 $display("Inst_25_21=%d",Inst_25_21);
 end
 /*
