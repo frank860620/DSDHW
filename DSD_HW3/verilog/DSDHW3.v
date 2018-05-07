@@ -502,6 +502,10 @@ begin
     pc_val = pc_plus_4;
   end
 end
+always@(pc_val)begin
+$display("pc_val=%d",pc_val);
+$display("pc=%d",pc);
+end
 
 //assign pc = pc_val;
 //always@(pc_val)begin
