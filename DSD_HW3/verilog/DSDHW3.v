@@ -241,6 +241,7 @@ always@(*)begin
   $display("IR_addr =%d",IR_addr);
   $display("RF_writedata=%d",RF_writedata);
   $display("r_wr_addr=%d",r_wr_addr);
+  $display("_JAL=%d",_JAL);
 end
 //==== sequential part ====================================
 
@@ -361,12 +362,12 @@ assign Jump      = (opcode==`J) || (opcode== `JAL);
 assign Branch    = (opcode==`BEQ);
 assign _JAL      = (opcode==`JAL);
 assign _JR       = (opcode==6'b0) && (func==`JR);
-always@(_JAL or _JR)begin
+/*always@(_JAL or _JR)begin
 $display("opcode = %b",opcode);
 $display("func =%b",func);
 $display("JAL!!! %d",_JAL);
 $display("JR!!! %d",_JR);
-end
+end*/
 always@(*)begin
     if(opcode == 6'b0) ALUOp = 2'b10;
     else begin
