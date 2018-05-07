@@ -321,6 +321,9 @@ assign MemRead   = (opcode==`LW);
 assign MemWrite  = (opcode==`SW) && (opcode !=`J) && (opcode !=`JAL);
 assign Jump      = (opcode==`J) || (opcode== `JAL);
 assign Branch    = (opcode==`BEQ);
+always@(MemRead)begin
+$display("Start to read fromo datamemory!!");
+end
 
 always@(*)begin
     if(opcode == 6'b0) ALUOp = 2'b10;
