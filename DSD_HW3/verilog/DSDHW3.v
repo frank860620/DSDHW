@@ -494,7 +494,7 @@ assign Inst_25_21 = Inst_25_0[25:21];
 
 always @ (posedge clk or negedge rst) 
 begin 
-$display("r_rd_data1 =%d",r_rd_data1);
+$display("Inside:r_rd_data1 =%d",r_rd_data1);
   if (rst==1'b0) begin
     pc_val = 31'd0;
     //$display("pc = %d",pc);
@@ -506,7 +506,7 @@ $display("r_rd_data1 =%d",r_rd_data1);
   else if (branch_EN==1'b1) begin
     pc_val = br_loc;
   end
-  else if(_JR == 1'b1)begin
+  else if(_JR==1'b1)begin
     pc_val = r_rd_data1;
     $display("JR begin!!");
     $display("pc_val=%d",pc_val);
