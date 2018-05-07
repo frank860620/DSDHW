@@ -131,7 +131,7 @@ Control_Unit Control_Unit_0( .opcode     (opcode     ),
                              .Jump       (Jump       ),
                              .Branch     (branch     ),
                              .ALUOp      (ALUOp      ),
-                             ._JAL        (_JAL       ),
+                             ._JAL       (_JAL       )
                             );
 //Register
 Register register_0(.clk      (clk         ),
@@ -198,7 +198,7 @@ mux MUX_MemToReg(.in0(ALU_Result ),
 mux MUX_MemToReg_1(.in0(r_wr_data0),
                    .in1(pc_plus_8 ),
                    .out(r_wr_data ),
-                   .sel(_JAL      ),
+                   .sel(_JAL      )
                   );
 
 
