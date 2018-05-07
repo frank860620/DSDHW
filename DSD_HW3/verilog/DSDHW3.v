@@ -508,8 +508,8 @@ $display("jump_reg =%d",jump_reg);
   end
   else if(_JR == 1'b1)begin
     pc_val = jump_reg;
-    //$display("JR begin!!");
-    //$display("pc_val=%d",pc_val);
+    $display("JR begin!!");
+    $display("pc_val=%d",pc_val);
   end
   else begin
     pc_val = pc_plus_4;
