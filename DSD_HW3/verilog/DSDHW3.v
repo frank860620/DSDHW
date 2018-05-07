@@ -206,6 +206,7 @@ $display("Inst_25_21=%d",Inst_25_21);
 end
 always@(*)begin
 $display("func=%b",func);
+$display("opcode=%b",opcode);
 end
 
 /*always@(A)begin
