@@ -207,6 +207,7 @@ end
 always@(*)begin
 $display("func=%b",func);
 $display("opcode=%b",opcode);
+$display("WEN=%d",WEN);
 //$display("r_rd_data1=%d",r_rd_data1);
 end
 
@@ -403,7 +404,6 @@ register[28]=0;
 register[29]=0;
 register[30]=0;
 register[31]=0;
-$display("register[1]=%d",register[1]);
 end
 
 
