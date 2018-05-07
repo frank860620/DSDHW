@@ -415,6 +415,7 @@ end
 always@(posedge clk) begin
   if((RegWrite==1'b1) && (Reg_W!=5'd0)) begin
     register[Reg_W] = WriteData;
+    $display("Reg_W=%b",Reg_W);
     $display("Start to write!!,WriteData =%d",WriteData);
   end
 end
