@@ -220,16 +220,16 @@ Inst_15_0   = IR[15:0];
 //$display("IR=%h",IR);
 //$display("Inst_25_21=%d",Inst_25_21);
 end
-always@(*)begin
-$display("func=%b",func);
-$display("opcode=%b",opcode);
+//always@(*)begin
+//$display("func=%b",func);
+//$display("opcode=%b",opcode);
 //$display("CEN=%d",CEN);
 //$display("Done!!");
 //$display("r_rd_data1=%d",r_rd_data1);
-end
-always@(Jump)begin
-$display("Jump!! %d",Jump);
-end
+//end
+//always@(Jump)begin
+//$display("Jump!! %d",Jump);
+//end
 /*always@(A)begin
 $display("A=%d",A);
 $display("WEN=%d",WEN);
@@ -357,10 +357,10 @@ assign Jump      = (opcode==`J) || (opcode== `JAL);
 assign Branch    = (opcode==`BEQ);
 assign _JAL      = (opcode==`JAL);
 assign _JR       = (opcode==6'b0) && (func==`JR);
-always@(_JAL)begin
+always@(opcode)begin
+$display("opcode = %b",opcode);
+$display("func =%b",func);
 $display("JAL!!! %d",_JAL);
-end
-always@(_JR)begin
 $display("JR!!! %d",_JR);
 end
 always@(*)begin
