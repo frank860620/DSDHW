@@ -245,15 +245,17 @@ module ROM128x32 (
 	initial begin
 		// Initialize the instruction memory
 		$readmemh ("instructions.txt", mem);
-		$display("Reading instruction memory......");
+		//$display("Reading instruction memory......");
 		//
-		for ( i=0; i<19; i=i+1 )
-		begin
-			$display("mem[%d] = %h", i, mem[i]);
-		end
+		//for ( i=0; i<19; i=i+1 )
+		//begin
+		//	$display("mem[%d] = %h", i, mem[i]);
+		//end
 	end	
 	
-	always @(addr) data = mem[addr];
+	always @(addr)begin 
+	$display("addr=%d",addr);
+	data = mem[addr];
 	
 endmodule
 
