@@ -124,6 +124,7 @@ pc pc_0 ( .clk              (clk           ),
 
 //Control Unit
 Control_Unit Control_Unit_0( .opcode     (opcode     ),
+                             .func       (func       ),
                              .RegDST     (RegDST     ),
                              .ALUSrc     (ALUSrc     ),
                              .MemToReg   (MemToReg   ),
