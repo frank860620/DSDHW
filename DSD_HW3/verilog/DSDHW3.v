@@ -168,35 +168,35 @@ shift br_lshift_0(.in(Inst_15_0_signext),
                  );
 
 //Multiplexer to select write address of Register
-mux MUX_RegDST(.in0(Inst_20_16),
-               .in1(Inst_15_11),
-               .out(r_wr_addr0),
+mux_5 MUX_RegDST(.in0(Inst_20_16),//5
+               .in1(Inst_15_11),//5
+               .out(r_wr_addr0),//5
                .sel(RegDST    )
               );
-mux MUX_RegDST_1(.in0(r_wr_addr0),
-                 .in1(5'd31     ),
-                 .out(r_wr_addr ),
+mux_5 MUX_RegDST_1(.in0(r_wr_addr0),//5
+                 .in1(5'd31     ),//5
+                 .out(r_wr_addr ),//5
                  .sel(_JAL      )
                 );
 
 
 //ALU operand source Mux
-mux MUX_Src(.in0(r_rd_data2       ),
-            .in1(Inst_15_0_signext),
-            .out(ALU_datain2      ),
+mux_32 MUX_Src(.in0(r_rd_data2       ),//32
+            .in1(Inst_15_0_signext),//32
+            .out(ALU_datain2      ),//32
             .sel(ALUSrc           )
            );
 
 //Multiplexer to select write back to Register from ALU or MEM
-mux MUX_MemToReg(.in0(ALU_Result ),
-                 .in1(ReadDataMem),
-                 .out(r_wr_data0 ),
+mux_32 MUX_MemToReg(.in0(ALU_Result ),//32
+                 .in1(ReadDataMem),//32
+                 .out(r_wr_data0 ),//32
                  .sel(MemToReg   )
                 );
 //Multiplexer selects this data and JAL address(PC+8)
-mux MUX_MemToReg_1(.in0(r_wr_data0),
-                   .in1(pc_plus_4 ),
-                   .out(r_wr_data ),
+mux_32 MUX_MemToReg_1(.in0(r_wr_data0),//32
+                   .in1(pc_plus_4 ),//32
+                   .out(r_wr_data ),//32
                    .sel(_JAL      )
                   );
 
@@ -267,11 +267,28 @@ assign ALUzero = (ALUctrl == 4'b0110 && ALUresult == 0) ? 1 : 0;
 
 endmodule
 
-//MUX
-module mux(out, sel, in0, in1);
+//MUX for 32 bits
+module mux_32(out, sel, in0, in1);
 input [31:0] in0, in1;
 input sel;
 output reg[31:0] out;
+
+always @(in0 or in1 or sel)begin
+if (sel==1'b1) begin
+   out = in1;
+  end 
+  else begin 
+   out = in0;
+  end
+end
+
+endmodule
+
+//MUX for 5bits
+module mux_5(out, sel, in0, in1);
+input [4:0] in0, in1;
+input sel;
+output reg[4:0] out;
 
 always @(in0 or in1 or sel)begin
 if (sel==1'b1) begin
@@ -361,40 +378,6 @@ output [31:0] ReadData2;
 
 reg[31:0] register[1:31];
 
-/*always @(negedge rst)begin
-//register[0]=0;
-register[1]=0;
-register[2]=0;
-register[3]=0;
-register[4]=0;
-register[5]=0;
-register[6]=0;
-register[7]=0;
-register[8]=0;
-register[9]=0;
-register[10]=0;
-register[11]=0;
-register[12]=0;
-register[13]=0;
-register[14]=0;
-register[15]=0;
-register[16]=0;
-register[17]=0;
-register[18]=0;
-register[19]=0;
-register[20]=0;
-register[21]=0;
-register[22]=0;
-register[23]=0;
-register[24]=0;
-register[25]=0;
-register[26]=0;
-register[27]=0;
-register[28]=0;
-register[29]=0;
-register[30]=0;
-register[31]=0;
-end*/
 
 
 always@(posedge clk or negedge rst) begin
