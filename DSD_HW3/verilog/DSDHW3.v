@@ -359,10 +359,10 @@ input  [31:0] WriteData;
 output [31:0] ReadData1;
 output [31:0] ReadData2;
 
-reg[31:0] register[0:31];
+reg[31:0] register[1:31];
 
 always @(negedge rst)begin
-register[0]=0;
+//register[0]=0;
 register[1]=0;
 register[2]=0;
 register[3]=0;
