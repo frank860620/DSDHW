@@ -66,8 +66,8 @@ module SingleCycle_tb;
 		//end
 		$dumpfile("SingleCycleRTL.vcd");
 		$dumpvars;
-		$fsdbDumpfile("SingleCycleRTL.fsdb");			
-		$fsdbDumpvars;								
+		//$fsdbDumpfile("SingleCycleRTL.fsdb");			
+		//$fsdbDumpvars;								
 
 		clk = 0;
 		error_cnt = 0;
