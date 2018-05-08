@@ -53,11 +53,6 @@ module SingleCycle_MIPS(
     output        OEN;  // output_enable, 0
 
 //==== reg/wire declaration ===============================
-/*reg [25:0] Inst_25_0;
-reg [4:0] Inst_25_21;
-reg [4:0] Inst_20_16;
-reg [4:0] Inst_15_11;
-reg [15:0] Inst_15_0;*/
 wire [25:0] Inst_25_0;
 wire [4:0] Inst_25_21;
 wire [4:0] Inst_20_16;
@@ -91,7 +86,6 @@ wire [31:0] r_wr_data0;
 wire [31:0] pc_plus_4;        //PC + 8 to be written to GPR[31] on JAL
 wire _JAL;    //Set when Instruction is JAL
 wire _JR;     //Set when Instruction is JR
-//wire isSLL_SRL;//Set when Instruction is SLL or SRL
 wire [31:0] Inst_15_0_signext; 
 wire [31:0] br_signext_sl2;
 
@@ -210,43 +204,6 @@ mux MUX_MemToReg_1(.in0(r_wr_data0),
 assign IR_addr = pc;
 assign RF_writedata = r_wr_data;
 assign A = ALU_Result[8:2];
-/*always@(IR)begin
-//opcode = IR[31:26];
-//func  = IR[5:0];
-Inst_25_0   = IR[25:0];
-Inst_25_21  = IR[25:21];
-Inst_20_16  = IR[20:16];
-Inst_15_11  = IR[15:11];
-Inst_15_0   = IR[15:0];
-//$display("pc=%d",pc);
-//$display("IR=%h",IR);
-//$display("Inst_25_21=%d",Inst_25_21);
-end*/
-//always@(*)begin
-//$display("func=%b",func);
-//$display("opcode=%b",opcode);
-//$display("CEN=%d",CEN);
-//$display("Done!!");
-//$display("r_rd_data1=%d",r_rd_data1);
-//end
-//always@(Jump)begin
-//$display("Jump!! %d",Jump);
-//end
-/*always@(A)begin
-$display("A=%d",A);
-$display("WEN=%d",WEN);
-$display("Start to read from datamemory!!",MemRead);
-end*/
-/*always@(*)begin
-  $display("IR_addr =%d",IR_addr);
-  $display("IR=%h",IR);
-  $display("RF_writedata=%d",RF_writedata);
-  $display("r_wr_addr=%d",r_wr_addr);
-  //$display("_JAL=%d",_JAL);
-  //$display("pc_plus_4=%d",pc_plus_4);
-  $display("_JR=%d",_JR);
-  $display("r_rd_data1=%d",r_rd_data1);
-end*/
 //==== sequential part ====================================
 
 
@@ -366,12 +323,7 @@ assign Jump      = (opcode==`J) || (opcode== `JAL);
 assign Branch    = (opcode==`BEQ);
 assign _JAL      = (opcode==`JAL);
 assign _JR       = (opcode==6'b0) && (func==`JR);
-/*always@(_JAL or _JR)begin
-$display("opcode = %b",opcode);
-$display("func =%b",func);
-$display("JAL!!! %d",_JAL);
-$display("JR!!! %d",_JR);
-end*/
+
 always@(*)begin
     if(opcode == 6'b0) ALUOp = 2'b10;
     else begin
@@ -503,16 +455,7 @@ begin
     pc_val = pc_plus_4;
   end
 end
-//always@(pc_val)begin
-//$display("pc_val=%d",pc_val);
-//$display("pc=%d",pc);
-//end
 
-//assign pc = pc_val;
-//always@(pc_val)begin
-//pc = pc_val;
-//$display("Inside:pc = %d",pc);
-//end
 
 endmodule
 
@@ -530,39 +473,3 @@ end
 assign out = ext;
 endmodule
 
-/*
-module mux1(out, sel, in0, in1);
-input [31:0] in0, in1;
-input sel;
-output reg[31:0] out;
-
-always @(in0 or in1 or sel)begin
-$display("Sel=%d,Inst_15_0_signext=%b,r_rd_data2=%b",sel,in1,in0);
-if (sel==1'b1) begin
-   out = in1;
-  end 
-  else begin 
-   out = in0;
-  end
-$display("ALU_datain2 = %b",out);
-end
-
-endmodule
-module mux2(out, sel, in0, in1);
-input [31:0] in0, in1;
-input sel;
-output reg[31:0] out;
-
-always @(in0 or in1 or sel)begin
-$display("Sel=%d,ReadDataMem=%b,ALU_Result=%b",sel,in1,in0);
-if (sel==1'b1) begin
-   out = in1;
-  end 
-  else begin 
-   out = in0;
-  end
-$display("r_wr_data = %b",out);
-end
-
-endmodule
-*/
