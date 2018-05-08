@@ -398,7 +398,7 @@ end*/
 
 
 always@(posedge clk or negedge rst) begin
-if(rst = 1'b0)begin
+if(rst == 1'b0)begin
 register[1]=0;
 register[2]=0;
 register[3]=0;
