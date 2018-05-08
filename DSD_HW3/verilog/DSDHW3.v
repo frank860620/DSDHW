@@ -83,7 +83,7 @@ wire [31:0] r_wr_data;
 wire [31:0] r_rd_data1;
 wire [31:0] r_rd_data2;
 wire [31:0] r_wr_data0;
-wire [31:0] pc_plus_4;        //PC + 8 to be written to GPR[31] on JAL
+wire [31:0] pc_plus_4;  //PC + 8 to be written to GPR[31] on JAL
 wire _JAL;    //Set when Instruction is JAL
 wire _JR;     //Set when Instruction is JR
 wire [31:0] Inst_15_0_signext; 
@@ -317,15 +317,9 @@ output RegWrite;
 output _JAL; 
 output _JR;
 
-//`define ADD  6'b100000
-//`define SUB  6'b100010
-//`define AND  6'b100100 
-//`define OR   6'b100101 
-`define BEQ  6'b000100
-//`define SLT  6'b101010
 `define LW   6'b100011
 `define SW   6'b101011
-
+`define BEQ  6'b000100
 `define J    6'b000010
 `define JAL  6'b000011
 `define JR   6'b001000
