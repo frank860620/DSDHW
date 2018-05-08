@@ -1,36 +1,36 @@
 ncverilog: 10.20-s114: (c) Copyright 1995-2012 Cadence Design Systems, Inc.
-TOOL:	ncverilog	10.20-s114: Started on Mar 19, 2018 at 20:24:31 CST
+TOOL:	ncverilog	10.20-s114: Started on Mar 29, 2018 at 11:44:33 CST
 ncverilog
-	barrel_test.v
-	barrel_shifter.v
+	barrel_gate_test.v
+	barrel_shifter_gate.v
 	+access+r
-Recompiling... reason: file './barrel_shifter.v' is newer than expected.
-	expected: Mon Mar 19 20:20:31 2018
-	actual:   Mon Mar 19 20:24:30 2018
-file: barrel_shifter.v
-	module worklib.barrel_shifter:v
+Recompiling... reason: file './barrel_gate_test.v' is newer than expected.
+	expected: Thu Mar 29 03:17:09 2018
+	actual:   Thu Mar 29 11:44:31 2018
+file: barrel_gate_test.v
+	module worklib.barrel_gate_test:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.barrel_shifter:v <0x3f93a933>
-			streams:   4, words:  1075
+		worklib.barrel_gate_test:v <0x644af4a7>
+			streams:  11, words:  6669
 	Loading native compiled code:     .................... Done
 	Building instance specific data structures.
 	Design hierarchy summary:
 		                  Instances  Unique
-		Modules:                  2       2
+		Modules:                 26       3
+		Primitives:              96       3
 		Registers:               12      12
-		Scalar wires:             1       -
-		Vectored wires:           5       -
+		Scalar wires:             9       -
+		Expanded wires:          11       2
 		Always blocks:            3       3
 		Initial blocks:           5       5
-		Cont. assignments:        3       3
 		Pseudo assignments:       1       1
 		Simulation timescale:  10ps
-	Writing initial simulation snapshot: worklib.barrel_test:v
-Loading snapshot worklib.barrel_test:v .................... Done
+	Writing initial simulation snapshot: worklib.barrel_gate_test:v
+Loading snapshot worklib.barrel_gate_test:v .................... Done
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
 ==========================================
@@ -39,7 +39,7 @@ ncsim> run
 
 ==========================================
 
-Simulation complete via $finish(1) at time 180 NS + 1
-./barrel_test.v:75 		$finish;
+Simulation complete via $finish(1) at time 63 NS + 1
+./barrel_gate_test.v:75 		$finish;
 ncsim> exit
-TOOL:	ncverilog	10.20-s114: Exiting on Mar 19, 2018 at 20:24:32 CST  (total: 00:00:01)
+TOOL:	ncverilog	10.20-s114: Exiting on Mar 29, 2018 at 11:44:34 CST  (total: 00:00:01)

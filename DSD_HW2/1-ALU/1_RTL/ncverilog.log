@@ -1,0 +1,56 @@
+ncverilog: 10.20-s114: (c) Copyright 1995-2012 Cadence Design Systems, Inc.
+TOOL:	ncverilog	10.20-s114: Started on Apr 12, 2018 at 17:10:50 CST
+ncverilog
+	alu_rtl_tb2.v
+	alu_rtl.v
+	+access+r
+Recompiling... reason: file './alu_rtl_tb2.v' is newer than expected.
+	expected: Thu Apr 12 00:10:24 2018
+	actual:   Thu Apr 12 17:10:33 2018
+file: alu_rtl_tb2.v
+	module worklib.alu_rtl_tb:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.alu_rtl_tb:v <0x2f704c2e>
+			streams:   2, words: 10628
+	Loading native compiled code:     .................... Done
+	Building instance specific data structures.
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                  2       2
+		Registers:                4       4
+		Scalar wires:             4       -
+		Vectored wires:          18       -
+		Initial blocks:           1       1
+		Cont. assignments:        6      17
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.alu_rtl_tb:v
+Loading snapshot worklib.alu_rtl_tb:v .................... Done
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+PASS --- 0000 boolean add
+PASS --- 0001 boolean sub
+PASS --- 0010 boolean and
+PASS --- 0011 boolean or
+PASS --- 0100 boolean not
+PASS --- 0101 boolean xor
+PASS --- 0110 boolean nor
+PASS --- 0111 boolean Shift left logical variable
+PASS --- 1000 boolean Shift right logical variable
+PASS --- 1001 boolean Shift right arithmetic
+PASS --- 1010 boolean Rotate left
+PASS --- 1011 boolean Rotate right
+PASS --- 1100 boolean Equal
+==========================================
+
+======  Congratulation! You Pass!  =======
+
+==========================================
+
+Simulation complete via $finish(1) at time 32 NS + 0
+./alu_rtl_tb2.v:145     $finish;
+ncsim> exit
+TOOL:	ncverilog	10.20-s114: Exiting on Apr 12, 2018 at 17:10:51 CST  (total: 00:00:01)

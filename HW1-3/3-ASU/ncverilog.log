@@ -1,41 +1,39 @@
 ncverilog: 10.20-s114: (c) Copyright 1995-2012 Cadence Design Systems, Inc.
-TOOL:	ncverilog	10.20-s114: Started on Mar 20, 2018 at 00:29:14 CST
+TOOL:	ncverilog	10.20-s114: Started on Mar 29, 2018 at 17:22:41 CST
 ncverilog
-	asu_test.v
-	asu.v
-	adder.v
-	barrel_shifter.v
+	asu_gate_test.v
+	asu_gate.v
+	adder_gate.v
+	barrel_shifter_gate.v
 	+access+r
-file: asu.v
-	module worklib.asu:v
+Recompiling... reason: file './asu_gate_test.v' is newer than expected.
+	expected: Thu Mar 29 17:21:27 2018
+	actual:   Thu Mar 29 17:22:33 2018
+file: asu_gate_test.v
+	module worklib.asu_gate_test:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.adder:v <0x437a81b2>
-			streams:   1, words:   318
-		worklib.asu:v <0x2fc47401>
-			streams:   1, words:   189
-		worklib.asu_test:v <0x25e98e78>
-			streams:  10, words:  6974
-		worklib.barrel_shifter:v <0x7b04efb0>
-			streams:   4, words:  1056
+		worklib.asu_gate_test:v <0x03b3614f>
+			streams:  10, words:  7199
 	Loading native compiled code:     .................... Done
 	Building instance specific data structures.
 	Design hierarchy summary:
 		                  Instances  Unique
-		Modules:                  4       4
-		Registers:               14      14
-		Scalar wires:             2       -
-		Expanded wires:           8       1
-		Vectored wires:           6       -
+		Modules:                 38       7
+		Primitives:             148       4
+		Registers:               15      15
+		Scalar wires:            11       -
+		Expanded wires:          16       2
+		Vectored wires:           1       -
 		Always blocks:            3       3
-		Initial blocks:           5       5
-		Cont. assignments:        5       5
+		Initial blocks:           6       6
+		Cont. assignments:        1       1
 		Simulation timescale:  10ps
-	Writing initial simulation snapshot: worklib.asu_test:v
-Loading snapshot worklib.asu_test:v .................... Done
+	Writing initial simulation snapshot: worklib.asu_gate_test:v
+Loading snapshot worklib.asu_gate_test:v .................... Done
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
 ==========================================
@@ -44,7 +42,7 @@ ncsim> run
 
 ==========================================
 
-Simulation complete via $finish(1) at time 220 NS + 1
-./asu_test.v:81 		$finish;
+Simulation complete via $finish(1) at time 104500 PS + 1
+./asu_gate_test.v:81 		$finish;
 ncsim> exit
-TOOL:	ncverilog	10.20-s114: Exiting on Mar 20, 2018 at 00:29:16 CST  (total: 00:00:02)
+TOOL:	ncverilog	10.20-s114: Exiting on Mar 29, 2018 at 17:22:42 CST  (total: 00:00:01)

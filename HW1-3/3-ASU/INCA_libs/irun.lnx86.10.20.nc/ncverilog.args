@@ -2,8 +2,8 @@
 // File created by:  ncverilog
 // Do not modify this file
 //
-asu_test.v
-asu.v
-adder.v
-barrel_shifter.v
+asu_gate_test.v
+asu_gate.v
+adder_gate.v
+barrel_shifter_gate.v
 +access+r

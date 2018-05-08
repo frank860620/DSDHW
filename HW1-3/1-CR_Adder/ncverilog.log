@@ -1,9 +1,34 @@
 ncverilog: 10.20-s114: (c) Copyright 1995-2012 Cadence Design Systems, Inc.
-TOOL:	ncverilog	10.20-s114: Started on Mar 28, 2018 at 15:43:48 CST
+TOOL:	ncverilog	10.20-s114: Started on Mar 29, 2018 at 17:12:15 CST
 ncverilog
 	adder_gate_test.v
 	adder_gate.v
 	+access+r
+Recompiling... reason: file './adder_gate_test.v' is newer than expected.
+	expected: Thu Mar 29 17:11:38 2018
+	actual:   Thu Mar 29 17:12:12 2018
+file: adder_gate_test.v
+	module worklib.adder_gate_test:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.adder_gate_test:v <0x51097e01>
+			streams:  10, words:  7036
+	Loading native compiled code:     .................... Done
+	Building instance specific data structures.
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                 10       3
+		Primitives:              40       3
+		Registers:               12      12
+		Scalar wires:             2       -
+		Expanded wires:          16       2
+		Always blocks:            3       3
+		Initial blocks:           5       5
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.adder_gate_test:v
 Loading snapshot worklib.adder_gate_test:v .................... Done
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
@@ -12,32 +37,13 @@ Copyright (C) 1996 - 2007 by Novas Software, Inc.
 *Novas* Create FSDB file 'adder.fsdb'
 *Novas* Begin traversing the top scope(adder_gate_test), layer(0).
 *Novas* End of traversing the top scope(adder_gate_test)
-An ERROR occurs at no.          1 pattern: {carry out, output} xxx != answer 000.
+==========================================
 
-An ERROR occurs at no.          2 pattern: {carry out, output} xxX != answer 1fe.
+======  Congratulation! You Pass!  =======
 
-An ERROR occurs at no.          3 pattern: {carry out, output} xxX != answer 102.
+==========================================
 
-An ERROR occurs at no.          4 pattern: {carry out, output} 0xX != answer 071.
-
-An ERROR occurs at no.          5 pattern: {carry out, output} 0XX != answer 07f.
-
-An ERROR occurs at no.          6 pattern: {carry out, output} 0XX != answer 0e7.
-
-An ERROR occurs at no.          7 pattern: {carry out, output} 0X7 != answer 0c5.
-
-An ERROR occurs at no.          8 pattern: {carry out, output} 0X5 != answer 0ee.
-
-An ERROR occurs at no.          9 pattern: {carry out, output} 0X5 != answer 1e1.
-
-An ERROR occurs at no.         10 pattern: {carry out, output} 0X1 != answer 10b.
-
-===============================
-
-There are          10 errors.
-===============================
-
-Simulation complete via $finish(1) at time 11 NS + 1
+Simulation complete via $finish(1) at time 176 NS + 1
 ./adder_gate_test.v:75 		$finish;
 ncsim> exit
-TOOL:	ncverilog	10.20-s114: Exiting on Mar 28, 2018 at 15:43:49 CST  (total: 00:00:01)
+TOOL:	ncverilog	10.20-s114: Exiting on Mar 29, 2018 at 17:12:16 CST  (total: 00:00:01)

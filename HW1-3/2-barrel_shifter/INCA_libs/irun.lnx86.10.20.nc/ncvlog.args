@@ -5,8 +5,8 @@
 -XLMODE
 ./INCA_libs/irun.lnx86.10.20.nc
 -RUNMODE
-barrel_test.v
-barrel_shifter.v
+barrel_gate_test.v
+barrel_shifter_gate.v
 -CDSLIB
 ./INCA_libs/irun.lnx86.10.20.nc/cdsrun.lib
 -HDLVAR

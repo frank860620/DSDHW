@@ -1,0 +1,67 @@
+ncverilog: 10.20-s114: (c) Copyright 1995-2012 Cadence Design Systems, Inc.
+TOOL:	ncverilog	10.20-s114: Started on Apr 12, 2018 at 17:01:40 CST
+ncverilog
+	simple_calculator_tb.v
+	simple_calculator.v
+	alu.v
+	register_file.v
+	+access+r
+Loading snapshot worklib.simple_calculator_tb:v .................... Done
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+4-bit x 4-bit unsigned multiplication
+1: store multiplicand A=13 in REG#1
+    [REG#1 = add 00001101 REG#0]
+    .... passed.
+2: store multiplier B=12 in REG#2
+    [REG#2 = add 00001100 REG#0]
+    .... passed.
+3: set REG#3 = (B[0]==1)? 8'b11111111: 8'b00000000
+    [REG#3 = and 0000_0001 REG#2]
+    [REG#3 = sub REG#0 REG#3]
+    .... passed.
+4: set REG#4 = (B[1]==1)? 8'b11111111: 8'b00000000
+    [REG#2 = sra REG#2]
+    [REG#4 = and 0000_0001 REG#2]
+    [REG#4 = sub REG#0 REG#4]
+    .... passed.
+5: set REG#5 = (B[2]==1)? 8'b11111111: 8'b00000000
+    [REG#2 = sra REG#2]
+    [REG#5 = and 0000_0001 REG#2]
+    [REG#5 = sub REG#0 REG#5]
+    .... passed.
+6: set REG#6 = (B[3]==1)? 8'b11111111: 8'b00000000
+    [REG#2 = sra REG#2]
+    [REG#6 = and 0000_0001 REG#2]
+    [REG#6 = sub REG#0 REG#6]
+    .... passed.
+7: shift & summation, REG#7 = A*B[0]
+    [REG#3 = and REG#1 REG#3]
+    [REG#7 = add REG#0 REG#3]
+    .... passed.
+8: shift & summation, REG#7 = A*B[1:0]
+    [REG#4 = and REG#1 REG#4]
+    [REG#4 = sll 0000_0001 REG#4]
+    [REG#7 = add REG#7 REG#4]
+    .... passed.
+9: shift & summation, REG#7 = A*B[2:0]
+    [REG#5 = and REG#1 REG#5]
+    [REG#5 = sll 0000_0010 REG#5]
+    [REG#7 = add REG#7 REG#5]
+    .... passed.
+10:shift & summation, REG#7 = A*B
+    [REG#6 = and REG#1 REG#6]
+    [REG#6 = sll 0000_0011 REG#6]
+    [REG#7 = add REG#7 REG#6]
+    .... passed.
+Calculation restuls: 13 * 12 =  156
+****************************        /|__/|
+**                        **      / O,O  |
+**   Congratulations !!   **    /_____   |
+** All Patterns Passed!!  **   /^ ^ ^ \  |
+**                        **  |^ ^ ^ ^ |w|
+****************************   \m___m__|_|
+Simulation complete via $finish(1) at time 350 NS + 0
+./simple_calculator_tb.v:320         #(`CYCLE) $finish;
+ncsim> exit
+TOOL:	ncverilog	10.20-s114: Exiting on Apr 12, 2018 at 17:01:41 CST  (total: 00:00:01)

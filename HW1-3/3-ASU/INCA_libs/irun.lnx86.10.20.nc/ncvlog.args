@@ -5,10 +5,10 @@
 -XLMODE
 ./INCA_libs/irun.lnx86.10.20.nc
 -RUNMODE
-asu_test.v
-asu.v
-adder.v
-barrel_shifter.v
+asu_gate_test.v
+asu_gate.v
+adder_gate.v
+barrel_shifter_gate.v
 -CDSLIB
 ./INCA_libs/irun.lnx86.10.20.nc/cdsrun.lib
 -HDLVAR

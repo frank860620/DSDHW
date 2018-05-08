@@ -1,0 +1,162 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on May 08, 2018 at 02:44:19 CST
+ncverilog
+	testfixture.v
+	IG.v
+	+access+r
+Loading snapshot worklib.testfixture:v .................... Done
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+-----------------------------------------------------
+
+START!!! Simulation Start .....
+
+-----------------------------------------------------
+
+ Gradient of pixel: 0 ~         999 are correct!
+
+ Gradient of pixel: 0 ~        1999 are correct!
+
+ Gradient of pixel: 0 ~        2999 are correct!
+
+ Gradient of pixel: 0 ~        3999 are correct!
+
+ Gradient of pixel: 0 ~        4999 are correct!
+
+ Gradient of pixel: 0 ~        5999 are correct!
+
+ Gradient of pixel: 0 ~        6999 are correct!
+
+ Gradient of pixel: 0 ~        7999 are correct!
+
+ Gradient of pixel: 0 ~        8999 are correct!
+
+ Gradient of pixel: 0 ~        9999 are correct!
+
+ Gradient of pixel: 0 ~       10999 are correct!
+
+ Gradient of pixel: 0 ~       11999 are correct!
+
+ Gradient of pixel: 0 ~       12999 are correct!
+
+ Gradient of pixel: 0 ~       13999 are correct!
+
+ Gradient of pixel: 0 ~       14999 are correct!
+
+ Gradient of pixel: 0 ~       15999 are correct!
+
+ Gradient of pixel: 0 ~       16999 are correct!
+
+ Gradient of pixel: 0 ~       17999 are correct!
+
+ Gradient of pixel: 0 ~       18999 are correct!
+
+ Gradient of pixel: 0 ~       19999 are correct!
+
+ Gradient of pixel: 0 ~       20999 are correct!
+
+ Gradient of pixel: 0 ~       21999 are correct!
+
+ Gradient of pixel: 0 ~       22999 are correct!
+
+ Gradient of pixel: 0 ~       23999 are correct!
+
+ Gradient of pixel: 0 ~       24999 are correct!
+
+ Gradient of pixel: 0 ~       25999 are correct!
+
+ Gradient of pixel: 0 ~       26999 are correct!
+
+ Gradient of pixel: 0 ~       27999 are correct!
+
+ Gradient of pixel: 0 ~       28999 are correct!
+
+ Gradient of pixel: 0 ~       29999 are correct!
+
+ Gradient of pixel: 0 ~       30999 are correct!
+
+ Gradient of pixel: 0 ~       31999 are correct!
+
+ Gradient of pixel: 0 ~       32999 are correct!
+
+ Gradient of pixel: 0 ~       33999 are correct!
+
+ Gradient of pixel: 0 ~       34999 are correct!
+
+ Gradient of pixel: 0 ~       35999 are correct!
+
+ Gradient of pixel: 0 ~       36999 are correct!
+
+ Gradient of pixel: 0 ~       37999 are correct!
+
+ Gradient of pixel: 0 ~       38999 are correct!
+
+ Gradient of pixel: 0 ~       39999 are correct!
+
+ Gradient of pixel: 0 ~       40999 are correct!
+
+ Gradient of pixel: 0 ~       41999 are correct!
+
+ Gradient of pixel: 0 ~       42999 are correct!
+
+ Gradient of pixel: 0 ~       43999 are correct!
+
+ Gradient of pixel: 0 ~       44999 are correct!
+
+ Gradient of pixel: 0 ~       45999 are correct!
+
+ Gradient of pixel: 0 ~       46999 are correct!
+
+ Gradient of pixel: 0 ~       47999 are correct!
+
+ Gradient of pixel: 0 ~       48999 are correct!
+
+ Gradient of pixel: 0 ~       49999 are correct!
+
+ Gradient of pixel: 0 ~       50999 are correct!
+
+ Gradient of pixel: 0 ~       51999 are correct!
+
+ Gradient of pixel: 0 ~       52999 are correct!
+
+ Gradient of pixel: 0 ~       53999 are correct!
+
+ Gradient of pixel: 0 ~       54999 are correct!
+
+ Gradient of pixel: 0 ~       55999 are correct!
+
+ Gradient of pixel: 0 ~       56999 are correct!
+
+ Gradient of pixel: 0 ~       57999 are correct!
+
+ Gradient of pixel: 0 ~       58999 are correct!
+
+ Gradient of pixel: 0 ~       59999 are correct!
+
+ Gradient of pixel: 0 ~       60999 are correct!
+
+ Gradient of pixel: 0 ~       61999 are correct!
+
+ Gradient of pixel: 0 ~       62999 are correct!
+
+ Gradient of pixel: 0 ~       63999 are correct!
+
+ Gradient of pixel: 0 ~       64999 are correct!
+
+=======================The test result is ..... PASS=========================
+
+
+        *************************************************              
+        **                                             **      /|__/|
+        **             Congratulations !!              **     / O,O  \
+        **                                             **    /_____   \
+        **  All data have been generated successfully! **   /^ ^ ^ \  |
+        **                                             **  |^ ^ ^ ^ |w|
+        *************************************************   \m___m__|_|
+
+
+============================================================================
+Simulation complete via $finish(1) at time 1310796 NS + 0
+./testfixture.v:147         $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on May 08, 2018 at 02:44:21 CST  (total: 00:00:02)
