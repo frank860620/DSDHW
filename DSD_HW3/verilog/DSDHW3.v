@@ -376,40 +376,40 @@ reg[31:0] register[1:31];
 
 always@(posedge clk or negedge rst) begin
 if(rst == 1'b0)begin
-register[1]=0;
-register[2]=0;
-register[3]=0;
-register[4]=0;
-register[5]=0;
-register[6]=0;
-register[7]=0;
-register[8]=0;
-register[9]=0;
-register[10]=0;
-register[11]=0;
-register[12]=0;
-register[13]=0;
-register[14]=0;
-register[15]=0;
-register[16]=0;
-register[17]=0;
-register[18]=0;
-register[19]=0;
-register[20]=0;
-register[21]=0;
-register[22]=0;
-register[23]=0;
-register[24]=0;
-register[25]=0;
-register[26]=0;
-register[27]=0;
-register[28]=0;
-register[29]=0;
-register[30]=0;
-register[31]=0;
+register[1] <= 0;
+register[2] <= 0;
+register[3] <= 0;
+register[4] <= 0;
+register[5] <= 0;
+register[6] <= 0;
+register[7] <= 0;
+register[8] <= 0;
+register[9] <= 0;
+register[10] <= 0;
+register[11] <= 0;
+register[12] <= 0;
+register[13] <= 0;
+register[14] <= 0;
+register[15] <= 0;
+register[16] <= 0;
+register[17] <= 0;
+register[18] <= 0;
+register[19] <= 0;
+register[20] <= 0;
+register[21] <= 0;
+register[22] <= 0;
+register[23] <= 0;
+register[24] <= 0;
+register[25] <= 0;
+register[26] <= 0;
+register[27] <= 0;
+register[28] <= 0;
+register[29] <= 0;
+register[30] <= 0;
+register[31] <= 0;
 end
 else if((RegWrite==1'b1) && (Reg_W!=5'd0)) begin
-    register[Reg_W] = WriteData;
+    register[Reg_W] <= WriteData;
   end
 end
 
@@ -434,11 +434,11 @@ output [31:0] pc;
 output [31:0] pc_plus_4;
 
 reg  [31:0] pc_val;
-wire [31:0] br_loc, pc_plus_8;
+wire [31:0] br_loc;//, pc_plus_8;
 wire branch_EN;
 
 assign pc_plus_4 = pc_val + 32'd4;       
-assign pc_plus_8 = pc_val + 32'd8;
+//assign pc_plus_8 = pc_val + 32'd8;
 assign branch_EN = branch & ALUzero;
 assign br_loc = pc_plus_4 + br_signextend_sl2;
 assign pc = pc_val;
@@ -447,21 +447,21 @@ assign Inst_25_21 = Inst_25_0[25:21];
 always @ (posedge clk or negedge rst) 
 begin 
   if (rst==1'b0) begin
-    pc_val = 31'd0;
+    pc_val <= 31'd0;
     //$display("pc = %d",pc);
   end 
  else if (Jump==1'b1) begin
-    pc_val = {pc_plus_4[31:28],Inst_25_0,2'b00};
+    pc_val <= {pc_plus_4[31:28],Inst_25_0,2'b00};
     //$display("pc_val=%d",pc_val);
   end 
   else if (branch_EN==1'b1) begin
-    pc_val = br_loc;
+    pc_val <= br_loc;
   end
   else if(_JR==1'b1)begin
-    pc_val = r_rd_data1;
+    pc_val <= r_rd_data1;
   end
   else begin
-    pc_val = pc_plus_4;
+    pc_val <= pc_plus_4;
   end
 end
 
