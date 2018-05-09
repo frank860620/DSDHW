@@ -291,12 +291,17 @@ input sel;
 output reg[4:0] out;
 
 always @(in0 or in1 or sel)begin
-if (sel==1'b1) begin
+/*if (sel==1'b1) begin
    out = in1;
   end 
   else begin 
    out = in0;
-  end
+  end*/
+case(sel)
+    1'b0 : out = in0;
+    1'b1 : out = in1;
+  default : out = 0 ;
+endcase
 end
 
 endmodule
@@ -434,11 +439,10 @@ output [31:0] pc;
 output [31:0] pc_plus_4;
 
 reg  [31:0] pc_val;
-wire [31:0] br_loc;//, pc_plus_8;
+wire [31:0] br_loc;
 wire branch_EN;
 
 assign pc_plus_4 = pc_val + 32'd4;       
-//assign pc_plus_8 = pc_val + 32'd8;
 assign branch_EN = branch & ALUzero;
 assign br_loc = pc_plus_4 + br_signextend_sl2;
 assign pc = pc_val;
@@ -448,11 +452,9 @@ always @ (posedge clk or negedge rst)
 begin 
   if (rst==1'b0) begin
     pc_val <= 31'd0;
-    //$display("pc = %d",pc);
   end 
  else if (Jump==1'b1) begin
     pc_val <= {pc_plus_4[31:28],Inst_25_0,2'b00};
-    //$display("pc_val=%d",pc_val);
   end 
   else if (branch_EN==1'b1) begin
     pc_val <= br_loc;
