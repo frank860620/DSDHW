@@ -107,7 +107,7 @@ module SingleCycle_MIPS(
     wire Mux_sel_a;
     wire [4:0] Mux_out_d;
     wire [31:0] Mux_out_a,Mux_out_c,Mux_out_b;
-    reg [4:0] reg_31=5'd31;
+  
 
   
 
@@ -235,7 +235,7 @@ mux_2x1 mux_2x1_f(
 );
 
 mux_2x1_5bit mux_2x1_g(
-    .ip1(reg_31), 
+    .ip1(5'd31), 
     .ip0(Mux_out_d), 
     .sel(isJAL), 
     .out(register_wr_addr)
