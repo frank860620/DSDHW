@@ -1,8 +1,8 @@
 // For the instruction sequence used in this testbench, please see the end of this file
 
 `timescale 1 ns/10 ps
-`define	H_CYCLE 15
-`define CYCLE 30
+`define	H_CYCLE 50
+`define CYCLE 100
 
 module SingleCycle_tb;
 
