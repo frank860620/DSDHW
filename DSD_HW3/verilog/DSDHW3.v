@@ -279,14 +279,13 @@ always @(in0 or in1 or sel)begin
   end 
   else begin 
    out = in0;
-  end
-end*/
+  end*/
 case(sel)
     1'b0 : out = in0;
     1'b1 : out = in1;
   default : out = 0 ;
 endcase
-
+end
 endmodule
 
 //MUX for 5bits
