@@ -2,8 +2,8 @@
 
 `timescale 1 ns/10 ps
 
-`define	H_CYCLE 3.25
-`define CYCLE 6.5
+`define	H_CYCLE 3.3
+`define CYCLE 6.6
 
 
 module SingleCycle_tb;
@@ -55,7 +55,7 @@ module SingleCycle_tb;
 
 	initial begin
 
-		$sdf_annotate("DSDHW3_3.sdf", i_MIPS);
+		$sdf_annotate("DSDHW3_4.sdf", i_MIPS);
 
 	end
 
