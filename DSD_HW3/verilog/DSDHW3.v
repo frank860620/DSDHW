@@ -275,17 +275,12 @@ output reg[31:0] out;
 
 always @(in0 or in1 or sel)begin
 
-if (sel==1'b0) begin
-   out = in0;
-  end 
-  else begin 
-   out = in1;
-  end
-/*case(sel)
+
+case(sel)
     1'b0 : out = in0;
     1'b1 : out = in1;
   default : out = 0 ;
-endcase*/
+endcase
 end
 endmodule
 
@@ -297,17 +292,11 @@ output reg[4:0] out;
 
 always @(in0 or in1 or sel)begin
 
-if (sel==1'b0) begin
-   out = in0;
-  end 
-  else begin 
-   out = in1;
-  end
-/*case(sel)
+case(sel)
     1'b0 : out = in0;
     1'b1 : out = in1;
   default : out = 0 ;
-endcase*/
+endcase
 end
 
 endmodule
