@@ -2,8 +2,8 @@
 
 `timescale 1 ns/10 ps
 
-`define	H_CYCLE 2.89
-`define CYCLE 5.78
+`define	H_CYCLE 2.885
+`define CYCLE 5.77
 
 
 module SingleCycle_tb;
