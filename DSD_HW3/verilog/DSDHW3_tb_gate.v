@@ -1,8 +1,8 @@
 // For the instruction sequence used in this testbench, please see the end of this file
 
 `timescale 1 ns/10 ps
-`define	H_CYCLE 5
-`define CYCLE 10
+`define	H_CYCLE 10
+`define CYCLE 
 
 module SingleCycle_tb;
 
@@ -52,7 +52,7 @@ module SingleCycle_tb;
 	);
 
 	initial begin
-		$sdf_annotate("DSDHW3.sdf", i_MIPS);
+		$sdf_annotate("DSDHW3_1.sdf", i_MIPS);
 	end
 
 // Initialize the data memory
