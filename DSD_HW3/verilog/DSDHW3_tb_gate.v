@@ -2,7 +2,7 @@
 
 `timescale 1 ns/10 ps
 
-`define	H_CYCLE 2.25
+`define	H_CYCLE 2.75
 `define CYCLE 5.5
 
 
