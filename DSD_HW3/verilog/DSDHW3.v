@@ -275,11 +275,17 @@ output reg[31:0] out;
 
 always @(in0 or in1 or sel)begin
 
-case(sel)
+if (sel==1'b0) begin
+   out = in0;
+  end 
+  else begin 
+   out = in1;
+  end
+/*case(sel)
     1'b0 : out = in0;
     1'b1 : out = in1;
   default : out = 0 ;
-endcase
+endcase*/
 end
 endmodule
 
@@ -291,11 +297,17 @@ output reg[4:0] out;
 
 always @(in0 or in1 or sel)begin
 
-case(sel)
+if (sel==1'b0) begin
+   out = in0;
+  end 
+  else begin 
+   out = in1;
+  end
+/*case(sel)
     1'b0 : out = in0;
     1'b1 : out = in1;
   default : out = 0 ;
-endcase
+endcase*/
 end
 
 endmodule
@@ -444,6 +456,7 @@ assign Inst_25_21 = Inst_25_0[25:21];
 
 always @ (posedge clk or negedge rst) 
 begin 
+pc_val <= pc_plus_4;
   if (rst==1'b0) begin
     pc_val <= 31'd0;
   end 
@@ -456,9 +469,9 @@ begin
   else if(_JR==1'b1)begin
     pc_val <= r_rd_data1;
   end
-  else begin
+  /*else begin
     pc_val <= pc_plus_4;
-  end
+  end*/
 end
 
 
