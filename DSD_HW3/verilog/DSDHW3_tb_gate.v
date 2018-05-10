@@ -55,7 +55,7 @@ module SingleCycle_tb;
 
 	initial begin
 
-		$sdf_annotate("DSDHW3_4.sdf", i_MIPS);
+		$sdf_annotate("DSDHW3_5.sdf", i_MIPS);
 
 	end
 
